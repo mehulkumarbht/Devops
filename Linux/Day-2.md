@@ -26,7 +26,7 @@ head-10 # Shows the top 10 most frequent entries
 
 
 ## Volume Management & Disk Usage
-## # Create a directory /mnt/devops_data.
+### Create a directory /mnt/devops_data.
 sudo mkdir -p /mnt/devops_data
 
 ## Mounting new volume
