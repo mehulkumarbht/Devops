@@ -1,4 +1,4 @@
-# Add log file in repository
+## Add log file in repository
 touch .gitignore
 echo "Log entry: $(date)" > Linux/project.log # This will create Log file with time stamp in the folder
 nano .gitignore  # This will open .gitignore and if you see *.log or Linux/, remove or comment them (Add #), save and exit Ctrl + x, then Y then Enter.
@@ -15,7 +15,7 @@ awk '{print $1, $2, $3, $4, $5, $6, $7}' Linux/project.log
 
 sed -E 's/([0-9]{1,3}\.){3}[0-9]{1,3}/[REDACTED]/g' # by using sed replace all IP address with [REDACTED] for security
 
-# Find the most frequent log entry using awk or sort | uniq -c | sort -nr | head -10.
+## Find the most frequent log entry using awk or sort | uniq -c | sort -nr | head -10.
 sort Linux/project.log # Sorts all log lines alphabetically (required for uniq to group them)
 
 uniq -c #Counts how many times each unique line appears
@@ -25,11 +25,11 @@ sort -nr # Sorts the counted lines by number (-n) in reverse (-r) to get most fr
 head-10 # Shows the top 10 most frequent entries
 
 
-# Volume Management & Disk Usage
-##Create a directory /mnt/devops_data.
+## Volume Management & Disk Usage
+## # Create a directory /mnt/devops_data.
 sudo mkdir -p /mnt/devops_data
 
-# Mounting new volume
+## Mounting new volume
 lsblk # identify new Volume
 sudo mkdir /mnt/myvolume #Create a mount point (if needed)
 sudo mount /dev/sdb1 /mnt/myvolume
@@ -37,7 +37,7 @@ df -h
 grep /mnt/myvolume
 
 
-# For Practice: Creating  and  mounting a loop device
+## For Practice: Creating  and  mounting a loop device
 dd if=/dev/zero of=disk.img bs=1M count=100 # Create a blank file (e.g. 100 MB)
 mkfs.ext4 disk.img # Format it with a filesystem (e.g., ext4)
 
@@ -50,7 +50,7 @@ grep loop # check mounted device
 
 sudo umount /mnt/myvolume  #unmount 
 
-# Process management & Monitoring
+## Process management & Monitoring
 
 ping google.com > ping_test.log &  #ping google.com rune the command, > ping_test.log redirects standard output to the file ping_test.log, & runs the command in the background
 
