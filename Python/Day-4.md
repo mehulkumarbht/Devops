@@ -23,11 +23,18 @@ logger.info(f"{ip_addresses}")
 
 # Define two sets: web_servers and db_servers. Perform and print: Servers common to both, Servers only in web, All unique servers.
 web_server = {"web1", "web2", "web3"}
+
 db_server = {"web4","web3", "web5"}
+
 common_server = web_server.intersection(db_server) # servers common in both sets
+
 only_web_server = web_server.difference(db_server) # servers only in web set
+
 unique_server = web_server.union(db_server) # server in both sets
+
 logger.info(f"{common_server}")
+
 logger.info(f"{only_web_server}")
+
 logger.info(f"{unique_server}")
 
