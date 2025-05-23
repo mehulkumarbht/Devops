@@ -1,5 +1,6 @@
 # Store a tuple of running service names (e.g., ("nginx", "docker", "ssh")). Print the second service and convert it to a list to add service "kubernetes".
 service_names = ("nginex", "docker", "ssh") #tuple of running services name
+
 logger.info(f"Second service name: {service_names[1]}") # Print second service name
 
 service_list = list(service_names) # convert tuple to list
@@ -13,12 +14,15 @@ logger.info(f"New service list is: {service_list}")
 sever_configuration = {"hostname": "web1", "ip": "192.168.1.10", "port":  80}
 
 for key, value in sever_configuration.items():
+
     logger.info(f"{key}, {value}")
 
 # You have a list of IP addresses with duplicates. Display the unique IP's (Hint: You can use set).
 
 ip_addresses = ["192.168.1.10", "192.168.1.10", "192.187.1.11", "191.167.0.99"]
+
 ip_addresses =set(ip_addresses) # set datastructure automatically removes duplicates from a list 
+
 logger.info(f"{ip_addresses}")
 
 # Define two sets: web_servers and db_servers. Perform and print: Servers common to both, Servers only in web, All unique servers.
