@@ -1,17 +1,16 @@
 from loguru import logger
 
 # Create a script that writes the following lines to a file named log.txt
-# Server started at 10:00 AM
-# Health check passed
-# Backup completed
+Server started at 10:00 AM
+Health check passed
+Backup completed
 
 log_lines = [
     "Server started at 10:00 AM",
     "Health check passed",
     "Backup completed"]
 
-# Open the file in write mode and write each line
-with open("log.txt", "w") as log_file:
+with open("log.txt", "w") as log_file: # Open the file in write mode and write each line
     for line in log_lines:
         log_file.write(line + "\n")
 
@@ -25,21 +24,19 @@ with open("log.txt", "r") as log_file:
         print(f"{idx}: {line.strip()}")
 
 # Check if a file named config.ini exists. If not, create it and write default content:
-# [server]
-# port=8080
+[server] port=8080
 
 import os
 
-# File name
 filename = "config.ini"
 
 # Check if the file exists
 if not os.path.exists(filename):
-    # Default content
-    default_content = "[server]\nport=8080\n"
     
-    # Create and write to the file
-    with open(filename, "w") as file:
+    default_content = "[server]\nport=8080\n" # Default content
+    
+    
+    with open(filename, "w") as file: # Create and write to the file
         file.write(default_content)
     
     print(f"{filename} created with default content.")
@@ -50,14 +47,13 @@ else:
 
 import configparser
 
-# Create a ConfigParser instance
-config = configparser.ConfigParser()
+config = configparser.ConfigParser() # Create a ConfigParser instance
 
-# Read the config.ini file
-config.read("config.ini")
 
-# Extract the port number
-port = config.getint("server", "port")
+config.read("config.ini") # Read the config.ini file
+
+
+port = config.getint("server", "port") # Extract the port number
 
 print(f"Port number is: {port}")
 
