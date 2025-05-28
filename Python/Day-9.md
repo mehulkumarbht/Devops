@@ -6,10 +6,15 @@ import os
 
 # 1: Collect all platform info like OS name, release, version, machine type,  hostname and architecture.Save it in system_info.txt.
 info = {"OS Name": platform.system(),
+
         "OS Release": platform.release(),
+		
         "OS Version": platform.version(),
+		
         "Machine Type": platform.machine(),
+		
         "Architecture" : platform.architecture()[0],
+		
         "Hostname": socket.gethostname()}
 
 * Save to system_info.txt
