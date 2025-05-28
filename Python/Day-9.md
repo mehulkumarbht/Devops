@@ -4,7 +4,7 @@ import socket
 import subprocess
 import os
 
-# 1: Collect all platform info like OS name, release, version, machine type,  hostname and architecture.Save it in system_info.txt.
+## 1: Collect all platform info like OS name, release, version, machine type,  hostname and architecture.Save it in system_info.txt.
 
 info = {"OS Name": platform.system(),
 
@@ -30,7 +30,7 @@ with open("system_info.txt", "w") as file:
 		
 logger.info("File saved as System_info.txt")
 
-#2: Ping google.com and save the output to ping_log.txt.
+##2: Ping google.com and save the output to ping_log.txt.
 
 command = ["ping", "google.com", "-c", "4"]
 
@@ -40,7 +40,7 @@ with open ("ping_log.txt","w") as file:
 
 logger.info(f"File saved as ping_log.txt")
 
-#3: Check the running process and parse output to find if nginx, python, or mysqld is running
+##3: Check the running process and parse output to find if nginx, python, or mysqld is running
 
 targets = ["nginx", "python", "mysqld"]
 
@@ -62,7 +62,7 @@ for service, status in found.items():
 
     logger.info(f"{service}: {'Running' if status else 'Not Running'}")
 
-#4: Write a script that accepts two numbers as arguments and prints their sum.
+##4: Write a script that accepts two numbers as arguments and prints their sum.
 
 try:
 
@@ -78,7 +78,7 @@ except ValueError:
 
     logger.info(f"Error: Add valid numeric values")
 
-#5: Pass log file path and number of lines to read from end: python tail.py myapp.log 10
+##5: Pass log file path and number of lines to read from end: python tail.py myapp.log 10
 
 if __name__ == "__main__":
 
