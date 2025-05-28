@@ -49,30 +49,49 @@ found = {service: False for service in targets}
 result = subprocess.run(["tasklist"], stdout=subprocess.PIPE, text=True)
 
 for line in result.stdout.splitlines():
+
     for service in targets:
+	
         if service.lower() in line.lower():
+		
             found[service] = True
 
 logger.info("=== Process Check ===")
+
 for service, status in found.items():
+
     logger.info(f"{service}: {'Running' if status else 'Not Running'}")
 
 #4: Write a script that accepts two numbers as arguments and prints their sum.
+
 try:
+
     num_1 = float(input("Please enter first number: "))
+	
     num_2 = float(input("Please enter second number: "))
+	
     total = num_1 + num_2
+	
     logger.info(f"total is {total}")
+	
 except ValueError:
+
     logger.info(f"Error: Add valid numeric values")
 
 #5: Pass log file path and number of lines to read from end: python tail.py myapp.log 10
 
 if __name__ == "__main__":
+
     import sys
+	
     if len(sys.argv) != 3:
+	
         print("Usage: python tail_log.py <file_path> <num_lines>")
+		
     else:
+	
         file_path = sys.argv[1]
+		
         num_lines = int(sys.argv[2])
+		
         print(tail(file_path, num_lines))
