@@ -5,6 +5,7 @@ import subprocess
 import os
 
 # 1: Collect all platform info like OS name, release, version, machine type,  hostname and architecture.Save it in system_info.txt.
+
 info = {"OS Name": platform.system(),
 
         "OS Release": platform.release(),
@@ -18,10 +19,15 @@ info = {"OS Name": platform.system(),
         "Hostname": socket.gethostname()}
 
 * Save to system_info.txt
+
 with open("system_info.txt", "w") as file:
+
     file.write("=== System information ===\n")
+	
     for key, value in info.items():
+	
         file.write(f"{key} : {value}\n")
+		
 logger.info("File saved as System_info.txt")
 
 #2: Ping google.com and save the output to ping_log.txt.
@@ -29,6 +35,7 @@ logger.info("File saved as System_info.txt")
 command = ["ping", "google.com", "-c", "4"]
 
 with open ("ping_log.txt","w") as file:
+
     subprocess.run(command, stdout=file, stderr=subprocess.STDOUT)
 
 logger.info(f"File saved as ping_log.txt")
