@@ -1,6 +1,9 @@
 import psutil
+
 import time
+
 import requests
+
 from loguru import logger
 
 ##1: Print current CPU usage percentage.
