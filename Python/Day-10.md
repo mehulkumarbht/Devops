@@ -6,7 +6,7 @@ import requests
 
 from loguru import logger
 
-##1: Print current CPU usage percentage.
+#1: Print current CPU usage percentage.
 
 def cpu_usage(interval=1):
     try:
@@ -15,11 +15,11 @@ def cpu_usage(interval=1):
             logger.info(f"CPU Usage : {usage}%")
     except KeyboardInterrupt:
         logger.info(f"Intruppted by user") #(by Ctrl + c)
-
+		
 if __name__ == "__main__":
     logger.info(f"{cpu_usage(1)}") # (CPU usage by interval of 1 second)
 
-##2: List all running processes
+#2: List all running processes
 def running_process():
 
     process_list = []
@@ -38,7 +38,7 @@ def running_process():
 if __name__=="__main__":
     running_process()
 
-##3: Show total, used, free, and percentage disk usage .
+#3: Show total, used, free, and percentage disk usage .
 
 def show_disk_usage(path="/"):
     usage = psutil.disk_usage(path)
@@ -52,7 +52,7 @@ def show_disk_usage(path="/"):
 if __name__ == '__main__':
     show_disk_usage()
 
-##4: Display network I/O stats.
+#4: Display network I/O stats.
 
 def show_network_stats():
     network_io = psutil.net_io_counters()
@@ -70,7 +70,7 @@ def show_network_stats():
 if __name__ == '__main__':
     show_network_stats()
 
-##5: Fetch https://example.com/ and display headers including content-type, server, etc.
+#5: Fetch https://example.com/ and display headers including content-type, server, etc.
 
 def fetch_headers(url):
     try:
@@ -84,7 +84,7 @@ def fetch_headers(url):
 if __name__ == '__main__':
     fetch_headers("https://example.com/")
 
-##6: Use your github user api like https://api.github.com/users/haribabu9298, Extract and print name, public repos, followers.
+#6: Use your github user api like https://api.github.com/users/haribabu9298, Extract and print name, public repos, followers.
 
 def fetch_github_user(username):
     url = f"https://api.github.com/users/{username}"
