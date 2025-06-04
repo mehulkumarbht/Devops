@@ -20,9 +20,9 @@ my_name = "sarah"
 logger.info(f"Hello, my name is {my_name}")
 
 #5: What happens if you assign a new value to an existing variable? Try this:
-# color = "red"
-# color = "blue"
-# print(color)
+* color = "red"
+* color = "blue"
+* print(color)
 
 color = "red"
 color = "blue"
