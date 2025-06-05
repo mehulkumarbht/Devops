@@ -122,3 +122,63 @@ def myfunc():
 myfunc()
 
 logger.info(f"Python is {x}")
+
+
+# #11:What type is assigned?
+x = 42
+y = "42"
+z = 42.0
+print(type(x))
+print(type(y))
+print(type(z))
+
+#12: Create a variable is_valid and assign a Boolean value (True or False). Print its type
+is_valid = True
+print(type(is_valid))
+
+#13: number =100, Convert it to an int, then a float, then back to str. Print each result with its type.
+number ='100'
+number_int = int(number)
+print(number_int)
+print(type(number_int))
+
+number_fl = float(number)
+print(number_fl)
+print (type(number_fl))
+
+number_st = str(number)
+print(number_st)
+print(type(number_st))
+
+#14:Use the isinstance() function to check if 3.14 is a float, and "hello" is a string.
+print(isinstance(3.14, float))
+print(isinstance("hello", str))
+
+#15: What is the result of this expression:
+result = 10 / 2
+print(result, type(result))
+
+#16: Assign a complex number (like 2 + 3j) to a variable. Print its type and real/imaginary parts.
+num = 2+3j
+print(type(num))
+print(num.real)
+print(num.imag)
+
+#17: What happens if you try to add a string and an integer?
+a = "Age: "
+b = "25"
+print(a + b)
+
+#18: Create a variable called names and assign a list of three strings. Then print the type and length of the list
+names = ["Roy", "Vance", "John"]
+print(type(names), len(names))
+
+#19: Use a tuple to store three values: a name, an age, and a country. Print each element using indexing.
+value = ("John", 29, "Spain")
+print(value[0])
+print(value[1])
+print(value[2])
+
+#20: Create a dictionary called employee with keys: name, age, and department. Assign appropriate values and print the dictionary and the type of employee.
+employee = {"name": "john", "age": 29, "department": "Finance" }
+print(employee, type(employee))
