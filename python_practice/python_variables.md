@@ -1,39 +1,52 @@
 from loguru import logger
 
-# #1: Create a variable named user_age and assign your age to it. Print the variable.
+#1: Create a variable named user_age and assign your age to it. Print the variable.
 
-# user_age = 35
-# logger.info(f"{user_age}")
+user_age = 35
 
-# #2: Assign the value 3.14159 to a variable called pi and print its type using type().
-# pi = 3.14159
-# logger.info(type(pi))
+logger.info(f"{user_age}")
 
-# #3: Declare two variables width = 5 and height = 10. Calculate the area of a rectangle and store the result in area. Print it.
-# width = 5
-# height =10
-# area = width * height
-# logger.info(f"{area}")
+#2: Assign the value 3.14159 to a variable called pi and print its type using type().
 
-# #4: Create a variable name and assign it your name. Then print:"Hello, my name is <your name>!"
-# my_name = "sarah"
-# logger.info(f"Hello, my name is {my_name}")
+pi = 3.14159
 
-# #5: What happens if you assign a new value to an existing variable? Try this:
-# color = "red"
-# color = "blue"
-# print(color)
+logger.info(type(pi))
 
-# color = "red"
-# color = "blue"
-# logger.info(f"{color}") # Variable assigned with new value
+#3: Declare two variables width = 5 and height = 10. Calculate the area of a rectangle and store the result in area. Print it.
 
-# #6: Swap the values of two variables a = 5 and b = 10 without using a third variable.
-# a=5 
-# b=10
-# a,b = b,a 
-# print(a)
-# print(b)
+width = 5
+
+height =10
+
+area = width * height
+
+logger.info(f"{area}")
+
+#4: Create a variable name and assign it your name. Then print:"Hello, my name is <your name>!"
+
+my_name = "sarah"
+
+logger.info(f"Hello, my name is {my_name}")
+
+#5: What happens if you assign a new value to an existing variable? Try this: color = "red", color = "blue", print(color)
+
+color = "red"
+
+color = "blue"
+
+logger.info(f"{color}") # Variable assigned with new value
+
+#6: Swap the values of two variables a = 5 and b = 10 without using a third variable.
+
+a=5 
+
+b=10
+
+a,b = b,a 
+
+print(a)
+
+print(b)
 
 # #7: Convert a string variable year = "2024" into an integer and print its type after conversion.
 # year = "2024"
