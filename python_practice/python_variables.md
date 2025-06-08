@@ -48,56 +48,91 @@ print(a)
 
 print(b)
 
-# #7: Convert a string variable year = "2024" into an integer and print its type after conversion.
-# year = "2024"
-# year = int(year)
-# print(type(year))
+#7: Convert a string variable year = "2024" into an integer and print its type after conversion.
 
-# #8: Create variables num1 = 7, num2 = 3. Perform and print:Addition, Subtraction, Multiplication, Division, Integer division, Modulo
-# num1 = 7
-# num2 = 3
-# Addition = num1 + num2
-# Substraction = num1 - num2
-# Multiplication = num1 * num2
-# Division = num1 /num2
-# Integer_division = num1 // num2
-# Modulo = num1 % num2
-# print (Addition)
-# print (Substraction)
-# print (Division)
-# print (Integer_division)
-# print (Modulo)
+year = "2024"
 
-# #9: Assign None to a variable called data and check if the variable is None using an if condition.
-# data = None
-# if data is None:
-#     print(data)
+year = int(year)
 
-# #10: Explain the difference between global and local variables in a function using a short code example.
-# x = "awesome"
-# def myfunc():
-#     global x
-#     x = "fantastic"
-# myfunc()
+print(type(year))
 
-# logger.info(f"Python is {x}")
+#8: Create variables num1 = 7, num2 = 3. Perform and print:Addition, Subtraction, Multiplication, Division, Integer division, Modulo
 
-# #when x is global and local variable
-# x = "awesome"
-# def myfunc():
-#     x = "fantastic"
-#     logger.info(f"Python is {x}")
-# myfunc()
+num1 = 7
 
-# logger.info(f"Python is {x}")
+num2 = 3
 
-# #11:What type is assigned?
-# x = 42
-# y = "42"
-# z = 42.0
-# print(type(x))
-# print(type(y))
-# print(type(z))
+Addition = num1 + num2
+
+Substraction = num1 - num2
+
+Multiplication = num1 * num2
+
+Division = num1 /num2
+
+Integer_division = num1 // num2
+
+Modulo = num1 % num2
+
+print (Addition)
+
+print (Substraction)
+
+print (Division)
+
+print (Integer_division)
+
+print (Modulo)
+
+#9: Assign None to a variable called data and check if the variable is None using an if condition.
+
+data = None
+
+if data is None:
+
+     print(data)
+
+#10: Explain the difference between global and local variables in a function using a short code example.
+
+x = "awesome"
+
+def myfunc():
+
+     global x
+
+     x = "fantastic"
+
+myfunc()
+
+logger.info(f"Python is {x}")
+
+#when x is global and local variable
+
+x = "awesome"
+
+def myfunc():
+
+     x = "fantastic"
+
+     logger.info(f"Python is {x}")
+
+ myfunc()
+
+logger.info(f"Python is {x}")
+
+#11:What type is assigned?
+
+x = 42
+
+y = "42"
+
+z = 42.0
+
+print(type(x))
+
+print(type(y))
+
+print(type(z))
 
 # #12: Create a variable is_valid and assign a Boolean value (True or False). Print its type
 # is_valid = True
