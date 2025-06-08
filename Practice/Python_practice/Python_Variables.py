@@ -360,7 +360,7 @@ from loguru import logger
 # logger.info(f"{convert_to_pounds:.2f}")
 
 #60: Suppose description = " Raw data feed ". Remove extra spaces at the beginning and end. Print the cleaned string and its length.
-description = " Raw data feed "
-clean_description = description.strip()
-logger.info(f"{clean_description}")
+# description = " Raw data feed "
+# clean_description = description.strip()
+# logger.info(f"{clean_description}")
 
