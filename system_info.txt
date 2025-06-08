@@ -1,7 +1,0 @@
-=== System information ===
-OS Name : Windows
-OS Release : 11
-OS Version : 10.0.26100
-Machine Type : AMD64
-Architecture : 64bit
-Hostname : DESKTOP-0BECGNM
