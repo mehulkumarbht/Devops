@@ -134,23 +134,33 @@ print(type(y))
 
 print(type(z))
 
-# #12: Create a variable is_valid and assign a Boolean value (True or False). Print its type
-# is_valid = True
-# print(type(is_valid))
+#12: Create a variable is_valid and assign a Boolean value (True or False). Print its type
 
-# #13: number =100, Convert it to an int, then a float, then back to str. Print each result with its type.
-# number ='100'
-# number_int = int(number)
-# print(number_int)
-# print(type(number_int))
+is_valid = True
 
-# number_fl = float(number)
-# print(number_fl)
-# print (type(number_fl))
+print(type(is_valid))
 
-# number_st = str(number)
-# print(number_st)
-# print(type(number_st))
+#13: number =100, Convert it to an int, then a float, then back to str. Print each result with its type.
+
+number ='100'
+
+number_int = int(number)
+
+print(number_int)
+
+print(type(number_int))
+
+number_fl = float(number)
+
+print(number_fl)
+
+print (type(number_fl))
+
+number_st = str(number)
+
+print(number_st)
+
+print(type(number_st))
 
 # #14:Use the isinstance() function to check if 3.14 is a float, and "hello" is a string.
 # print(isinstance(3.14, float))
