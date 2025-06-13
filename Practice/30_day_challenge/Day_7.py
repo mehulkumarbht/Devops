@@ -1,0 +1,11 @@
+# Count word frequencies in a text file
+from loguru import logger
+
+file = open(
+    "C:\\Users\\mehul\\Documents\\Programming\\Practice\\30_day_challenge\\linux_log_report.txt",
+    "r",
+)
+
+for line in file:
+    word = line.split(" ")
+    logger.info(f"{len(word)}")
