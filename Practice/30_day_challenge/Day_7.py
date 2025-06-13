@@ -1,4 +1,4 @@
-# Count word frequencies in a text file
+# Count word frequencies in a text file - Day_7
 from loguru import logger
 
 file = open(
