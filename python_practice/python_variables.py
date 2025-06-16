@@ -489,3 +489,25 @@ from loguru import logger
 # 70: Create a tuple with one element (the number 5). What’s the syntax?
 # mytuple = (5,)
 # logger.info(f"syntax is {type(mytuple)}")
+
+# 71: Create a set of numbers: {1, 2, 3, 4}. Add 5 to it.
+# num = {1, 2, 3, 4}
+# num.add(5)
+# logger.info(f"{num}")
+
+# 72: Try adding a duplicate number to the set — what happens?
+# Adding duplicate number will not work in case of set
+# 73: Remove an item from a set safely using .discard().
+# num = {1, 2, 3, 4, 5}
+# num.discard(5)
+# logger.info(f"{num}")
+# 74: Find the union and intersection of two sets: {1, 2, 3} and {3, 4, 5}.
+# set1 = {1, 2, 3}
+# set2 = {3, 4, 5}
+# set3 = set1.union(set2)
+# logger.info(f"{set3}")
+
+# 75: Convert a list with duplicates [1, 2, 2, 3, 3, 3] into a set and print the result.
+# list1 = [1, 2, 2, 3, 3, 3]
+# myset = set(list1)
+# print(type(myset))
