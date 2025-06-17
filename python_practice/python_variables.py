@@ -491,26 +491,26 @@ from loguru import logger
 # logger.info(f"syntax is {type(mytuple)}")
 
 # 71: Create a set of numbers: {1, 2, 3, 4}. Add 5 to it.
-# num = {1, 2, 3, 4}
-# num.add(5)
-# logger.info(f"{num}")
+num = {1, 2, 3, 4}
+num.add(5)
+logger.info(f"{num}")
 
 # 72: Try adding a duplicate number to the set — what happens?
 # Adding duplicate number will not work in case of set
 # 73: Remove an item from a set safely using .discard().
-# num = {1, 2, 3, 4, 5}
-# num.discard(5)
-# logger.info(f"{num}")
+num = {1, 2, 3, 4, 5}
+num.discard(5)
+logger.info(f"{num}")
 # 74: Find the union and intersection of two sets: {1, 2, 3} and {3, 4, 5}.
-# set1 = {1, 2, 3}
-# set2 = {3, 4, 5}
-# set3 = set1.union(set2)
-# logger.info(f"{set3}")
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+set3 = set1.union(set2)
+logger.info(f"{set3}")
 
 # 75: Convert a list with duplicates [1, 2, 2, 3, 3, 3] into a set and print the result.
-# list1 = [1, 2, 2, 3, 3, 3]
-# myset = set(list1)
-# print(type(myset))
+list1 = [1, 2, 2, 3, 3, 3]
+myset = set(list1)
+print(type(myset))
 
 # 76: Create a dictionary {"name": "Alice", "age": 25} and print the value of "name".
 x = {"name": "Alice", "age": 25}
@@ -532,3 +532,36 @@ scores = {"name1": 80, "name2": 92, "name3": 89, "name4": 68}
 for name, score in scores.items():
     if score > 80:
         logger.info(f"{name}: {score}")
+# 81: Write a program that takes a list of numbers [10, 20, 30, 40, 50] and prints a new list containing only the numbers greater than 25.
+list1 = [10, 20, 30, 40, 50]
+number = []
+for num in list1:
+    if num > 25:
+        number.append(num)
+print(number)
+# 82: A = {1, 2, 3, 4}  , B = {3, 4, 5, 6}, Find Elements common to both sets & Elements unique to set A
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+C = A.intersection(B)  # Elements common to both sets
+D = A.difference(B)  # Elements unique to set A
+print(C)
+print(D)
+
+# 83: Create a tuple of your top 3 favorite movies. Unpack the tuple into three separate variables and print each movie on a new line.
+mytuple = ("me", "you", "and")
+a, b, c = mytuple
+logger.info(a)
+logger.info(b)
+logger.info(c)
+
+# 84: Create a dictionary of 3 employees and their salaries. Then: Increase all salaries by 10%. Print the updated dictionary.
+# salary = {"Joy": 1000, "Roy": 2000, "Max": 3000}
+# for name, sal in salary.items():
+#     inc_sal = sal + (sal * 0.10)
+#     logger.info(name, inc_sal)
+
+# 85: Create a dictionary where each key is a student’s name, and the value is a list of their marks. Then, print each student’s name with their average marks.
+marks = {"Joy": [85, 65, 70], "Roy": [90, 61, 73], "Max": [85, 72, 89]}
+for name, mark in marks.items():
+    avg_mark = sum(mark) / len(mark)
+    logger.info(f"{name}: {avg_mark:.2f}")
