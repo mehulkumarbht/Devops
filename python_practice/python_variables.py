@@ -511,3 +511,24 @@ from loguru import logger
 # list1 = [1, 2, 2, 3, 3, 3]
 # myset = set(list1)
 # print(type(myset))
+
+# 76: Create a dictionary {"name": "Alice", "age": 25} and print the value of "name".
+x = {"name": "Alice", "age": 25}
+logger.info(x["name"])
+# 77: Add a new key-value pair "city": "Toronto" to the dictionary.
+x = {"name": "Alice", "age": 25}
+x.update({"city": "Toronto"})
+logger.info(x)
+# 78: Loop through the dictionary and print each key and its value.
+x = {"name": "Alice", "age": 25}
+for y in x.items():
+    logger.info(f"{y}")
+# 79: Use .get() to safely access the value for the key "email" (which doesn't exist).
+x = {"name": "Alice", "age": 25}
+y = x.get("email")
+logger.info(f"{y}")
+# 80:Create a dictionary of student names and their scores. Print names of students who scored above 80.
+scores = {"name1": 80, "name2": 92, "name3": 89, "name4": 68}
+for name, score in scores.items():
+    if score > 80:
+        logger.info(f"{name}: {score}")
