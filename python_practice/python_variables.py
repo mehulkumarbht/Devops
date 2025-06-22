@@ -626,11 +626,50 @@ from loguru import logger
 # print(grades)
 
 # 95:Create from Two Lists: Given keys = ["a", "b", "c"] and values = [1, 2, 3], create a dictionary using a loop.
-keys = ["a", "b", "c"]
-values = [1, 2, 3]
-my_dict = {}
+# keys = ["a", "b", "c"]
+# values = [1, 2, 3]
+# my_dict = {}
 
-for i in range(len(keys)):
-    my_dict[keys[i]] = values[i]
+# for i in range(len(keys)):
+#     my_dict[keys[i]] = values[i]
 
-logger.info(f"{my_dict}")
+# logger.info(f"{my_dict}")
+# 96: Given a list nums = [1, 2, 2, 3, 4, 4, 5], write code to create a new list without duplicates using a loop (not set()).
+# nums = [1, 2, 2, 3, 4, 4, 5]
+# new_list = []
+
+# for num in nums:
+#     if num not in new_list:
+#         new_list.append(num)
+# logger.info(f"{new_list}")
+# 97: Given a tuple t = (1, 3, 3, 4, 5, 3), count how many times the number 3 appears.
+# t = (1, 3, 3, 4, 5, 3)
+# x = t.count(3)
+# logger.info(f"{x}")
+# 98: Write a program that takes two lists and prints only the items that are common to both, using sets.
+# list1 = [1, 2, 3, 4, 5]
+# list2 = [3, 4, 5, 6, 7]
+# set1 = set(list1)
+# set2 = set(list2)
+# setc = set1.intersection(set2)
+# logger.info(f"{setc}")
+
+# 99: Given d = {"a": 1, "b": 2, "c": 3}, create a new dictionary with keys and values swapped (e.g., {1: "a", 2: "b", 3: "c"}).
+# d = {"a": 1, "b": 2, "c": 3}
+# swapped_dict = {}
+# for key, value in d.items():
+#     swapped_dict[value] = key
+# logger.info(f"{swapped_dict}")
+
+# 100: Given a string "apple banana apple orange banana apple", count how many times each word appears using a dictionary.
+fruits = "apple banana apple orange banana apple"
+words = fruits.split()
+logger.info(f"{words}")
+
+word_count = {}
+for word in words:
+    if word in word_count:
+        word_count[word] += 1
+    else:
+        word_count[word] = 1
+logger.info(f"{word_count}")
