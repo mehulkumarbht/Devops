@@ -37,3 +37,43 @@ from loguru import logger
 #     else:
 #         new_list[word] = 1
 # logger.info(f"{new_list}")
+# 6:Given a list:numbers = [1, 2, 3, 4, 5], Reverse the list manually using a loop.
+# numbers = [1, 2, 3, 4, 5, 6]
+# reverse_numbers = []
+
+# for number in range(len(numbers) - 1, -1, -1):
+#     reverse_numbers.append(numbers[number])
+# logger.info(f"{reverse_numbers}")
+
+# # 7: Given a tuple:t = ("red", "green", "blue").Write a program to check if "green" exists in the tuple.
+# t = ("red", "green", "blue")
+# if "green" in t:
+#     logger.info(f"'Green' is in tuple 't'")
+
+# 8: Set – Given sets:set1 = {1, 2, 3, 4}. set2 = {3, 4, 5, 6}. Remove elements from set1 that are also in set2.
+# set1 = {1, 2, 3, 4}
+# set2 = {3, 4, 5, 6}
+# set3 = set1.difference(set2)
+# logger.info(f"{set3}")
+
+# 9: Dictionary – Loop and Print
+# Given a dictionary:person = {"name": "John", "age": 30, "city": "Toronto"}
+# Loop through the dictionary and print each key with its value.
+# person = {"name": "John", "age": 30, "city": "Toronto"}
+# my_dict = {}
+# for key, value in person.items():
+#     logger.info(f"{key}: {value}")
+
+# 10: Mix – Convert Two Lists to Dictionary
+# Given: keys = ["name", "age", "city"]
+# values = ["Alice", 28, "New York"]
+# Combine them into a dictionary using a loop.
+keys = ["name", "age", "city"]
+values = ["Alice", 28, "New York"]
+
+my_dict = {}
+for num in range(len(keys)):
+    my_dict[keys[num]] = values[num]
+
+for key, value in my_dict.items():
+    logger.info(f"{key}: {value}")
