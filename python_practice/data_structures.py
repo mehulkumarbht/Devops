@@ -288,9 +288,66 @@ from loguru import logger
 # logger.info(f"{smallest}")
 
 # 35: Write code to reverse the string using a loop and build a new reversed string.
-mystrng = "python"
-newstrng = ""
-for char in range(len(mystrng) - 1, -1, -1):
-    newstrng += mystrng[char]
+# mystrng = "python"
+# newstrng = ""
+# for char in range(len(mystrng) - 1, -1, -1):
+#     newstrng += mystrng[char ]
 
-logger.info(f"{newstrng}")
+# logger.info(f"{newstrng}")
+
+# 36: Write code to count how many vowels (a, e, i, o, u) are in the string.
+# text = "beautiful day"
+# vowels = "a", "e", "i", "o", "u"
+# count = 0
+
+# for char in text:
+#     if char in vowels:
+#         count += 1
+
+# logger.info(f"{count}")
+
+# 37: Create a new list with duplicates removed without using set().
+# numbers = [1, 2, 2, 3, 4, 4, 5]
+# new_list = []
+
+# for num in numbers:
+#     if num not in new_list:
+#         new_list.append(num)
+# logger.info(f"{new_list}")
+
+# 38: Write a program to print all words longer than 4 characters.
+# words = ["sun", "planet", "star", "galaxy", "sky"]
+
+# new_list = []
+
+# for char in words:
+#     if len(char) > 4:
+#         new_list.append(char)
+# logger.info(f"{new_list}")
+
+# 39: Calculate the sum of all even numbers.
+# nums = [10, 15, 22, 33, 40]
+
+# num_sum = []
+# for num in nums:
+#     if num % 2 == 0:
+#         num_sum.append(num)
+# logger.info(f"{sum(num_sum)}")
+
+# 40: Create a dictionary where each word is a key and its length is the value:
+words = ["apple", "banana", "kiwi"]
+
+new_dict = {}
+for char in words:
+    new_dict[char] = len(char)
+logger.info(f"{new_dict}")
+# Create a dictionary where the keys are words and the values are how many times each word appears.
+# words = ["book", "pen", "book", "bag", "pen", "book"]
+# new_list = {}
+
+# for word in words:
+#     if word in new_list:
+#         new_list[word] += 1
+#     else:
+#         new_list[word] = 1
+# logger.info(f"{new_list}")
