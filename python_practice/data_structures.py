@@ -335,19 +335,9 @@ from loguru import logger
 # logger.info(f"{sum(num_sum)}")
 
 # 40: Create a dictionary where each word is a key and its length is the value:
-words = ["apple", "banana", "kiwi"]
+# words = ["apple", "banana", "kiwi"]
 
-new_dict = {}
-for char in words:
-    new_dict[char] = len(char)
-logger.info(f"{new_dict}")
-# Create a dictionary where the keys are words and the values are how many times each word appears.
-# words = ["book", "pen", "book", "bag", "pen", "book"]
-# new_list = {}
-
-# for word in words:
-#     if word in new_list:
-#         new_list[word] += 1
-#     else:
-#         new_list[word] = 1
-# logger.info(f"{new_list}")
+# new_dict = {}
+# for char in words:
+#     new_dict[char] = len(char)
+# logger.info(f"{new_dict}")
