@@ -341,3 +341,38 @@ from loguru import logger
 # for char in words:
 #     new_dict[char] = len(char)
 # logger.info(f"{new_dict}")
+# 41: Write code to create a new list containing only the even numbers.
+# numbers = [3, 8, 12, 7, 9, 10]
+# even_numbers = []
+
+# for num in numbers:
+#     if num % 2 == 0:
+#         even_numbers.append(num)
+# logger.info(f"{even_numbers}")
+
+# 42: Write code to print the common elements between them.
+# set1 = {1, 2, 3, 4}
+# set2 = {3, 4, 5, 6}
+# set3 = set1.intersection(set2)
+# logger.info(f"{set3}")
+
+# 43: Convert it to a list, append the number 40, and print the result.
+# my_tuple = (10, 20, 30)
+# my_list = list(my_tuple)
+# my_list.insert(3, 40)
+# logger.info(f"{my_list}")
+
+# 44: Write code to calculate and print the sum of all scores.
+# scores = {"Alice": 90, "Bob": 85, "Charlie": 78}
+# total = sum(scores.values())
+# logger.info(f"{total}")
+
+# 45: Write code to find and print the index of the value 12 without using .index().
+nums = [4, 7, 9, 12, 15]
+ind = 0
+for num in nums:
+    if num == 12:
+        logger.info(f"{ind}")
+        break
+    else:
+        ind += 1
