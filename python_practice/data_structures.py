@@ -488,9 +488,45 @@ from loguru import logger
 # logger.info(f"{my_set}")
 
 # 60: Write code to create a dictionary pairing keys and values.
-keys = ("id", "name", "age")
-values = (1, "Alice", 30)
-my_dict = {}
-for k, v in zip(keys, values):
-    my_dict[k] = v
-logger.info(f"{my_dict}")
+# keys = ("id", "name", "age")
+# values = (1, "Alice", 30)
+# my_dict = {}
+# for k, v in zip(keys, values):
+#     my_dict[k] = v
+# logger.info(f"{my_dict}")
+
+# 61: Write code to create a new list containing only the unique elements, preserving their order.
+# numbers = [1, 2, 2, 3, 4, 4, 5]
+# count = []
+
+# for num in numbers:
+#     if num not in count:
+#         count.append(num)
+# logger.info(f"{count}")
+
+# 62:Write code to create a dictionary where each word is the key, and the value is its length:{"apple": 5, "banana": 6, "kiwi": 4}
+# words = ["apple", "banana", "kiwi"]
+# length = {}
+# for char in words:
+#     length[char] = len(char)
+# logger.info(f"{length}")
+
+# 63: Write code to print the set of elements that are in both sets.
+# set1 = {1, 2, 3, 4}
+# set2 = {3, 4, 5, 6}
+# set3 = set1.intersection(set2)
+# logger.info(f"{set3}")
+
+# 64: Convert the tuple to a list, append 40, and print the final list.
+# t = (10, 20, 30)
+# my_list = list(t)
+# my_list.append(40)
+# logger.info(f"{my_list}")
+
+# 65: Write a program to count how many times the letter "l" appears.
+# sentence = "hello world"
+# count = 0
+# for char in sentence:
+#     if char == "l":
+#         count += 1
+# logger.info(f"{count}")
