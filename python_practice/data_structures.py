@@ -368,11 +368,129 @@ from loguru import logger
 # logger.info(f"{total}")
 
 # 45: Write code to find and print the index of the value 12 without using .index().
-nums = [4, 7, 9, 12, 15]
-ind = 0
-for num in nums:
-    if num == 12:
-        logger.info(f"{ind}")
-        break
-    else:
-        ind += 1
+# nums = [4, 7, 9, 12, 15]
+# ind = 0
+# for num in nums:
+#     if num == 12:
+#         logger.info(f"{ind}")
+#         break
+#     else:
+#         ind += 1
+
+# 46: Write code to create a new list containing only the odd numbers.
+# nums = [5, 8, 12, 3, 7, 10]
+# new_list = []
+# for num in nums:
+#     if num % 2 != 0:
+#         new_list.append(num)
+
+# logger.info(f"{new_list}")
+
+# 47: Write code to print only the names of students who scored 80 or above.
+# scores = {"Alice": 90, "Bob": 72, "Charlie": 85, "Diana": 60}
+
+# for key, value in scores.items():
+#     if value > 80:
+#         logger.info(f"{key}: {value}")
+
+# 48: Write a program to count how many times the letter "g" appears.
+# sentence = "programming is fun"
+# total = {}
+# for char in sentence:
+#     if char in total:
+#         total[char] += 1
+#     else:
+#         total[char] = 1
+# logger.info(f"{total}")
+
+# 49: Create a set containing all unique letters in the word and print it.
+# word = "banana"
+# new_set = set(word)
+# logger.info(f"{new_set}")
+
+# 50: Write code to find and print the smallest number without using min().
+# nums = [15, 6, 22, 3, 9]
+# smallest = nums[0]
+
+# for num in nums:
+#     if num < smallest:
+#         smallest = num
+# logger.info(f"{smallest}")
+# 51: Write code to calculate the product of all numbers in the list (2 × 3 × 4 = 24).
+# nums = [2, 3, 4]
+# product = 1
+
+# for num in nums:
+#     product *= num
+
+# logger.info(f"{product}")
+
+# 52: Create a new dictionary with the colors as keys and fruits as values:
+# fruit_colors = {"apple": "red", "banana": "yellow", "grape": "purple"}
+# fruits = {}
+
+# for fruit, color in fruit_colors.items():
+#     fruits[color] = fruit
+# logger.info(f"{fruits}")
+
+# # 53: Write code to reverse the words so it becomes: "world hello"
+# sentence = "hello world"
+# words = sentence.split()
+# reversed_words = words[::-1]
+# reveresed_sentence = " ".join(reversed_words)
+# logger.info(f"{reveresed_sentence}")
+
+# 54: Print the set of elements that appear in both sets.
+# set1 = {1, 2, 3, 4}
+# set2 = {3, 4, 5, 6}
+# set3 = set1.intersection(set2)
+# logger.info(f"{set3}")
+
+# 55: Write code to calculate and print the sum of the elements.
+# nums = (10, 20, 30)
+# product = 1
+
+# for num in nums:
+#     product *= num
+# logger.info(f"{product}")
+
+# 56: Write code to count how many times the number 3 appears.
+# nums = [2, 3, 4, 3, 2, 3, 5]
+# count = 0
+# for num in nums:
+#     if num == 3:
+#         count += 1
+# logger.info(f"{count}")
+
+# 57: Write a program to count how many vowels (a, e, i, o, u) are in the string.
+# text = "Python programming is fun"
+# vowels = "aeiou"
+# count = {}
+# for char in text.lower():
+#     if char in vowels:
+#         if char in count:
+#             count[char] += 1
+#         else:
+#             count[char] = 1
+# logger.info(f"{count}")
+
+# 58: Write code to print the name of the person with the highest sales.
+# sales = {"Alice": 300, "Bob": 450, "Charlie": 250}
+# highest_sales_amount = 0
+# for key, value in sales.items():
+#     if value > highest_sales_amount:
+#         highest_sales_amount = value
+# logger.info(f"{highest_sales_amount}")
+
+# 59: Create a set containing all unique words.
+# sentence = "the quick brown fox jumps over the lazy dog"
+# my_set = set(sentence)
+# logger.info(f"{my_set}")
+
+# 60: Write code to create a dictionary pairing keys and values.
+keys = ("id", "name", "age")
+values = (1, "Alice", 30)
+my_dict = {}
+for k, v in zip(keys, values):
+    my_dict[k] = v
+logger.info(f"{my_dict}")
