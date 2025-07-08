@@ -1,532 +1,179 @@
 from loguru import logger
 
-# 1 List – Remove and Insert
-# Given a list:#fruits = ["apple", "banana", "cherry", "mango"]
-# Remove "banana" and insert "orange" at index 1.
-# fruits = ["apple", "banana", "cherry", "mango"]
-# fruits[1] = "orange"
-# logger.info(f"{fruits}")
+# Day:1
+colors = ["Red", "Blue", "Black", "White"]
+# logger.info(f"{colors}")
+# logger.info(f"{colors[0]}")
+# logger.info(f"{colors[-1]}")
+# colors[1] = "purple"
+# logger.info(f"{colors}")
+# colors.append("Pink")
+# logger.info(f"{colors}")
+# colors.remove("Black")
+# logger.info(f"{colors}")
 
-# 2: Create a tuple with 3 elements and unpack it into 3 variables. Print each variable on a new line.
-# my_tuple = (1, 2, 3)
-# x, y, z = my_tuple
-# logger.info(f"{x}")
-# logger.info(f"{y}")
-# logger.info(f"{z}")
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# logger.info(f"{numbers[:3]}")
+# logger.info(f"{numbers[-2:]}")
 
-# 3: From the list ["cat", "dog", "cat", "bird", "dog", "elephant"], create a set and print only the unique animal names.
-# my_list = ["cat", "dog", "cat", "bird", "dog", "elephant"]
-# my_set = set(my_list)
-# logger.info(f"{my_set}")
+# logger.info(f"{len(colors)}")
 
-# 4: Create a dictionary with names and phone numbers. Add one new contact and update an existing contact’s number.
-# contact_info = {"john": "9925253", "jason": 9625461, "ramen": 5656632}
-# contact_info["mosh"] = 3652421
-# logger.info(f"{contact_info}")
-# contact_info["john"] = 9356254
-# logger.info(f"{contact_info}")
+# colors = ["red", "blue", "green"]
+# for i in range(len(colors)):
+#     print(f"Index {i}: {colors[i]}")
 
-# 5: Given a list of words:words = ["book", "pen", "book", "bag", "pen", "book"]
-# Create a dictionary where the keys are words and the values are how many times each word appears.
-# words = ["book", "pen", "book", "bag", "pen", "book"]
-# new_list = {}
-
-# for word in words:
-#     if word in new_list:
-#         new_list[word] += 1
-#     else:
-#         new_list[word] = 1
-# logger.info(f"{new_list}")
-# 6:Given a list:numbers = [1, 2, 3, 4, 5], Reverse the list manually using a loop.
-# numbers = [1, 2, 3, 4, 5, 6]
-# reverse_numbers = []
-
-# for number in range(len(numbers) - 1, -1, -1):
-#     reverse_numbers.append(numbers[number])
-# logger.info(f"{reverse_numbers}")
-
-# # 7: Given a tuple:t = ("red", "green", "blue").Write a program to check if "green" exists in the tuple.
-# t = ("red", "green", "blue")
-# if "green" in t:
-#     logger.info(f"'Green' is in tuple 't'")
-
-# 8: Set – Given sets:set1 = {1, 2, 3, 4}. set2 = {3, 4, 5, 6}. Remove elements from set1 that are also in set2.
-# set1 = {1, 2, 3, 4}
-# set2 = {3, 4, 5, 6}
-# set3 = set1.difference(set2)
-# logger.info(f"{set3}")
-
-# 9: Dictionary – Loop and Print
-# Given a dictionary:person = {"name": "John", "age": 30, "city": "Toronto"}
-# Loop through the dictionary and print each key with its value.
-# person = {"name": "John", "age": 30, "city": "Toronto"}
-# my_dict = {}
-# for key, value in person.items():
-#     logger.info(f"{key}: {value}")
-
-# 10: Mix – Convert Two Lists to Dictionary
-# Given: keys = ["name", "age", "city"]
-# values = ["Alice", 28, "New York"]
-# Combine them into a dictionary using a loop.
-# keys = ["name", "age", "city"]
-# values = ["Alice", 28, "New York"]
-
-# my_dict = {}
-# for num in range(len(keys)):
-#     my_dict[keys[num]] = values[num]
-
-# for key, value in my_dict.items():
-#     logger.info(f"{key}: {value}")
-
-# 11: Given a list of numbers, write a program that multiplies each element by 2 and stores the result in a new list.
-# numbers = [1, 2, 3, 4, 5]
-# new_list = []
-
-# for num in range(1, 6, 1):
-#     new_list.append(num * 2)
-# logger.info(f"{new_list}")
-
-# 12:Given a tuple t = (5, 10, 15, 20), write a program to find the index of the value 15.
-# t = (5, 10, 15, 20)
-# index_of_15 = t.index(15)
-# logger.info(f"{index_of_15}")
-
-# 13: Set – Find Difference, Given two sets,
-# Print the elements that are in set a but not in set b.
-# a = {1, 2, 3, 4}
-# b = {3, 4, 5, 6}
-# c = a.difference(b)
-# logger.info(f"{c}")
-
-# 14: Given a dictionary of names and scores, Print only the names of people who scored more than 80.
-# scores = {"Amy": 75, "Bob": 90, "Chad": 60, "Dana": 88}
-# for key, value in scores.items():
-#     if value > 80:
-#         logger.info(f"{key}")
-
-# 15: Mix – Combine Lists into Dictionary with zip() Given two lists:Create a dictionary that maps field names to their values.
-# fields = ["id", "name", "age"]
-# data = [101, "Jane", 29]
-
-# # names = {}
-# # for name in range(len(fields)):
-# #     names[fields[name]] = data[name]
-# # logger.info(f"{names}")
-
-# names = zip(fields, data)
-# print(dict(names))
-
-# 16: Given a list numbers = [1, 2, 3, 4, 5, 6], write a program that creates a new list containing only the odd numbers.
-# numbers = [1, 2, 3, 4, 5, 6]
-# new_list = []
+# print only numbers less than 8.
+# numbers = [1, 3, 6, 8, 10]
 # for num in numbers:
-#     if num % 2 != 0:
-#         new_list.append(num)
+#     if num < 8:
+#         logger.info(f"{num}")
 
-# logger.info(f"{new_list}")
+# Make a new list with all colors in your colors list longer than 3 letters.
+# colors = ["red", "blue", "green"]
+# long_name_colors = []
+# for color in colors:
+#     if len(color) > 3:
+#         long_name_colors.append(color)
+# logger.info(f"{long_name_colors}")
 
-# 17: Given a tuple colors = ("red", "green", "blue"), convert it to a list, add "yellow", and convert it back to a tuple.
-# colors = ("red", "green", "blue")
-# new_set = list(colors)
-# new_set.insert(3, "yellow")
-# logger.info(f"{(tuple(new_set))}")
-
-# 18: Given two sets:Write a program to check if small is a subset of big.
-# small = {1, 2, 3}
-# big = {1, 2, 3, 4, 5, 6}
-# if small.issubset(big):
-#     logger.info(f"Small is subset of big")
-# else:
-#     logger.info(f"Small is not subset of big")
-
-# 19: Given a dictionary: Write code to increase the age by 1.
-# person = {"name": "Alice", "age": 25}
-# person["age"] = 25 + 1
-# print(person)
-
-# 20: Write a program that counts how many vowels (a, e, i, o, u) are in this string:"hello world"
-# vowels = ("a", "e", "i", "o", "u")
-# my_string = "My name is anthony gonsalves"
-
-# count = 0
-
-# for char in my_string:
-#     if char in vowels:
-#         count += 1
-
-# logger.info(f"{count}")
-
-# 21: Given a list of numbers [10, 20, 30, 40], write a program to calculate and print the total sum.
-# numbers = [10, 20, 30, 40]
-# totalsum = sum(numbers)
-# logger.info(f"{totalsum}")
-
-# 22: Given a tuple colors = ("red", "green", "blue"), convert it into a single string separated by commas, e.g., "red,green,blue".
-# colors = ("red", "green", "blue")
-# mystring = str(colors)
-# logger.info(f"{mystring}")
-
-# 23: Given set1 = {1, 2, 3} and set2 = {3, 4, 5}, create a new set containing all unique elements from both sets.
-# set1 = {1, 2, 3}
-# set2 = {3, 4, 5}
-# set3 = set1.intersection(set2)
-# logger.info(f"{set3}")
-
-# 24: Given d = {"a": 1, "b": 2, "c": 3}, remove the key "b" and print the updated dictionary.
-# d = {"a": 1, "b": 2, "c": 3}
-# d.pop("b")
-# print(d)
-
-# 25: Given a list [8, 12, 4, 19, 5], write code to find and print the largest number without using the max() function.
-# mylst = [8, 12, 4, 19, 5]
-
-# large = mylst[0]
-
-# for num in mylst:
-#     if num > large:
-#         large = num
-# logger.info(f"{large}")
-
-# 26: Given a list [8, 12, 4, 19, 5], write code to find and print the smallest number without using min().
-# mylst = [8, 12, 4, 19, 5]
-# small = mylst[0]
-
-# for num in mylst:
-#     if num < small:
-#         small = num
-
-# logger.info(f"{small}")
-
-# 27: Given [8, 12, 4, 19, 5], write a program to calculate the average manually (loop through to sum and count).
-# mylst = [8, 12, 4, 19, 5]
+# Sum all numbers in and print the total.
+# numbers = [5, 10, 15]
 # total = 0
-# count = 0
-
-# for num in mylst:
+# for num in numbers:
 #     total += num
-#     count += 1
-# avg = total / count
-# logger.info(f"{avg}")
-
-# 28: Write a program to count how many even numbers are in [8, 12, 4, 19, 5].
-# numbers = [8, 12, 4, 19, 5]
-# even_num = []
-# for num in numbers:
-#     if num % 2 == 0:
-#         even_num.append(num)
-# logger.info(f"{even_num}")
-
-# 29: Given [8, 12, 4, 19, 5], write code to find the second largest number without using sorted() or max().
-# mynum = [8, 12, 4, 19, 5]
-# largest = mynum[0]
-
-# for num in mynum:
-#     if num > largest:
-#         largest = num
-
-# second_largest = None
-# for num in mynum:
-#     if num != largest:
-#         if (second_largest is None) or (num > second_largest):
-#             second_largest = num
-
-# logger.info(f"{second_largest}")
-# 30: Without using index() or max(), find and print the index position of the largest number in [8, 12, 4, 19, 5].
-# mylst = [8, 12, 4, 19, 5]
-# largest = mylst[0]
-# largest_index = 0
-# for num in range(len(mylst)):
-#     if mylst[num] > largest:
-#         largest = mylst[num]
-#         largest_index = num
-# logger.info(f"{largest}")
-# logger.info(f"{largest_index}")
-
-# 31: Write code to print all the indices where the value 7 appears.
-# numbers = [3, 7, 2, 7, 9, 7]
-# seven_index = []
-
-# for num in range(len(numbers)):
-#     if numbers[num] == 7:
-#         seven_index.append(num)
-# logger.info(f"{seven_index}")  # This will give you indices where value is 7
-# # To get how many times it appeares in the list,
-# numbers = [3, 7, 2, 7, 9, 7]
-# count = 0
-
-# for num in range(len(numbers)):
-#     if numbers[num] == 7:
-#         count += 1
-# logger.info(f"{count}")
-
-# 32: Given the string:"mississippi", Use a dictionary to count how many times each character appears.
-# name = "mississippi"
-# count = {}
-# for char in name:
-#     if char in count:
-#         count[char] += 1
-#     else:
-#         count[char] = 1
-
-# logger.info(f"{count}")
-# 33: Create a new list containing only the words that have more than 3 letters.
-# words = ["apple", "is", "delicious", "and", "red"]
-# new_list = []
-
-# for char in words:
-#     if len(char) > 3:
-#         new_list.append(char)
-# logger.info(f"{new_list}")
-
-# 34: Write code to find and print the smallest number without using min().
-# numbers = [12, 3, 7, 1, 9]
-# smallest = numbers[0]
-
-# for num in numbers:
-#     if num < smallest:
-#         smallest = num
-# logger.info(f"{smallest}")
-
-# 35: Write code to reverse the string using a loop and build a new reversed string.
-# mystrng = "python"
-# newstrng = ""
-# for char in range(len(mystrng) - 1, -1, -1):
-#     newstrng += mystrng[char ]
-
-# logger.info(f"{newstrng}")
-
-# 36: Write code to count how many vowels (a, e, i, o, u) are in the string.
-# text = "beautiful day"
-# vowels = "a", "e", "i", "o", "u"
-# count = 0
-
-# for char in text:
-#     if char in vowels:
-#         count += 1
-
-# logger.info(f"{count}")
-
-# 37: Create a new list with duplicates removed without using set().
-# numbers = [1, 2, 2, 3, 4, 4, 5]
-# new_list = []
-
-# for num in numbers:
-#     if num not in new_list:
-#         new_list.append(num)
-# logger.info(f"{new_list}")
-
-# 38: Write a program to print all words longer than 4 characters.
-# words = ["sun", "planet", "star", "galaxy", "sky"]
-
-# new_list = []
-
-# for char in words:
-#     if len(char) > 4:
-#         new_list.append(char)
-# logger.info(f"{new_list}")
-
-# 39: Calculate the sum of all even numbers.
-# nums = [10, 15, 22, 33, 40]
-
-# num_sum = []
-# for num in nums:
-#     if num % 2 == 0:
-#         num_sum.append(num)
-# logger.info(f"{sum(num_sum)}")
-
-# 40: Create a dictionary where each word is a key and its length is the value:
-# words = ["apple", "banana", "kiwi"]
-
-# new_dict = {}
-# for char in words:
-#     new_dict[char] = len(char)
-# logger.info(f"{new_dict}")
-# 41: Write code to create a new list containing only the even numbers.
-# numbers = [3, 8, 12, 7, 9, 10]
-# even_numbers = []
-
-# for num in numbers:
-#     if num % 2 == 0:
-#         even_numbers.append(num)
-# logger.info(f"{even_numbers}")
-
-# 42: Write code to print the common elements between them.
-# set1 = {1, 2, 3, 4}
-# set2 = {3, 4, 5, 6}
-# set3 = set1.intersection(set2)
-# logger.info(f"{set3}")
-
-# 43: Convert it to a list, append the number 40, and print the result.
-# my_tuple = (10, 20, 30)
-# my_list = list(my_tuple)
-# my_list.insert(3, 40)
-# logger.info(f"{my_list}")
-
-# 44: Write code to calculate and print the sum of all scores.
-# scores = {"Alice": 90, "Bob": 85, "Charlie": 78}
-# total = sum(scores.values())
 # logger.info(f"{total}")
 
-# 45: Write code to find and print the index of the value 12 without using .index().
-# nums = [4, 7, 9, 12, 15]
-# ind = 0
-# for num in nums:
-#     if num == 12:
-#         logger.info(f"{ind}")
-#         break
-#     else:
-#         ind += 1
 
-# 46: Write code to create a new list containing only the odd numbers.
-# nums = [5, 8, 12, 3, 7, 10]
-# new_list = []
-# for num in nums:
-#     if num % 2 != 0:
-#         new_list.append(num)
+# def sum_numbers(numbers):
+#     total = 0
+#     for n in numbers:
+#         total += n
+#     return total
 
-# logger.info(f"{new_list}")
 
-# 47: Write code to print only the names of students who scored 80 or above.
-# scores = {"Alice": 90, "Bob": 72, "Charlie": 85, "Diana": 60}
+# def multiply_numbers(numbers):
+#     product = 1
+#     for num in numbers:
+#         product *= num
+#     return product
 
-# for key, value in scores.items():
-#     if value > 80:
-#         logger.info(f"{key}: {value}")
+# result = multiply_numbers([2, 3, 4])
+# print(result)
 
-# 48: Write a program to count how many times the letter "g" appears.
-# sentence = "programming is fun"
-# total = {}
-# for char in sentence:
-#     if char in total:
-#         total[char] += 1
-#     else:
-#         total[char] = 1
-# logger.info(f"{total}")
 
-# 49: Create a set containing all unique letters in the word and print it.
-# word = "banana"
-# new_set = set(word)
-# logger.info(f"{new_set}")
+# Write a function get_long_words(words) that:
+# Receives a list of strings.
+# Returns a new list with words longer than 4 characters.
+# def get_long_words(words):
+#     word_list = []
+#     for word in words:
+#         if len(word) > 4:
+#             word_list.append(word)
+#     return word_list
 
-# 50: Write code to find and print the smallest number without using min().
-# nums = [15, 6, 22, 3, 9]
-# smallest = nums[0]
 
-# for num in nums:
-#     if num < smallest:
-#         smallest = num
-# logger.info(f"{smallest}")
-# 51: Write code to calculate the product of all numbers in the list (2 × 3 × 4 = 24).
-# nums = [2, 3, 4]
-# product = 1
+# result = get_long_words(["apple", "is", "very", "delicious"])
+# print(result)
 
-# for num in nums:
-#     product *= num
+# Build a reversed version without [::-1] or .reverse().
+# nums = [10, 20, 30, 40]
+# reversed_list = []
+# for num in range(len(nums) - 1, -1, -1):
+#     reversed_list.append(nums[num])
+# logger.info(f"{reversed_list}")
 
-# logger.info(f"{product}")
+# # Write a function sum_positive(numbers): It returns the sum of all numbers in the list ignoring any negative numbers.
+# numbers = [5, -2, 7, -3, 10]
 
-# 52: Create a new dictionary with the colors as keys and fruits as values:
-# fruit_colors = {"apple": "red", "banana": "yellow", "grape": "purple"}
-# fruits = {}
 
-# for fruit, color in fruit_colors.items():
-#     fruits[color] = fruit
-# logger.info(f"{fruits}")
+# def sum_positive(numbers):
+#     positive_numbers = 0
+#     for num in numbers:
+#         if num > 0:
+#             positive_numbers += num
+#     return positive_numbers
 
-# # 53: Write code to reverse the words so it becomes: "world hello"
-# sentence = "hello world"
-# words = sentence.split()
-# reversed_words = words[::-1]
-# reveresed_sentence = " ".join(reversed_words)
-# logger.info(f"{reveresed_sentence}")
 
-# 54: Print the set of elements that appear in both sets.
-# set1 = {1, 2, 3, 4}
-# set2 = {3, 4, 5, 6}
-# set3 = set1.intersection(set2)
-# logger.info(f"{set3}")
+# result = sum_positive(numbers)
+# print(result)
+# Day-4
+# Write a function called count_words(text) that:Receives a string of text.Returns a dictionary with counts of each word.
+text = "apple banana apple orange banana apple"
 
-# 55: Write code to calculate and print the sum of the elements.
-# nums = (10, 20, 30)
-# product = 1
 
-# for num in nums:
-#     product *= num
-# logger.info(f"{product}")
+def count_words(text):
+    word_count = {}
+    words = text.split()
+    for word in words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    return word_count
 
-# 56: Write code to count how many times the number 3 appears.
-# nums = [2, 3, 4, 3, 2, 3, 5]
-# count = 0
-# for num in nums:
-#     if num == 3:
-#         count += 1
-# logger.info(f"{count}")
 
-# 57: Write a program to count how many vowels (a, e, i, o, u) are in the string.
-# text = "Python programming is fun"
-# vowels = "aeiou"
-# count = {}
-# for char in text.lower():
-#     if char in vowels:
-#         if char in count:
-#             count[char] += 1
-#         else:
-#             count[char] = 1
-# logger.info(f"{count}")
+result = count_words(text)
+print(result)
 
-# 58: Write code to print the name of the person with the highest sales.
-# sales = {"Alice": 300, "Bob": 450, "Charlie": 250}
-# highest_sales_amount = 0
-# for key, value in sales.items():
-#     if value > highest_sales_amount:
-#         highest_sales_amount = value
-# logger.info(f"{highest_sales_amount}")
+# Write a function called get_max_value(d) that:Receives a dictionary where keys are strings and values are numbers.Returns the key with the highest value.
+scores = {"Alice": 85, "Bob": 92, "Charlie": 78}
 
-# 59: Create a set containing all unique words.
-# sentence = "the quick brown fox jumps over the lazy dog"
-# my_set = set(sentence)
-# logger.info(f"{my_set}")
 
-# 60: Write code to create a dictionary pairing keys and values.
-# keys = ("id", "name", "age")
-# values = (1, "Alice", 30)
-# my_dict = {}
-# for k, v in zip(keys, values):
-#     my_dict[k] = v
-# logger.info(f"{my_dict}")
+def get_max_value(scores):
+    highest_key = None
+    highest_value = 0
+    for key, value in scores.items():
+        if value > highest_value:
+            highest_value = value
+            highest_key = key
+    return highest_key
 
-# 61: Write code to create a new list containing only the unique elements, preserving their order.
-# numbers = [1, 2, 2, 3, 4, 4, 5]
-# count = []
 
-# for num in numbers:
-#     if num not in count:
-#         count.append(num)
-# logger.info(f"{count}")
+result = get_max_value(scores)
+logger.info(f"{result}")
 
-# 62:Write code to create a dictionary where each word is the key, and the value is its length:{"apple": 5, "banana": 6, "kiwi": 4}
-# words = ["apple", "banana", "kiwi"]
-# length = {}
-# for char in words:
-#     length[char] = len(char)
-# logger.info(f"{length}")
+# Print each student’s name and their average grade
+grades = {"Alice": [85, 90, 88], "Bob": [72, 75, 70], "Charlie": [95, 100, 98]}
+avg = 0
+for key, value in grades.items():
+    avg = sum(value) / len(value)
+    logger.info(f"{key}: {avg:.2f}")
 
-# 63: Write code to print the set of elements that are in both sets.
-# set1 = {1, 2, 3, 4}
-# set2 = {3, 4, 5, 6}
-# set3 = set1.intersection(set2)
-# logger.info(f"{set3}")
+# Write a function create_dict(keys, values) that:Receives two lists.Returns a dictionary pairing keys and values.
+keys = ["id", "name", "age"]
+values = [1, "Alice", 30]
 
-# 64: Convert the tuple to a list, append 40, and print the final list.
-# t = (10, 20, 30)
-# my_list = list(t)
-# my_list.append(40)
-# logger.info(f"{my_list}")
 
-# 65: Write a program to count how many times the letter "l" appears.
-# sentence = "hello world"
-# count = 0
-# for char in sentence:
-#     if char == "l":
-#         count += 1
-# logger.info(f"{count}")
+def creat_dict(keys, values):
+    new_dict = {}
+
+    for i in range(len(keys)):
+        new_dict[keys[i]] = values[i]
+
+    for key, value in new_dict.items():
+        logger.info(f"{key}:{value}")
+    return new_dict
+
+
+result = creat_dict(keys, values)
+logger.info(f"{result}")
+
+
+def creat_dict(keys, values):
+    new_dict = {}
+    for k, v in zip(keys, values):
+        new_dict[k] = v
+    logger.info(f"{keys}:{values}")
+    return new_dict
+
+
+result = creat_dict(keys, values)
+logger.info(f"{result}")
+
+# Write code to create a new dictionary containing only items where the quantity > 0.
+inventory = {"apple": 5, "banana": 0, "orange": 3, "kiwi": 0}
+positive_inventory = {}
+for key, value in inventory.items():
+    if value > 0:
+        positive_inventory[key] = value
+logger.info(f"{positive_inventory}")
