@@ -308,22 +308,74 @@ colors = ["Red", "Blue", "Black", "White"]
 
 
 # 5: Write a function check_password_strength(password) that: Returns "Strong" if the password, Has 8 or more characters, Contains at least one digit, Contains at least one uppercase letter, Otherwise, return "Weak"
-def check_password_strength(password):
-    has_upper = False
-    has_digits = False
+# def check_password_strength(password):
+#     has_upper = False
+#     has_digits = False
 
-    if len(password) > 8:
-        return "Strong"
-    for char in password:
-        if char.isdigit():
-            has_digits = True
-        elif char.isupper():
-            has_upper = True
-    if has_digits and has_upper:
-        return "Strong"
-    else:
-        return "Weak"
+#     if len(password) > 8:
+#         return "Strong"
+#     for char in password:
+#         if char.isdigit():
+#             has_digits = True
+#         elif char.isupper():
+#             has_upper = True
+#     if has_digits and has_upper:
+#         return "Strong"
+#     else:
+#         return "Weak"
 
 
-result = check_password_strength("hello wor")
+# result = check_password_strength("hello wor")
+# logger.info(f"{result}")
+
+# 6: Write a function remove_duplicates() that:Takes a list as input.Returns a new list with duplicates removed, original order preserved.
+# data = [1, 2, 2, 3, 4, 4, 5]
+
+
+# def remove_duplicates(data):
+#     new_list = []
+#     for num in data:
+#         if num not in new_list:
+#             new_list.append(num)
+#     return new_list
+
+
+# result = remove_duplicates(data)
+# logger.info(f"{result}")
+
+# 7: Write a function count_case(text) that:Takes a string input.Returns a dictionary with two keys:"uppercase" → number of uppercase letters, "lowercase" → number of lowercase letters.
+# text = "Hello World"
+
+
+# def count_case(text):
+#     new_dict = {"uppercase": 0, "lowercase": 0}
+#     for char in text:
+#         if char.isalpha():
+#             if char.isupper():
+#                 new_dict["uppercase"] += 1
+#             else:
+#                 new_dict["lowercase"] += 1
+#     return new_dict
+
+
+# result = count_case(text)
+# logger.info(result)
+
+# 8: Write a function char_frequency(text) that:Takes a string input.Returns a dictionary showing how many times each character appears. Ignore spaces and count case-insensitively (treat A and a the same).
+text = "Hello World"
+
+
+def char_frequency(text):
+    new_dict = {}
+    for char in text.lower():
+        if char == " ":
+            continue
+        if char in new_dict:
+            new_dict[char] += 1
+        else:
+            new_dict[char] = 1
+    return new_dict
+
+
+result = char_frequency(text)
 logger.info(f"{result}")
