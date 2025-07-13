@@ -362,20 +362,103 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(result)
 
 # 8: Write a function char_frequency(text) that:Takes a string input.Returns a dictionary showing how many times each character appears. Ignore spaces and count case-insensitively (treat A and a the same).
-text = "Hello World"
+# text = "Hello World"
 
 
-def char_frequency(text):
-    new_dict = {}
-    for char in text.lower():
-        if char == " ":
-            continue
-        if char in new_dict:
-            new_dict[char] += 1
-        else:
-            new_dict[char] = 1
-    return new_dict
+# def char_frequency(text):
+#     new_dict = {}
+#     for char in text.lower():
+#         if char == " ":
+#             continue
+#         if char in new_dict:
+#             new_dict[char] += 1
+#         else:
+#             new_dict[char] = 1
+#     return new_dict
 
 
-result = char_frequency(text)
-logger.info(f"{result}")
+# result = char_frequency(text)
+# logger.info(f"{result}")
+
+
+# Day-7:
+# 1:Write a function get_grade(score):Takes a number (0–100).Returns "A" if score ≥ 90, "B" if ≥ 80, "C" if ≥ 70, else "Fail".
+# def get_grade(score):
+#     if score < 0 or score > 100:
+#         return "Invalid score. Must be between 0 and 100 "
+#     if score >= 90:
+#         return "A"
+#     elif score >= 80:
+#         return "B"
+#     elif score >= 70:
+#         return "C"
+#     else:
+#         return "Fail"
+
+
+# result = get_grade(99)
+# logger.info(f"{result}")
+
+# 2: Write a function odd_even(numbers):Takes a list of numbers.Returns a dictionary like {"odd": count, "even": count}.
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+# def odd_even(numbers):
+#     my_dict = {"odd": 0, "even": 0}
+#     for num in numbers:
+#         if num % 2 == 0:
+#             my_dict["even"] += 1
+#         else:
+#             my_dict["odd"] += 1
+#     return my_dict
+
+
+# result = odd_even(numbers)
+# logger.info(f"{result}")
+
+# 3: Write a function is_leap_year(year): A year is leap if: Divisible by 4 and not by 100 or divisible by 400, Return True if leap year, else False.
+# year = int(input("Please enter a year: "))
+
+
+# def is_leap_year(year):
+#     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+#         return True
+#     else:
+#         return False
+
+
+# result = is_leap_year(year)
+# logger.info(f"{result}")
+
+# 4: Write a function count_vowels(text): Returns how many vowels are in a string. Ignore case.
+# text = "Hello world"
+
+
+# def count_vowels(text):
+#     vowel = "aeiou"
+#     count = 0
+#     for char in text.lower():
+#         if char in vowel:
+#             count += 1
+#     return count
+
+
+# result = count_vowels(text)
+# logger.info(f"{result}")
+
+# 5: Write a function min_max(numbers):Takes a list of numbers.Returns a dictionary like {"min": val, "max": val}, Don’t use min() or max() functions.
+# numbers = [5, 3, 2, 8, 9]
+
+
+# def min_max(numbers):
+#     new_dict = {"min": numbers[0], "max": numbers[0]}
+#     for num in numbers:
+#         if num > new_dict["max"]:
+#             new_dict["max"] = num
+#         elif num < new_dict["min"]:
+#             new_dict["min"] = num
+#     return new_dict
+
+
+# result = min_max(numbers)
+# logger.info(f"{result}")
