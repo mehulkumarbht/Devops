@@ -515,54 +515,54 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{result}")
 
 # 3: Write a function that accepts two lists and returns a list of elements common to both, without duplicates.
-list_a = [1, 2, 3, 4, 5]
-list_b = [2, 4, 6, 8, 10]
+# list_a = [1, 2, 3, 4, 5]
+# list_b = [2, 4, 6, 8, 10]
 
 
-def new_list_set(list_a, list_b):
-    set_a = set(list_a)
-    set_b = set(list_b)
-    set_c = set_a.intersection(set_b)
-    return set_c
+# def new_list_set(list_a, list_b):
+#     set_a = set(list_a)
+#     set_b = set(list_b)
+#     set_c = set_a.intersection(set_b)
+#     return set_c
 
 
-result = new_list_set(list_a, list_b)
-logger.info(f"{result}")
+# result = new_list_set(list_a, list_b)
+# logger.info(f"{result}")
 
-# 4: Write a function that takes a list of strings and returns a new list where words longer than 5 characters are capitalized.
-name = "Write a function that takes a list of strings and returns a new list where words longer than 5 characters are capitalized."
-
-
-def long_capitalized_words(name):
-    words = name.split()
-    new_list = []
-    for word in words:
-        if len(word) > 5:
-            new_list.append(word.upper())
-        else:
-            new_list.append(word)
-    return new_list
+# # 4: Write a function that takes a list of strings and returns a new list where words longer than 5 characters are capitalized.
+# name = "Write a function that takes a list of strings and returns a new list where words longer than 5 characters are capitalized."
 
 
-result = long_capitalized_words(name)
-logger.info(f"{result}")
-
-# 5: Write a function that accepts an integer and returns the sum of its digits.
-
-# Example: sum_digits(1234) → 10
-numbers = 56789
-
-
-def sum_digits(numbers):
-    digits = []
-    total = 0
-    for digit in str(numbers):
-        digits.append(int(digit))
-
-    for num in digits:
-        total += num
-    return total
+# def long_capitalized_words(name):
+#     words = name.split()
+#     new_list = []
+#     for word in words:
+#         if len(word) > 5:
+#             new_list.append(word.upper())
+#         else:
+#             new_list.append(word)
+#     return new_list
 
 
-result = sum_digits(numbers)
-logger.info(f"{result}")
+# result = long_capitalized_words(name)
+# logger.info(f"{result}")
+
+# # 5: Write a function that accepts an integer and returns the sum of its digits.
+
+# # Example: sum_digits(1234) → 10
+# numbers = 56789
+
+
+# def sum_digits(numbers):
+#     digits = []
+#     total = 0
+#     for digit in str(numbers):
+#         digits.append(int(digit))
+
+#     for num in digits:
+#         total += num
+#     return total
+
+
+# result = sum_digits(numbers)
+# logger.info(f"{result}")
