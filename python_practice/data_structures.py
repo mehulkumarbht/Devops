@@ -465,18 +465,104 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # 6: Write a function that:Takes a list of numbers, Returns a dictionary with:"second_min": second smallest number, "second_max": second largest number,Do not use built-in functions like sorted(), min(), or max(), Make sure to handle edge cases (like if the list has less than 2 unique elements)
 
-numbers = [4, 7, 1, 9, 2, 5]
+# numbers = [4, 7, 1, 9, 2, 5]
 
 
-# Expected output: {'second_min': 2, 'second_max': 7}
-def second_min_max(numbers):
-    unique_numbers = list(set(numbers))
-    print(unique_numbers)
-    if len(unique_numbers) < 2:
-        return {"second_min": None, "second_max": None}
+# # Expected output: {'second_min': 2, 'second_max': 7}
+# def second_min_max(numbers):
+#     unique_numbers = list(set(numbers))
+#     print(unique_numbers)
+#     if len(unique_numbers) < 2:
+#         return {"second_min": None, "second_max": None}
 
-    return {"second_min": unique_numbers[1], "second_max": unique_numbers[-2]}
+#     return {"second_min": unique_numbers[1], "second_max": unique_numbers[-2]}
 
 
-result = second_min_max(numbers)
+# result = second_min_max(numbers)
+# logger.info(f"{result}")
+
+# Day-8:
+# Write a function that takes a list of integers and returns a dictionary with the counts of even and odd numbers.
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+# def odd_even_numbers(numbers):
+#     new_dict = {"odd_numbers": 0, "even_numbers": 0}
+#     for num in numbers:
+#         if num % 2 == 0:
+#             new_dict["even_numbers"] += 1
+#         else:
+#             new_dict["odd_numbers"] += 1
+#     return new_dict
+
+
+# result = odd_even_numbers(numbers)
+# logger.info(f"{result}")
+
+# 2: Write a function that takes a list of numbers and returns a new list with only the numbers divisible by 3.
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+# def divisible_three(numbers):
+#     new_list = []
+#     for num in numbers:
+#         if num % 3 == 0:
+#             new_list.append(num)
+#     return new_list
+
+
+# result = divisible_three(numbers)
+# logger.info(f"{result}")
+
+# 3: Write a function that accepts two lists and returns a list of elements common to both, without duplicates.
+list_a = [1, 2, 3, 4, 5]
+list_b = [2, 4, 6, 8, 10]
+
+
+def new_list_set(list_a, list_b):
+    set_a = set(list_a)
+    set_b = set(list_b)
+    set_c = set_a.intersection(set_b)
+    return set_c
+
+
+result = new_list_set(list_a, list_b)
+logger.info(f"{result}")
+
+# 4: Write a function that takes a list of strings and returns a new list where words longer than 5 characters are capitalized.
+name = "Write a function that takes a list of strings and returns a new list where words longer than 5 characters are capitalized."
+
+
+def long_capitalized_words(name):
+    words = name.split()
+    new_list = []
+    for word in words:
+        if len(word) > 5:
+            new_list.append(word.upper())
+        else:
+            new_list.append(word)
+    return new_list
+
+
+result = long_capitalized_words(name)
+logger.info(f"{result}")
+
+# 5: Write a function that accepts an integer and returns the sum of its digits.
+
+# Example: sum_digits(1234) → 10
+numbers = 56789
+
+
+def sum_digits(numbers):
+    digits = []
+    total = 0
+    for digit in str(numbers):
+        digits.append(int(digit))
+
+    for num in digits:
+        total += num
+    return total
+
+
+result = sum_digits(numbers)
 logger.info(f"{result}")
