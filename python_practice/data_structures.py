@@ -462,3 +462,21 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = min_max(numbers)
 # logger.info(f"{result}")
+
+# 6: Write a function that:Takes a list of numbers, Returns a dictionary with:"second_min": second smallest number, "second_max": second largest number,Do not use built-in functions like sorted(), min(), or max(), Make sure to handle edge cases (like if the list has less than 2 unique elements)
+
+numbers = [4, 7, 1, 9, 2, 5]
+
+
+# Expected output: {'second_min': 2, 'second_max': 7}
+def second_min_max(numbers):
+    unique_numbers = list(set(numbers))
+    print(unique_numbers)
+    if len(unique_numbers) < 2:
+        return {"second_min": None, "second_max": None}
+
+    return {"second_min": unique_numbers[1], "second_max": unique_numbers[-2]}
+
+
+result = second_min_max(numbers)
+logger.info(f"{result}")
