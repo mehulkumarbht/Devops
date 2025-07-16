@@ -582,7 +582,7 @@ def count_case(text):
     for char in text:
         if char.isupper():
             new_dict["uppercase"] += 1
-        if char.islower():
+        elif char.islower():
             new_dict["lowercase"] += 1
     return new_dict
 
@@ -610,7 +610,7 @@ def long_words(sentence):
     words = sentence.split()
     new_list = []
     for word in words:
-        if len(word) > 3:
+        if len(word) <= 3:
             new_list.append(word)
     return new_list
 
@@ -624,10 +624,8 @@ b = "I am good"
 
 
 def common_characters(a, b):
-    list_a = list(a)
-    list_b = list(b)
-    set_a = set(list_a)
-    set_b = set(list_b)
+    set_a = set(a)
+    set_b = set(b)
     set_c = set_a.intersection(set_b)
     return list(set_c)
 
