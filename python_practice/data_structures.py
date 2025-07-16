@@ -566,3 +566,71 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = sum_digits(numbers)
 # logger.info(f"{result}")
+
+# Day-09
+# 1: Write a list comprehension to create a list of squares of even numbers between 1 and 20.
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+result = [num**2 for num in numbers if num % 2 == 0]
+print(result)
+
+# 2: Write a function count_case(text) that returns a dictionary with the number of uppercase and lowercase letters in a string.
+text = "Write a function count_case that returns a dictionary with the number of uppercase and lowercase letters in a string."
+
+
+def count_case(text):
+    new_dict = {"uppercase": 0, "lowercase": 0}
+    for char in text:
+        if char.isupper():
+            new_dict["uppercase"] += 1
+        if char.islower():
+            new_dict["lowercase"] += 1
+    return new_dict
+
+
+result = count_case(text)
+logger.info(f"{result}")
+# 3: Write a function reverse_words(sentence) that takes a string and returns a new string with the words reversed (not the characters).
+sentence = "Hello, I am from this World"
+
+
+def reverse_words(sentence):
+    words = sentence.split()  # split() breaks the sentence into a list of words.
+    reverse_words = words[::-1]  # [::-1] reverses the list.
+    return " ".join(reverse_words)  # " ".join() combines the list back into a string.
+
+
+result = reverse_words(sentence)
+logger.info(f"{result}")
+
+# 4: Write a function that takes a list of words and returns only the words with 3 or fewer characters.
+sentence = "Hello, I am from this World"
+
+
+def long_words(sentence):
+    words = sentence.split()
+    new_list = []
+    for word in words:
+        if len(word) > 3:
+            new_list.append(word)
+    return new_list
+
+
+result = long_words(sentence)
+logger.info(f"{result}")
+
+# 5: Write a function that takes two strings and returns a list of common characters (without duplicates).
+a = "Hello Dear"
+b = "I am good"
+
+
+def common_characters(a, b):
+    list_a = list(a)
+    list_b = list(b)
+    set_a = set(list_a)
+    set_b = set(list_b)
+    set_c = set_a.intersection(set_b)
+    return list(set_c)
+
+
+result = common_characters(a, b)
+logger.info(f"{result}")
