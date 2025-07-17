@@ -569,66 +569,151 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # Day-09
 # 1: Write a list comprehension to create a list of squares of even numbers between 1 and 20.
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-result = [num**2 for num in numbers if num % 2 == 0]
-print(result)
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+# result = [num**2 for num in numbers if num % 2 == 0]
+# print(result)
 
-# 2: Write a function count_case(text) that returns a dictionary with the number of uppercase and lowercase letters in a string.
-text = "Write a function count_case that returns a dictionary with the number of uppercase and lowercase letters in a string."
-
-
-def count_case(text):
-    new_dict = {"uppercase": 0, "lowercase": 0}
-    for char in text:
-        if char.isupper():
-            new_dict["uppercase"] += 1
-        elif char.islower():
-            new_dict["lowercase"] += 1
-    return new_dict
+# # 2: Write a function count_case(text) that returns a dictionary with the number of uppercase and lowercase letters in a string.
+# text = "Write a function count_case that returns a dictionary with the number of uppercase and lowercase letters in a string."
 
 
-result = count_case(text)
-logger.info(f"{result}")
-# 3: Write a function reverse_words(sentence) that takes a string and returns a new string with the words reversed (not the characters).
-sentence = "Hello, I am from this World"
+# def count_case(text):
+#     new_dict = {"uppercase": 0, "lowercase": 0}
+#     for char in text:
+#         if char.isupper():
+#             new_dict["uppercase"] += 1
+#         elif char.islower():
+#             new_dict["lowercase"] += 1
+#     return new_dict
 
 
-def reverse_words(sentence):
-    words = sentence.split()  # split() breaks the sentence into a list of words.
-    reverse_words = words[::-1]  # [::-1] reverses the list.
-    return " ".join(reverse_words)  # " ".join() combines the list back into a string.
+# result = count_case(text)
+# logger.info(f"{result}")
+# # 3: Write a function reverse_words(sentence) that takes a string and returns a new string with the words reversed (not the characters).
+# sentence = "Hello, I am from this World"
 
 
-result = reverse_words(sentence)
-logger.info(f"{result}")
-
-# 4: Write a function that takes a list of words and returns only the words with 3 or fewer characters.
-sentence = "Hello, I am from this World"
-
-
-def long_words(sentence):
-    words = sentence.split()
-    new_list = []
-    for word in words:
-        if len(word) <= 3:
-            new_list.append(word)
-    return new_list
+# def reverse_words(sentence):
+#     words = sentence.split()  # split() breaks the sentence into a list of words.
+#     reverse_words = words[::-1]  # [::-1] reverses the list.
+#     return " ".join(reverse_words)  # " ".join() combines the list back into a string.
 
 
-result = long_words(sentence)
-logger.info(f"{result}")
+# result = reverse_words(sentence)
+# logger.info(f"{result}")
 
-# 5: Write a function that takes two strings and returns a list of common characters (without duplicates).
-a = "Hello Dear"
-b = "I am good"
-
-
-def common_characters(a, b):
-    set_a = set(a)
-    set_b = set(b)
-    set_c = set_a.intersection(set_b)
-    return list(set_c)
+# # 4: Write a function that takes a list of words and returns only the words with 3 or fewer characters.
+# sentence = "Hello, I am from this World"
 
 
-result = common_characters(a, b)
+# def long_words(sentence):
+#     words = sentence.split()
+#     new_list = []
+#     for word in words:
+#         if len(word) <= 3:
+#             new_list.append(word)
+#     return new_list
+
+
+# result = long_words(sentence)
+# logger.info(f"{result}")
+
+# # 5: Write a function that takes two strings and returns a list of common characters (without duplicates).
+# a = "Hello Dear"
+# b = "I am good"
+
+
+# def common_characters(a, b):
+#     set_a = set(a)
+#     set_b = set(b)
+#     set_c = set_a.intersection(set_b)
+#     return list(set_c)
+
+
+# result = common_characters(a, b)
+# logger.info(f"{result}")
+
+# Day-10
+# 1: Write a function that takes a string and returns True if it’s a palindrome (ignoring spaces and case), otherwise False.
+# Example: "Racecar" → True
+# s = "level"
+
+
+# def is_palindrome(s):
+#     new_string = s.replace(" ", "").lower()
+#     if new_string == new_string[::-1]:
+#         return True
+#     else:
+#         return False
+#     return new_string
+
+
+# result = is_palindrome(s)
+# logger.info(result)
+
+# 2: Write a function that merges two lists by taking elements alternately.
+# Example: [1,2,3], ['a','b','c'] → [1, 'a', 2, 'b', 3, 'c']
+# a = [1, 2, 3]
+# b = ["a", "b", "c"]
+
+
+# def merge_fun(a, b):
+#     new_list = []
+#     for pair in zip(a, b):
+#         for item in pair:
+#             new_list.append(item)
+#     return new_list
+
+
+# result = merge_fun(a, b)
+# print(result)
+
+# 3: Write a function that removes all punctuation from a string.
+# # Example: "Hello, world! Let's code." → "Hello world Lets code"
+# import string
+
+# text = "Hello, world! Let's code."
+
+
+# def remove_punctuation(text):
+#     clean_text = ""
+#     clean_text = text.translate(str.maketrans("", "", string.punctuation))
+#     return clean_text
+
+
+# result = remove_punctuation(text)
+# logger.info(f"{result}")
+
+
+# 4: Write a function that takes a list and a value, and returns all indices where that value occurs.
+# Example: [1, 2, 3, 2, 4], 2 → [1, 3]
+# numbers = [1, 2, 3, 2, 4]
+
+
+# def get_index(numbers):
+#     result = []
+#     for index, num in enumerate(numbers):
+#         result.append(f"Index {num}:{index}")
+#     return result
+
+
+# result = get_index(numbers)
+# logger.info(f"{result}")
+
+
+# 5: Write a function that returns True if all characters in a string are unique, otherwise False.
+# Example: "abcde" → True, "hello" → False
+# words = "Hello"
+
+
+# def unique_word(words):
+#     result = set()
+#     for word in words:
+#         if word in result:
+#             return False
+#         result.add(word)
+#     return True
+
+
+result = unique_word(words)
 logger.info(f"{result}")
