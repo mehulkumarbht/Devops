@@ -715,5 +715,95 @@ colors = ["Red", "Blue", "Black", "White"]
 #     return True
 
 
-result = unique_word(words)
+# result = unique_word(words)
+# logger.info(f"{result}")
+
+# 6: Return all indices of a value in a list, # Example: [1, 2, 3, 2, 4], 2 → [1, 3]
+# numbers = [1, 2, 3, 2, 4]
+# value = 2
+
+
+# def find_indices(numbers, value):
+#     result = []
+#     for index, num in enumerate(numbers):
+#         if num == value:
+#             result.append(index)
+#     return result
+
+
+# result = find_indices(numbers, value)
+# logger.info(f"{result}")
+
+# 7: Try writing a function that returns True if all characters in a string are unique (no duplicates).
+# Example:"abcde" → True, "hello" → False
+# words = "hello"
+
+
+# def is_unique(words):
+#     result = set()
+#     for word in words:
+#         if word in result:
+#             return False
+#         result.add(word)
+#     return True
+
+
+# result = is_unique(words)
+# logger.info(f"{result}")  # Expected: False
+
+# 8: Write a function that removes all vowels from a string.
+# Example: "Beautiful Day" → "Btfl Dy"
+# import string
+
+# text = "Beautiful Day"
+
+
+# def clean_vowel(text):
+#     new_str = ""
+#     vowels = "aeiouAEIOU"
+#     for letter in text:
+#         if letter not in vowels:
+#             new_str += letter
+#     return new_str
+
+
+# result = clean_vowel(text)
+# logger.info(f"{result}")
+
+# 9: Write a function that merges two lists alternately, but handles lists of different lengths.
+# Example: [1, 2, 3] and ['a', 'b'] → [1, 'a', 2, 'b', 3]
+
+# from itertools import zip_longest
+
+# a = [1, 2, 3]
+# b = ["a", "b"]
+
+
+# def merge_list(a, b):
+#     new_list = []
+#     for pair in zip_longest(a, b):
+#         for item in pair:
+#             if item not in new_list:
+#                 new_list.append(item)
+#     return new_list
+
+
+# result = merge_list(a, b)
+# logger.info(f"{result}")
+
+# 10: Write a function that returns the first non-repeating character in a string.Example: "aabbcde" → "c", If none, return None.
+from collections import Counter
+
+letters = "aabbccdde"
+
+
+def non_repeat_char(letters):
+    count = Counter(letters)
+    for letter in letters:
+        if count[letter] == 1:
+            return letter
+    return None
+
+
+result = non_repeat_char(letters)
 logger.info(f"{result}")
