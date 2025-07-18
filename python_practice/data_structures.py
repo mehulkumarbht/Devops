@@ -1,4 +1,5 @@
 from loguru import logger
+from collections import Counter
 
 # Day:1
 colors = ["Red", "Blue", "Black", "White"]
@@ -792,18 +793,18 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{result}")
 
 # 10: Write a function that returns the first non-repeating character in a string.Example: "aabbcde" → "c", If none, return None.
-from collections import Counter
-
-letters = "aabbccdde"
 
 
-def non_repeat_char(letters):
-    count = Counter(letters)
-    for letter in letters:
-        if count[letter] == 1:
-            return letter
-    return None
+# letters = "aabbccdde"
 
 
-result = non_repeat_char(letters)
-logger.info(f"{result}")
+# def non_repeat_char(letters):
+#     count = Counter(letters)
+#     for letter in letters:
+#         if count[letter] == 1:
+#             return letter
+#     return None
+
+
+# result = non_repeat_char(letters)
+# logger.info(f"{result}")
