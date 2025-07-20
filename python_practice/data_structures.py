@@ -808,3 +808,16 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = non_repeat_char(letters)
 # logger.info(f"{result}")
+# 11: Write a function that takes two lists and returns a list of unique common elements.
+list1 = [1, 2, 2, 3, 4]
+list2 = [2, 3, 5]
+
+
+# Output → [2, 3]
+def unique_list(list1, list2):
+    list3 = set(list1).intersection(set(list2))
+    return list3
+
+
+result = unique_list(list1, list2)
+logger.info(f"{(list(result))}")
