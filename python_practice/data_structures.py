@@ -821,3 +821,39 @@ def unique_list(list1, list2):
 
 result = unique_list(list1, list2)
 logger.info(f"{(list(result))}")
+
+# 12: Write a function that removes all vowels (a, e, i, o, u) from a given string (case-insensitive).
+# Example:
+# Input: "Beautiful Day"
+# Output: "Btfl Dy"
+sentence = "Beautiful Day"
+
+
+def remove_vowels(sentence):
+    vowels = "aeiouAEIOU"
+    output = ""
+
+    for char in sentence:
+        if char not in vowels:
+            output += char
+    return output
+
+
+result = remove_vowels(sentence)
+logger.info(f"{result}")
+
+# 13: Write a function to flatten a nested list of lists into a single list.
+# Example:Input: [[1, 2], [3, 4], [5]], Output: [1, 2, 3, 4, 5]
+numbers = [[1, 2], [3, 4], [5]]
+
+
+def nested_list(numbers):
+    flat_list = []
+    for sub_list in numbers:
+        for num in sub_list:
+            flat_list.append(num)
+    return flat_list
+
+
+result = nested_list(numbers)
+logger.info(f"{result}")
