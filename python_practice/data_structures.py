@@ -809,51 +809,87 @@ colors = ["Red", "Blue", "Black", "White"]
 # result = non_repeat_char(letters)
 # logger.info(f"{result}")
 # 11: Write a function that takes two lists and returns a list of unique common elements.
-list1 = [1, 2, 2, 3, 4]
-list2 = [2, 3, 5]
+# list1 = [1, 2, 2, 3, 4]
+# list2 = [2, 3, 5]
 
 
 # Output → [2, 3]
-def unique_list(list1, list2):
-    list3 = set(list1).intersection(set(list2))
-    return list3
+# def unique_list(list1, list2):
+#     list3 = set(list1).intersection(set(list2))
+#     return list3
 
 
-result = unique_list(list1, list2)
-logger.info(f"{(list(result))}")
+# result = unique_list(list1, list2)
+# logger.info(f"{(list(result))}")
 
 # 12: Write a function that removes all vowels (a, e, i, o, u) from a given string (case-insensitive).
 # Example:
 # Input: "Beautiful Day"
 # Output: "Btfl Dy"
-sentence = "Beautiful Day"
+# sentence = "Beautiful Day"
 
 
-def remove_vowels(sentence):
-    vowels = "aeiouAEIOU"
-    output = ""
+# def remove_vowels(sentence):
+#     vowels = "aeiouAEIOU"
+#     output = ""
 
-    for char in sentence:
-        if char not in vowels:
-            output += char
-    return output
+#     for char in sentence:
+#         if char not in vowels:
+#             output += char
+#     return output
 
 
-result = remove_vowels(sentence)
-logger.info(f"{result}")
+# result = remove_vowels(sentence)
+# logger.info(f"{result}")
 
 # 13: Write a function to flatten a nested list of lists into a single list.
 # Example:Input: [[1, 2], [3, 4], [5]], Output: [1, 2, 3, 4, 5]
-numbers = [[1, 2], [3, 4], [5]]
+# numbers = [[1, 2], [3, 4], [5]]
 
 
-def nested_list(numbers):
-    flat_list = []
-    for sub_list in numbers:
-        for num in sub_list:
-            flat_list.append(num)
-    return flat_list
+# def nested_list(numbers):
+#     flat_list = []
+#     for sub_list in numbers:
+#         for num in sub_list:
+#             flat_list.append(num)
+#     return flat_list
 
 
-result = nested_list(numbers)
+# result = nested_list(numbers)
+# logger.info(f"{result}")
+
+# 14: Write a function that takes a sentence and returns a dictionary with the frequency of each word.
+# Example:Input: "this is a test this is only a test"
+# Output: {'this': 2, 'is': 2, 'a': 2, 'test': 2, 'only': 1}
+
+# input = "this is a test this is only a test"
+
+
+# def word_frequency(input):
+#     words = input.split()
+#     new_dict = {}
+#     for word in words:
+#         if word in new_dict:
+#             new_dict[word] += 1
+#         else:
+#             new_dict[word] = 1
+#     return new_dict
+
+
+# result = word_frequency(input)
+# logger.info(f"{result}")
+
+# 15: Write a function that converts a sentence to title case (capitalize the first letter of each word).
+# Example:Input: "python is fun"
+# Output: "Python Is Fun"
+
+input = "python is fun"
+
+
+def title_case(input):
+    s = input.title()
+    return s
+
+
+result = title_case(input)
 logger.info(f"{result}")
