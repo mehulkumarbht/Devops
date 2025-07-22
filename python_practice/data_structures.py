@@ -883,13 +883,106 @@ colors = ["Red", "Blue", "Black", "White"]
 # Example:Input: "python is fun"
 # Output: "Python Is Fun"
 
-input = "python is fun"
+# input = "python is fun"
 
 
-def title_case(input):
-    s = input.title()
-    return s
+# def title_case(input):
+#     s = input.title()
+#     return s
 
 
-result = title_case(input)
+# result = title_case(input)
+# logger.info(f"{result}")
+
+# 16: Write a function that reverses the words in a sentence, not the characters.
+# input = "Hello world this is fun"
+# output = "fun is this world Hello"
+
+
+# def reverse_sentence(input):
+#     words = input.split()
+#     reverse_words = words[::-1]
+#     return " ".join(reverse_words)
+
+
+# result = reverse_sentence(input)
+# logger.info(f"{result}")
+
+# 17: Write a function that returns a dictionary showing how many times each character appears in a string (ignore case and spaces).
+# input = "Aa Bb Aa"
+# # output = {"a": 4, "b": 2}
+
+
+# def count_char(input):
+#     new_dict = {}
+#     for char in input.lower():
+#         if char == " ":
+#             continue
+#         if char in new_dict:
+#             new_dict[char] += 1
+#         else:
+#             new_dict[char] = 1
+#     return new_dict
+
+
+# result = count_char(input)
+# logger.info(f"{result}")
+
+# 18: Write a function that returns a dictionary: {"vowels": X, "consonants": Y} for a given string (only letters count).
+# input = "Hello, World!"
+# # output = {'vowels': 3, 'consonants': 7}
+
+
+# def count_vowels_consonants(input):
+#     vowels = "aeiou"
+#     new_dict = {"vowels": 0, "consonants": 0}
+#     for word in input.lower():
+#         if word.isalpha():
+#             if word in vowels:
+#                 new_dict["vowels"] += 1
+#             else:
+#                 new_dict["consonants"] += 1
+#     return new_dict
+
+
+# result = count_vowels_consonants(input)
+# logger.info(f"{result}")
+
+# 19: Write a function that returns the longest word from a sentence. If multiple, return the first.
+# input = "This is a programming challenge"
+
+
+# # output = "programming"
+# def length_of_words(input):
+#     words = input.split()
+#     output = ""
+#     for word in words:
+#         if len(word) > len(output):
+#             output = word
+#     return output
+
+
+# result = length_of_words(input)
+# logger.info(f"{result}")
+
+# 20: Write a function that returns the elements common to two lists — including how many times they repeat (minimum match).
+
+
+list1 = [1, 2, 2, 3]
+list2 = [2, 2, 4]
+
+
+# output = [2, 2]
+def common_char(list1, list2):
+    count1 = Counter(list1)
+    count2 = Counter(list2)
+    result = []
+
+    for num in count1:
+        if num in count2:
+            result.extend([num] * min(count1[num], count2[num]))
+    return result
+
+
+result = common_char(list1, list2)
 logger.info(f"{result}")
