@@ -1046,8 +1046,8 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # def reversed_words(input):
 #     words = input.split()
-#     resverse = words[::-1]
-#     return " ".join(resverse)
+#     reverse = words[::-1]
+#     return " ".join(reverse)
 
 
 # result = reversed_words(input)
