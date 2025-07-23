@@ -1,4 +1,5 @@
 from loguru import logger
+import string
 from collections import Counter
 
 # Day:1
@@ -968,21 +969,100 @@ colors = ["Red", "Blue", "Black", "White"]
 # 20: Write a function that returns the elements common to two lists — including how many times they repeat (minimum match).
 
 
-list1 = [1, 2, 2, 3]
-list2 = [2, 2, 4]
+# list1 = [1, 2, 2, 3]
+# list2 = [2, 2, 4]
 
 
-# output = [2, 2]
-def common_char(list1, list2):
-    count1 = Counter(list1)
-    count2 = Counter(list2)
-    result = []
+# # output = [2, 2]
+# def common_char(list1, list2):
+#     count1 = Counter(list1)
+#     count2 = Counter(list2)
+#     result = []
 
-    for num in count1:
-        if num in count2:
-            result.extend([num] * min(count1[num], count2[num]))
-    return result
+#     for num in count1:
+#         if num in count2:
+#             result.extend([num] * min(count1[num], count2[num]))
+#     return result
 
 
-result = common_char(list1, list2)
-logger.info(f"{result}")
+# result = common_char(list1, list2)
+# logger.info(f"{result}")
+
+# Day-11
+# 1: Write a function that takes a sentence and returns the most frequent word in it.
+# Ignore punctuation and make the comparison case-insensitive.
+# sentence = "The sun shines over the lake, and the sun is bright."
+# Output: "the"
+
+
+# def repeat_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     count = Counter(words)
+#     most_common = count.most_common(1)[0][0]
+#     return most_common
+
+
+# result = repeat_words(sentence)
+# logger.info(f"{result}")
+
+# 2: Write a function that removes duplicates from a list but preserves the original order of elements.
+# input = [1, 2, 2, 3, 1, 4]
+
+
+# def remove_dupes(input):
+#     new_list = []
+#     for num in input:
+#         if num not in new_list:
+#             new_list.append(num)
+#     return new_list
+
+
+# result = remove_dupes(input)
+# logger.info(f"{result}")
+
+# 3: Write a function that counts how many times each character appears in a string, ignoring case and excluding spaces.
+# input = "Hello World"
+
+
+# def count_char(input):
+#     new_input = {}
+#     for char in input.lower():
+#         if char == " ":
+#             continue
+#         if char in new_input:
+#             new_input[char] += 1
+#         else:
+#             new_input[char] = 1
+#     return new_input
+
+
+# result = count_char(input)
+# logger.info(f"{result}")
+
+# 4: Write a function that takes a sentence and returns a new sentence with the order of words reversed, but the words themselves remain unchanged.
+# input = "Python is awesome"
+
+
+# def reversed_words(input):
+#     words = input.split()
+#     resverse = words[::-1]
+#     return " ".join(resverse)
+
+
+# result = reversed_words(input)
+# logger.info(f"{result}")
+
+# 5: You are given a list of integers from 1 to n, except one number is missing. Write a function to find the missing number.
+# num = [1, 2, 4, 5]
+
+
+# def find_missing(num):
+#     expected = set(range(min(num), max(num) + 1))
+#     actual = set(num)
+#     missing = list(expected - actual)
+#     return sorted(missing)
+
+
+# result = find_missing(num)
+# logger.info(f"{result}")
