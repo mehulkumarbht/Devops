@@ -1065,4 +1065,4 @@ colors = ["Red", "Blue", "Black", "White"]
 
 
 # result = find_missing(num)
-# logger.info(f"{result}")
+logger.info(f"{result}")
