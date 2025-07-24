@@ -809,6 +809,7 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = non_repeat_char(letters)
 # logger.info(f"{result}")
+
 # 11: Write a function that takes two lists and returns a list of unique common elements.
 # list1 = [1, 2, 2, 3, 4]
 # list2 = [2, 3, 5]
@@ -1066,3 +1067,86 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = find_missing(num)
 # logger.info(f"{result}")
+
+# 6: Check if a string is a palindrome (ignoring spaces and case)
+# input = "Race car"
+
+
+# def is_palindrome(input):
+#     new_word = input.replace(" ", "").lower()
+#     if new_word == new_word[::-1]:
+#         return True
+#     else:
+#         return False
+
+
+# result = is_palindrome(input)
+# logger.info(f"{result}")
+
+# 7:  Merge two dictionaries. If a key exists in both, sum their values
+# dict1 = {"a": 2, "b": 3}
+# dict2 = {"a": 4, "c": 5}
+
+
+# def merge_dictionary(dict1, dict2):
+#     new_dict = dict1.copy()
+#     for key, value in dict2.items():
+#         if key in new_dict:
+#             new_dict[key] += value
+#         else:
+#             new_dict[key] = value
+#     return new_dict
+
+
+# result = merge_dictionary(dict1, dict2)
+# logger.info(f"{result}")
+
+# 8:Find the second highest number in a list
+# input = [4, 1, 7, 3, 7, 2]
+
+
+# def second_highest(input):
+#     first = second = float("-inf")
+#     for num in input:
+#         if num > first:
+#             second = first
+#             first = num
+#         elif num > second and num != first:
+#             second = num
+#     return second if second != float("-inf") else None
+
+
+# result = second_highest(input)
+# logger.info(f"{result}")
+
+# 9: Convert a list of words into a sentence with proper spacing and punctuation
+input = ["hello", "world"]
+
+
+def form_sentence(input):
+    sentence = " ".join(input)
+    s_capitalize = sentence.capitalize()
+    if not s_capitalize.endswith("."):
+        s_capitalize += "."
+    return s_capitalize
+
+
+result = form_sentence(input)
+logger.info(f"{result}")
+
+# 10: Count how many words start with each letter in a sentence
+input = "She sells sea shells by the seashore"
+
+
+def starts_with(input):
+    word_count = Counter()
+    cleaned = input.translate(str.maketrans("", "", string.punctuation)).lower()
+    words = cleaned.split()
+    for word in words:
+        first_letter = word[0]
+        word_count[first_letter] += 1
+    return word_count
+
+
+result = starts_with(input)
+logger.info(f"{result}")
