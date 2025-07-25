@@ -1214,4 +1214,50 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{result}")
 
 # 4: Write a function that takes a sentence and returns the shortest and longest word(s) in it.
-sentence = "The quick brown fox jumps over the lazy dog"
+# sentence = "The quick brown fox jumps over the lazy dog"
+
+
+# def lenght_of_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation))
+#     words = clean.split()
+#     shortest_len = float("inf")
+#     longest_len = 0
+#     for word in words:
+#         length = len(word)
+#         if length < shortest_len:
+#             shortest_len = length
+#         if length > longest_len:
+#             longest_len = length
+#     result = {"shortest": [], "longest": []}
+
+#     for word in words:
+#         if len(word) == shortest_len:
+#             result["shortest"].append(word)
+#         if len(word) == longest_len:
+#             result["longest"].append(word)
+#     return result
+
+
+# result = lenght_of_words(sentence)
+# logger.info(f"{result}")
+
+# 5: Write a function that takes a sentence and returns a dictionary where the keys are word lengths, and the values are lists of words that have that length.
+sentence = "The rain in Spain falls mainly in the plain"
+# output{  3: ['The', 'rain', 'the'],  2: ['in', 'in'],  5: ['Spain', 'falls', 'plain'],  6: ['mainly']}
+
+
+def length_of_words(sentence):
+    clean = sentence.translate(str.maketrans("", "", string.punctuation))
+    words = clean.split()
+    new_dict = {}
+    for word in words:
+        length = len(word)
+        if length in new_dict:
+            new_dict[length].append(word)
+        else:
+            new_dict[length] = [word]
+    return new_dict
+
+
+result = length_of_words(sentence)
+logger.info(f"{result}")
