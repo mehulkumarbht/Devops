@@ -1242,22 +1242,22 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{result}")
 
 # 5: Write a function that takes a sentence and returns a dictionary where the keys are word lengths, and the values are lists of words that have that length.
-sentence = "The rain in Spain falls mainly in the plain"
+# sentence = "The rain in Spain falls mainly in the plain"
 # output{  3: ['The', 'rain', 'the'],  2: ['in', 'in'],  5: ['Spain', 'falls', 'plain'],  6: ['mainly']}
 
 
-def length_of_words(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation))
-    words = clean.split()
-    new_dict = {}
-    for word in words:
-        length = len(word)
-        if length in new_dict:
-            new_dict[length].append(word)
-        else:
-            new_dict[length] = [word]
-    return new_dict
+# def length_of_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation))
+#     words = clean.split()
+#     new_dict = {}
+#     for word in words:
+#         length = len(word)
+#         if length in new_dict:
+#             new_dict[length].append(word)
+#         else:
+#             new_dict[length] = [word]
+#     return new_dict
 
 
-result = length_of_words(sentence)
-logger.info(f"{result}")
+# result = length_of_words(sentence)
+# logger.info(f"{result}")
