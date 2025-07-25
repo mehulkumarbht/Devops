@@ -1120,33 +1120,98 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{result}")
 
 # 9: Convert a list of words into a sentence with proper spacing and punctuation
-input = ["hello", "world"]
+# input = ["hello", "world"]
 
 
-def form_sentence(input):
-    sentence = " ".join(input)
-    s_capitalize = sentence.capitalize()
-    if not s_capitalize.endswith("."):
-        s_capitalize += "."
-    return s_capitalize
+# def form_sentence(input):
+#     sentence = " ".join(input)
+#     s_capitalize = sentence.capitalize()
+#     if not s_capitalize.endswith("."):
+#         s_capitalize += "."
+#     return s_capitalize
 
 
-result = form_sentence(input)
-logger.info(f"{result}")
+# result = form_sentence(input)
+# logger.info(f"{result}")
 
-# 10: Count how many words start with each letter in a sentence
-input = "She sells sea shells by the seashore"
-
-
-def starts_with(input):
-    word_count = Counter()
-    cleaned = input.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = cleaned.split()
-    for word in words:
-        first_letter = word[0]
-        word_count[first_letter] += 1
-    return word_count
+# # 10: Count how many words start with each letter in a sentence
+# input = "She sells sea shells by the seashore"
 
 
-result = starts_with(input)
-logger.info(f"{result}")
+# def starts_with(input):
+#     word_count = Counter()
+#     cleaned = input.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = cleaned.split()
+#     for word in words:
+#         first_letter = word[0]
+#         word_count[first_letter] += 1
+#     return word_count
+
+
+# result = starts_with(input)
+# logger.info(f"{result}")
+
+# Day-12: Write a function that takes a string and returns a dictionary with the count of:
+# Letters (A-Z, a-z)
+# Digits (0-9)
+# Special characters (anything else, excluding spaces)
+
+# input = "Hello123! How are you? :)"
+
+
+# def count_words(input):
+#     letters = 0
+#     digits = 0
+#     specials = 0
+#     for char in input:
+#         if char.isalpha():
+#             letters += 1
+#         elif char.isdigit():
+#             digits += 1
+#         elif not char.isspace():
+#             specials += 1
+#     return {"letters": letters, "digits": digits, "specials": specials}
+
+
+# result = count_words(input)
+# logger.info(f"{result}")
+
+# 2: Write a function that takes a string and returns the count of each vowel (a, e, i, o, u), case-insensitive.
+# input = "Beautiful day in the neighborhood"
+
+
+# # Output:
+# # {'a': 2, 'e': 3, 'i': 3, 'o': 3, 'u': 2}
+# def count_vowels(input):
+#     sentence = input.lower()
+#     new_dict = {"a": 0, "e": 0, "i": 0, "o": 0, "u": 0}
+#     for word in sentence:
+#         if word in new_dict:
+#             new_dict[word] += 1
+#     return new_dict
+
+
+# result = count_vowels(input)
+# logger.info(f"{result}")
+
+# 3: Write a function that takes a sentence and returns a dictionary where each key is the length of the word, and the value is the number of words with that length.
+# sentence = "This is an amazing day for programming"
+
+
+# def lenght_of_words(sentence):
+#     words = sentence.split()
+#     new_dict = {}
+#     for word in words:
+#         length = len(word)
+#         if length in new_dict:
+#             new_dict[length] += 1
+#         else:
+#             new_dict[length] = 1
+#     return new_dict
+
+
+# result = lenght_of_words(sentence)
+# logger.info(f"{result}")
+
+# 4: Write a function that takes a sentence and returns the shortest and longest word(s) in it.
+sentence = "The quick brown fox jumps over the lazy dog"
