@@ -1353,3 +1353,91 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = even_words(sentence)
 # logger.info(f"{result}")
+
+# Day-14:
+# 1: Write a function that counts how many words in a sentence end with a vowel (a, e, i, o, u). The comparison should be case-insensitive, and punctuation should be ignored.
+# sentence = "Umbrella is an idea, and I owe you."
+
+
+# # Output: 6
+# def check_vowels(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     count = 0
+#     for word in words:
+#         if word[-1] in vowels:
+#             count += 1
+#     return count
+
+
+# result = check_vowels(sentence)
+# logger.info(f"{result}")
+
+# 2:Given a sentence, count how many words start and end with the same letter. Ignore punctuation and consider case-insensitive comparison.Given a sentence, count how many words start and end with the same letter. Ignore punctuation and consider case-insensitive comparison.
+# sentence = "Anna and Otto went kayaking at noon and came back"
+
+
+# def start_end_letter(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     count = 0
+#     for word in words:
+#         if word[0] == word[-1]:
+#             count += 1
+#     return count
+
+
+# result = start_end_letter(sentence)
+# logger.info(f"{result}")
+
+# 3: Write a function that takes a sentence and returns a list of the lengths of each word in the sentence.
+# sentence = "Data engineering is fun and powerful"
+
+
+# def count_length_word(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     count = []
+#     for word in words:
+#         count.append(len(word))
+#     return count
+
+
+# result = count_length_word(sentence)
+# logger.info(f"{result}")
+
+# 4: Write a function that returns the length of the longest word in a sentence.
+# sentence = "Python makes data engineering exciting"
+
+
+# def count_longest_word(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     longest = 0
+#     for word in words:
+#         if len(word) > longest:
+#             longest = len(word)
+#     return longest
+
+
+# result = count_longest_word(sentence)
+# logger.info(f"{result}")
+
+# 5:Write a function that counts how many words in a sentence end with a vowel (a, e, i, o, u).
+# sentence = "She saw a movie and ate pizza"
+
+
+# def end_with_vowel(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     count = 0
+#     for word in words:
+#         if word[-1] in vowels:
+#             count += 1
+#     return count
+
+
+# result = end_with_vowel(sentence)
+# logger.info(f"{result}")
