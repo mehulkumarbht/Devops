@@ -1261,3 +1261,95 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = length_of_words(sentence)
 # logger.info(f"{result}")
+
+# Day-13:
+# 1: Write a function that takes two sentences and returns True if they are anagrams of each other, False otherwise. Ignore punctuation, spaces, and case.
+# input1 = "The eyes!"
+# input2 = "They see"
+
+
+# def check_anagram(input1, input2):
+#     clean1 = input1.translate(str.maketrans("", "", string.punctuation)).lower()
+#     clean2 = input2.translate(str.maketrans("", "", string.punctuation)).lower()
+#     return Counter(clean1) == Counter(clean2)
+
+
+# result = check_anagram(input1, input2)
+# logger.info(f"{result}")
+
+# 2: Write a function that counts how many palindromic words are in a sentence.Ignore punctuation and case.
+# (A palindrome is a word that reads the same forwards and backwards, like "madam", "noon", or "level").
+
+# sentence = "Madam Arora teaches malayalam and Anna loves noon."
+
+
+# def count_palindromic(sentence):
+#     reverse_count = 0
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     for word in words:
+#         if word == word[::-1]:
+#             reverse_count += 1
+#     return reverse_count
+
+
+# result = count_palindromic(sentence)
+# logger.info(f"{result}")
+
+# 3: Write a function that takes a sentence and returns the word that contains the highest number of vowels.
+# sentence = "Education is the key to success"
+
+
+# def count_vowel(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     max_counts = 0
+#     max_word = ""
+#     for word in words:
+#         count = 0
+#         for char in word:
+#             if char in vowels:
+#                 count += 1
+#         if count > max_counts:
+#             max_counts = count
+#             max_word = word
+#     return {"max_word": max_word, "max_counts": max_counts}
+
+
+# result = count_vowel(sentence)
+# logger.info(f"{result}")
+
+# 4: Write a function that takes a sentence and returns the count of words where the first and last letters are the same (case-insensitive), ignoring punctuation.
+# sentence = "Anna went to see civic duty with her dad."
+
+
+# def first_last_same(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     count = 0
+#     for word in words:
+#         if len(word) > 1 and word[0] == word[-1]:
+#             count += 1
+#     return count
+
+
+# result = first_last_same(sentence)
+# logger.info(f"{result}")
+
+# 5: Write a function that counts how many words in a sentence have an even number of letters.
+sentence = "This challenge is quite interesting"
+
+
+def even_words(sentence):
+    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+    words = clean.split()
+    count = 0
+    for word in words:
+        if len(word) % 2 == 0:
+            count += 1
+    return count
+
+
+result = even_words(sentence)
+logger.info(f"{result}")
