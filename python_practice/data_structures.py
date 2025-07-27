@@ -1338,18 +1338,18 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{result}")
 
 # 5: Write a function that counts how many words in a sentence have an even number of letters.
-sentence = "This challenge is quite interesting"
+# sentence = "This challenge is quite interesting"
 
 
-def even_words(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = clean.split()
-    count = 0
-    for word in words:
-        if len(word) % 2 == 0:
-            count += 1
-    return count
+# def even_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     count = 0
+#     for word in words:
+#         if len(word) % 2 == 0:
+#             count += 1
+#     return count
 
 
-result = even_words(sentence)
-logger.info(f"{result}")
+# result = even_words(sentence)
+# logger.info(f"{result}")
