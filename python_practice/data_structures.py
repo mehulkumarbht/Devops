@@ -1441,3 +1441,107 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = end_with_vowel(sentence)
 # logger.info(f"{result}")
+
+# Day-15:
+# 1: Write a function that takes a sentence and returns a list where each word is replaced with its length.
+# sentence = "Learning Python is enjoyable"
+
+
+# Output: [8, 6, 2, 9]
+# def word_length(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     output = []
+#     for word in words:
+#         output.append(len(word))
+#     return output
+
+
+# result = word_length(sentence)
+# logger.info(f"{result}")
+
+# 2: Write a function that returns all the words that appear only once in the sentence. Ignore case and punctuation.
+# sentence = "Python is great and Python is powerful"
+
+
+# Output: ['great', 'and', 'powerful']
+# def word_list(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     output = []
+#     word_count = Counter(words)
+#     for word in words:
+#         if word_count[word] == 1:
+#             output.append(word)
+#     return output
+
+
+# result = word_list(sentence)
+# logger.info(f"{result}")
+
+# 3: Write a function that takes a sentence and replaces every vowel in each word with its position (1-based) in the word.
+# sentence = "Data is fun"
+# output = ["D2t4", "1s", "f2n"]
+
+
+# def replace_vowel(sentence):
+#     words = sentence.split()
+#     vowels = "aeiouAEIOU"
+#     output = []
+#     for word in words:
+#         new_word = ""
+#         for idx, char in enumerate(word):
+#             if char in vowels:
+#                 new_word += str(idx + 1)
+#             else:
+#                 new_word += char
+#         output.append(new_word)
+#     return output
+
+
+# result = replace_vowel(sentence)
+# logger.info(f"{result}")
+
+# 4: Given a sentence, return a new sentence where all words with 3 or fewer characters are capitalized, and the rest remain in lowercase.
+# sentence = "Data is fun and very cool"
+# Output: "data IS FUN AND very cool"
+
+
+# def upper_lower_casing(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     output = []
+#     for word in words:
+#         if len(word) <= 3:
+#             output.append(word.upper())
+#         else:
+#             output.append(word.lower())
+#     return " ".join(output)
+
+
+# result = upper_lower_casing(sentence)
+# logger.info(f"{result}")
+
+# 5: Write a function word_frequency_sort(text: str) -> list[str] that:
+# Takes a string text containing multiple words.
+# Counts the frequency of each word (case-insensitive).
+# Returns a list of unique words sorted:
+# By descending frequency (most frequent first)
+# If frequencies tie, by alphabetical order ascending
+
+input_text = "Apple banana Banana orange orange orange apple banana"
+
+
+# def word_frequency_sort(input_text):
+#     clean = input_text.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     words_count = Counter(words)
+#     output = []
+#     sorted_words = sorted(words_count.items(), key=lambda x: (-x[1], x[0]))
+#     for word, count in sorted_words:
+#         output.append(word)
+#     return output
+
+
+# result = word_frequency_sort(input_text)
+# logger.info(f"{result}")
