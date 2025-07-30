@@ -1545,3 +1545,130 @@ input_text = "Apple banana Banana orange orange orange apple banana"
 
 # result = word_frequency_sort(input_text)
 # logger.info(f"{result}")
+
+# Day-16:
+# 1: Write a function that takes a sentence and replaces every vowel in the middle of a word (not the first or last letter) with a *. Do not modify single-letter words or words with less than 3 letters.
+# sentence = "Understanding how vowels work is important"
+
+
+# def replace_vowel(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation))
+#     words = clean.split()
+#     vowel = "aeiouAEIOU"
+#     output = []
+#     for word in words:
+#         if len(word) <= 3:
+#             output.append(word)
+#         else:
+#             first, middle, last = word[0], word[1:-1], word[-1]
+#             new_middle = ""
+#             for char in middle:
+#                 if char in vowel:
+#                     new_middle += "*"
+#                 else:
+#                     new_middle += char
+#             output.append(first + new_middle + last)
+#     return " ".join(output)
+
+
+# result = replace_vowel(sentence)
+# logger.info(f"{result}")
+
+# 2: Given a sentence, swap the first and last letters of each word only if the word has more than 3 characters. Short words (3 or fewer letters) should remain unchanged.
+# sentence = "Python is great and powerful"
+
+
+# def letters_swap(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation))
+#     words = clean.split()
+#     output = []
+#     for word in words:
+#         if len(word) <= 3:
+#             output.append(word)
+#         else:
+#             first, middle, last = word[0], word[1:-1], word[-1]
+#             output.append(last + middle + first)
+#     return " ".join(output)
+
+
+# result = letters_swap(sentence)
+# logger.info(f"{result}")
+
+# 3:You are given a sentence. Your task is to reverse every second word, starting with the second (index 1), and return the updated sentence.
+# sentence = "Data engineering is both challenging and rewarding"
+
+
+# def reverse_second_word(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation))
+#     words = clean.split()
+#     output = []
+#     for index, word in enumerate(words):
+#         if index % 2 == 0:
+#             output.append(word)
+#         else:
+#             output.append(word[::-1])
+#     return " ".join(output)
+
+
+# result = reverse_second_word(sentence)
+# logger.info(f"{result}")
+
+# 4: For any word in a sentence that is longer than 4 characters, convert it into an abbreviation format where:
+
+# First letter is kept
+
+# Then the number of characters between the first and last letter
+
+# hen the last letter
+
+# Words with 4 or fewer characters should remain unchanged.
+# sentence = "International data systems are optimized"
+
+
+# def abbreviation_format(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation))
+#     words = clean.split()
+#     output = []
+#     for word in words:
+#         if len(word) <= 4:
+#             output.append(word)
+#         else:
+#             first, middle, last = word[0], word[1:-1], word[-1]
+#             new_middle = ""
+#             for char in middle:
+#                 new_middle = str(len(middle))
+#             output.append(first + new_middle + last)
+#     return " ".join(output)
+
+
+# result = abbreviation_format(sentence)
+# logger.info(f"{result}")
+
+# 5: Write a function that compresses a string by replacing sequences of the same character with that character followed by the number of repetitions. Only compress if a character repeats more than once consecutively.
+sentence = "aaabbbbccdaa"
+
+
+def string_compress(sentence):
+    word = sentence.translate(str.maketrans("", "", string.punctuation))
+    output = ""
+    prev_char = word[0]
+    count = 1
+    for char in word[1:]:
+        if char == prev_char:
+            count += 1
+        else:
+            if count > 1:
+                output += prev_char + str(count)
+            else:
+                output += prev_char
+            prev_char = char
+            count = 1
+    if count > 1:
+        output += prev_char + str(count)
+    else:
+        output += prev_char
+    return output
+
+
+result = string_compress(sentence)
+logger.info(f"{result}")
