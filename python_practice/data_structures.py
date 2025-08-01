@@ -1645,47 +1645,85 @@ input_text = "Apple banana Banana orange orange orange apple banana"
 # logger.info(f"{result}")
 
 # 5: Write a function that compresses a string by replacing sequences of the same character with that character followed by the number of repetitions. Only compress if a character repeats more than once consecutively.
-sentence = "aaabbbbccdaa"
+# sentence = "aaabbbbccdaa"
 
 
-def string_compress(sentence):
-    word = sentence.translate(str.maketrans("", "", string.punctuation))
-    output = ""
-    prev_char = word[0]
-    count = 1
-    for char in word[1:]:
-        if char == prev_char:
-            count += 1
-        else:
-            output += prev_char + str(count)
-            prev_char = char
-            count = 1
-    output += prev_char + str(count)
-    return output
+# def string_compress(sentence):
+#     word = sentence.translate(str.maketrans("", "", string.punctuation))
+#     output = ""
+#     prev_char = word[0]
+#     count = 1
+#     for char in word[1:]:
+#         if char == prev_char:
+#             count += 1
+#         else:
+#             output += prev_char + str(count)
+#             prev_char = char
+#             count = 1
+#     output += prev_char + str(count)
+#     return output
 
 
-result = string_compress(sentence)
-logger.info(f"{result}")
+# result = string_compress(sentence)
+# logger.info(f"{result}")
 
 # Day-17:
 # 1: Compress the string by replacing each sequence of repeated characters with the character followed by its count (case-sensitive). Ignore spaces and punctuation.
-sentence = "aaabbccccd"
+# sentence = "aaabbccccd"
+
+
+# def run_length_encoding(sentence):
+#     word = sentence.translate(str.maketrans("", "", string.punctuation))
+#     output = ""
+#     prev_char = word[0]
+#     count = 1
+#     for char in word[1:]:
+#         if char == prev_char:
+#             count += 1
+#         else:
+#             output += prev_char + str(count)
+#             prev_char = char
+#             count = 1
+#     output += prev_char + str(count)
+#     return output
+
+
+# result = run_length_encoding(sentence)
+# logger.info(f"{result}")
+
+# 2: Given a sentence, compress each word using run-length encoding (RLE) individually. That is, apply RLE to each word separately, keeping spaces intact between them.
+sentence = "hellooo wooorld"
+
+
+def compressed_word(word):
+    output = ""
+    prev_word = word[0]
+    count = 1
+    for word in word[1:]:
+        if word == prev_word:
+            count += 1
+        else:
+            if count > 1:
+                output += prev_word + str(count)
+            else:
+                output += prev_word
+            prev_word = word
+            count = 1
+    if count > 1:
+        output += prev_word + str(count)
+    else:
+        output += prev_word
+    return output
 
 
 def run_length_encoding(sentence):
-    word = sentence.translate(str.maketrans("", "", string.punctuation))
-    output = ""
-    prev_char = word[0]
-    count = 1
-    for char in word[1:]:
-        if char == prev_char:
-            count += 1
-        else:
-            output += prev_char + str(count)
-            prev_char = char
-            count = 1
-    output += prev_char + str(count)
-    return output
+    clean = sentence.translate(str.maketrans("", "", string.punctuation))
+    words = clean.split()
+    compressed_words = []
+    for word in words:
+        compressed = compressed_word(word)
+        compressed_words.append(compressed)
+    return " ".join(compressed_words)
 
 
 result = run_length_encoding(sentence)
