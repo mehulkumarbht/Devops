@@ -1657,18 +1657,36 @@ def string_compress(sentence):
         if char == prev_char:
             count += 1
         else:
-            if count > 1:
-                output += prev_char + str(count)
-            else:
-                output += prev_char
+            output += prev_char + str(count)
             prev_char = char
             count = 1
-    if count > 1:
-        output += prev_char + str(count)
-    else:
-        output += prev_char
+    output += prev_char + str(count)
     return output
 
 
 result = string_compress(sentence)
+logger.info(f"{result}")
+
+# Day-17:
+# 1: Compress the string by replacing each sequence of repeated characters with the character followed by its count (case-sensitive). Ignore spaces and punctuation.
+sentence = "aaabbccccd"
+
+
+def run_length_encoding(sentence):
+    word = sentence.translate(str.maketrans("", "", string.punctuation))
+    output = ""
+    prev_char = word[0]
+    count = 1
+    for char in word[1:]:
+        if char == prev_char:
+            count += 1
+        else:
+            output += prev_char + str(count)
+            prev_char = char
+            count = 1
+    output += prev_char + str(count)
+    return output
+
+
+result = run_length_encoding(sentence)
 logger.info(f"{result}")
