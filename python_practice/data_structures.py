@@ -1692,39 +1692,68 @@ input_text = "Apple banana Banana orange orange orange apple banana"
 # logger.info(f"{result}")
 
 # 2: Given a sentence, compress each word using run-length encoding (RLE) individually. That is, apply RLE to each word separately, keeping spaces intact between them.
-sentence = "hellooo wooorld"
+# sentence = "hellooo wooorld"
 
 
-def compressed_word(word):
-    output = ""
-    prev_word = word[0]
+# def compressed_word(word):
+#     output = ""
+#     prev_word = word[0]
+#     count = 1
+#     for word in word[1:]:
+#         if word == prev_word:
+#             count += 1
+#         else:
+#             if count > 1:
+#                 output += prev_word + str(count)
+#             else:
+#                 output += prev_word
+#             prev_word = word
+#             count = 1
+#     if count > 1:
+#         output += prev_word + str(count)
+#     else:
+#         output += prev_word
+#     return output
+
+
+# def run_length_encoding(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation))
+#     words = clean.split()
+#     compressed_words = []
+#     for word in words:
+#         compressed = compressed_word(word)
+#         compressed_words.append(compressed)
+#     return " ".join(compressed_words)
+
+
+# result = run_length_encoding(sentence)
+# logger.info(f"{result}")
+
+# 3: You're given a sentence. Compress it by replacing consecutive repeated words with the word followed by its count (if repeated more than once).
+sentence = "yes yes yes no no maybe maybe maybe maybe"
+
+
+def word_comress(sentence):
+    words = sentence.split()
+    output = []
+    prev_word = words[0]
     count = 1
-    for word in word[1:]:
+    for word in words[1:]:
         if word == prev_word:
             count += 1
         else:
             if count > 1:
-                output += prev_word + str(count)
+                output.append(prev_word + str(count))
             else:
-                output += prev_word
+                output.append(prev_word)
             prev_word = word
             count = 1
     if count > 1:
-        output += prev_word + str(count)
+        output.append(prev_word + str(count))
     else:
-        output += prev_word
-    return output
+        output.append(prev_word)
+    return " ".join(output)
 
 
-def run_length_encoding(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation))
-    words = clean.split()
-    compressed_words = []
-    for word in words:
-        compressed = compressed_word(word)
-        compressed_words.append(compressed)
-    return " ".join(compressed_words)
-
-
-result = run_length_encoding(sentence)
+result = word_comress(sentence)
 logger.info(f"{result}")
