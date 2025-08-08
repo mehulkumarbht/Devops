@@ -1529,7 +1529,7 @@ colors = ["Red", "Blue", "Black", "White"]
 # By descending frequency (most frequent first)
 # If frequencies tie, by alphabetical order ascending
 
-input_text = "Apple banana Banana orange orange orange apple banana"
+# input_text = "Apple banana Banana orange orange orange apple banana"
 
 
 # def word_frequency_sort(input_text):
@@ -1730,30 +1730,179 @@ input_text = "Apple banana Banana orange orange orange apple banana"
 # logger.info(f"{result}")
 
 # 3: You're given a sentence. Compress it by replacing consecutive repeated words with the word followed by its count (if repeated more than once).
-sentence = "yes yes yes no no maybe maybe maybe maybe"
+# sentence = "yes yes yes no no maybe maybe maybe maybe"
 
 
-def word_comress(sentence):
-    words = sentence.split()
-    output = []
-    prev_word = words[0]
-    count = 1
-    for word in words[1:]:
-        if word == prev_word:
-            count += 1
-        else:
-            if count > 1:
-                output.append(prev_word + str(count))
-            else:
-                output.append(prev_word)
-            prev_word = word
-            count = 1
-    if count > 1:
-        output.append(prev_word + str(count))
-    else:
-        output.append(prev_word)
-    return " ".join(output)
+# def word_comress(sentence):
+#     words = sentence.split()
+#     output = []
+#     prev_word = words[0]
+#     count = 1
+#     for word in words[1:]:
+#         if word == prev_word:
+#             count += 1
+#         else:
+#             if count > 1:
+#                 output.append(prev_word + str(count))
+#             else:
+#                 output.append(prev_word)
+#             prev_word = word
+#             count = 1
+#     if count > 1:
+#         output.append(prev_word + str(count))
+#     else:
+#         output.append(prev_word)
+#     return " ".join(output)
 
 
-result = word_comress(sentence)
-logger.info(f"{result}")
+# result = word_comress(sentence)
+# logger.info(f"{result}")
+
+# 4: Write a function that takes a sentence and returns the word that has the highest number of repeated characters.
+# text = "I love programming and coffee"
+# Output: "programming" # ('g' repeats 2 times, 'm' repeats 2 times, total repeats = 4)
+
+
+# def repeat_words(text):
+#     clean = text.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     max_repeats = -1
+#     result_word = ""
+#     for word in words:
+#         letter_count = Counter(
+#             word
+#         )  # counts total repeats in the word (e.g. hello > 'l' repats 1 time)
+#         repeats = 0
+#         for count in letter_count.values():  # loop through each letter's frequency
+#             if count > 1:  # if letter appears more than once
+#                 repeats += count - 1  # add extra occurances to repeats
+
+#             if repeats > max_repeats:
+#                 max_repeats = repeats
+#                 result_word = word
+#     return result_word
+
+
+# result = repeat_words(text)
+# logger.info(f"{result}")
+
+# 5: Write a function that takes a sentence and returns the second most frequent word (ignoring punctuation and case).If there is no second most frequent word, return None.
+# text = "Apple banana apple orange banana apple mango"
+
+
+# # Output: "banana"
+# def second_most_frequent_word(text):
+#     clean = text.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     word_counts = Counter(words)
+#     if len(word_counts) < 2:
+#         return None
+#     most_common_words = word_counts.most_common(2)
+#     return most_common_words[1][0]
+
+
+# result = second_most_frequent_word(text)
+# logger.info(f"{result}")
+# 6: Write a function that returns a list of all longest word(s) in a sentence. If there are multiple words with the same maximum length, return all of them.
+# sentence = "Python makes data engineering exciting"
+
+
+# def longest_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     max_len = 0
+#     output = []
+#     for word in words:
+#         if len(word) > max_len:
+#             max_len = len(word)
+#             output = word
+#         elif len(word) == max_len:
+#             output.append(word)
+#     return output
+
+
+# result = longest_words(sentence)
+# logger.info(f"{result}")
+
+# 7: Given a sentence, count how many words end with "ing" (case-insensitive).Also return the list of such words.
+# sentence = "I am enjoying learning and building amazing things"
+
+
+# def countwords_with_ing(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     count = 0
+#     output = []
+#     for word in words:
+#         if word[-3:] == "ing": # or if word.endswith("ing"):
+#             count += 1
+#             output.append(word)
+#     return count, output
+
+
+# result = countwords_with_ing(sentence)
+# logger.info(f"{result}")
+
+# 8: Count and list all words starting and ending with the same letter
+# sentence = "Level civic kayak radar stats noon eye"
+
+
+# def count_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     count = 0
+#     output = []
+#     for word in words:
+#         if len(word) > 1:
+#             if word[0] == word[-1]:
+#                 count += 1
+#                 output.append(word)
+#     return count, output
+
+
+# result = count_words(sentence)
+# logger.info(f"{result}")
+
+# 9: Write a function that counts how many words in a sentence start and end with a vowel (a, e, i, o, u). Also, return those words in a list.
+# sentence = "Umbrella is an amazing object of use"
+
+
+# def count_words_with_vowels(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     count = 0
+#     vowels = "aeiou"
+#     output = []
+#     for word in words:
+#         if len(word) > 1:
+#             if word[0] in vowels:
+#                 if word[-1] in vowels:
+#                     count += 1
+#                     output.append(word)
+#     return count, output
+
+
+# result = count_words_with_vowels(sentence)
+# logger.info(f"{result}")
+
+# 10: From a given sentence, identify and count the words where letters alternate between vowels and consonants (e.g., "baby", "idea", "vivid").
+# sentence = "Idea baby vivid eagle cake civic oval alpha"
+
+
+# def count_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     output = []
+#     for word in words:
+#         if word[0] in vowels:
+#             if word[1] not in vowels:
+#                 output.append(word)
+#             elif word[0] not in vowels:
+#                 if word[1] in vowels:
+#                     output.append(word)
+#     return output
+
+
+# result = count_words(sentence)
+# logger.info(f"{result}")
