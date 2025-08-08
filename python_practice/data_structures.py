@@ -1906,3 +1906,50 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # result = count_words(sentence)
 # logger.info(f"{result}")
+# Day-18:
+# 1: Write a function that takes a sentence and finds the word with the highest number of distinct letters.
+# sentence = "Apple banana strawberry pear"
+
+
+# Output: "strawberry"  # (because it has the most unique letters)
+# def highest_distinct_letter_word(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     word_with_max = ""
+#     max_unique_count = 0
+
+#     for word in words:
+#         unique_letters = set(word)
+#         unique_count = len(unique_letters)
+#         if unique_count > max_unique_count:
+#             max_unique_count = unique_count
+#             word_with_max = word
+#     return word_with_max
+
+
+# result = highest_distinct_letter_word(sentence)
+# logger.info(f"{result}")
+
+# 2: Write a function that takes a sentence and returns the shortest word that contains at least 3 different vowels.
+sentence = "Education is the key to a unique opportunity"
+
+
+# Output: "unique"  # (because 'unique' has u, i, e)
+def word_with_vowel(sentence):
+    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+    words = clean.split()
+    vowels = "aeiou"
+    shortest_word = None
+    for word in words:
+        word_vowels = set()
+        for letter in word:
+            if letter in vowels:
+                word_vowels.add(letter)
+        if len(word_vowels) >= 3:
+            if shortest_word is None or len(word) < len(shortest_word):
+                shortest_word = word
+    return shortest_word
+
+
+result = word_with_vowel(sentence)
+logger.info(f"{result}")
