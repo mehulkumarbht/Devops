@@ -1931,25 +1931,121 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{result}")
 
 # 2: Write a function that takes a sentence and returns the shortest word that contains at least 3 different vowels.
-sentence = "Education is the key to a unique opportunity"
+# sentence = "Education is the key to a unique opportunity"
 
 
-# Output: "unique"  # (because 'unique' has u, i, e)
-def word_with_vowel(sentence):
+# # Output: "unique"  # (because 'unique' has u, i, e)
+# def word_with_vowel(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     shortest_word = None
+#     for word in words:
+#         word_vowels = set()
+#         for letter in word:
+#             if letter in vowels:
+#                 word_vowels.add(letter)
+#         if len(word_vowels) >= 3:
+#             if shortest_word is None or len(word) < len(shortest_word):
+#                 shortest_word = word
+#     return shortest_word
+
+
+# result = word_with_vowel(sentence)
+# logger.info(f"{result}")
+# 3: Write a function that takes a sentence and returns the word with the highest number of consonants (letters that are not vowels).
+# sentence = "Python makes programming fun"
+
+
+# # Output: "programming"  (because it has the most consonants)
+# def words_without_consonents(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     max_consonents = 0
+#     output = ""
+#     for word in words:
+#         consonant_count = 0
+#         for char in word:
+#             if char.isalpha():
+#                 if char not in vowels:
+#                     consonant_count += 1
+#         if consonant_count > max_consonents:
+#             max_consonents = consonant_count
+#             output = word
+
+#     return output
+
+
+# result = words_without_consonents(sentence)
+# logger.info(f"{result}")
+
+# 4: Given a sentence, find all the words that have exactly 3 vowels in them.
+# sentence = "Beautiful code is amazing and wonderful"
+
+
+# # Output: ['beautiful', 'amazing', 'wonderful']
+# def count_vowels(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     max_vowels = 0
+#     output = []
+#     for word in words:
+#         vowels_count = 0
+#         for char in word:
+#             if char.isalpha():
+#                 if char in vowels:
+#                     vowels_count += 1
+#         if vowels_count == 3:
+#             output.append(word)
+#     return output
+
+
+# result = count_vowels(sentence)
+# logger.info(f"{result}")
+
+
+# # concise code:
+# def count_vowels(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     output = [word for word in words if sum(1 for char in word if char in vowels) == 3]
+
+#     return output
+
+
+# result = count_vowels(sentence)
+# logger.info(f"{result}")
+
+# 5: Given a sentence, find all words where the vowels appear in strictly ascending alphabetical order within the word
+sentence = "Education is abstemious but not always sequential"
+# output = ["abstemious"]
+
+
+def ascending_vowels(sentence):
     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
     words = clean.split()
-    vowels = "aeiou"
-    shortest_word = None
+    vowel = "aeiou"
+    output = []
+
     for word in words:
-        word_vowels = set()
-        for letter in word:
-            if letter in vowels:
-                word_vowels.add(letter)
-        if len(word_vowels) >= 3:
-            if shortest_word is None or len(word) < len(shortest_word):
-                shortest_word = word
-    return shortest_word
+        word_vowels = []
+        for char in word:
+            if char in vowel:
+                word_vowels.append(char)
+        if len(word_vowels) < 2:
+            continue
+        is_ascending = True
+        for i in range(len(word_vowels) - 1):
+            if word_vowels[i] >= word_vowels[i + 1]:
+                is_ascending = False
+                break
+        if is_ascending:
+            output.append(word)
+    return output
 
 
-result = word_with_vowel(sentence)
+result = ascending_vowels(sentence)
 logger.info(f"{result}")
