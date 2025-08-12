@@ -2053,4 +2053,5 @@ colors = ["Red", "Blue", "Black", "White"]
 #6: Given a sentence, return all words where the number of vowels is greater than the number of consonants.
 sentence = "Education is amazing but not every word qualifies"
 
-def count_vowlels
+def count_vowlels(sentence):
+    
