@@ -2050,8 +2050,28 @@ colors = ["Red", "Blue", "Black", "White"]
 # result = ascending_vowels(sentence)
 # logger.info(f"{result}")
 
-#6: Given a sentence, return all words where the number of vowels is greater than the number of consonants.
+# 6: Given a sentence, return all words where the number of vowels is greater than the number of consonants.
 sentence = "Education is amazing but not every word qualifies"
 
-def count_vowlels(sentence):
-    
+
+def count_vowels(sentence):
+    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+    words = clean.split()
+    vowels = "aeiou"
+    consonants = "bcdfgjklmnpqstvxzhrwy"
+    output = []
+    for word in words:
+        vowel_count = 0
+        consonant_count = 0
+        for char in word:
+            if char in vowels:
+                vowel_count += 1
+            elif char in consonants:
+                consonant_count += 1
+        if vowel_count > consonant_count:
+            output.append(word)
+    return output
+
+
+result = count_vowels(sentence)
+logger.info(f"{result}")
