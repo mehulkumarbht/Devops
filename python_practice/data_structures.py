@@ -2020,32 +2020,37 @@ colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{result}")
 
 # 5: Given a sentence, find all words where the vowels appear in strictly ascending alphabetical order within the word
-sentence = "Education is abstemious but not always sequential"
-# output = ["abstemious"]
+# sentence = "Education is abstemious but not always sequential"
+# # output = ["abstemious"]
 
 
-def ascending_vowels(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = clean.split()
-    vowel = "aeiou"
-    output = []
+# def ascending_vowels(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowel = "aeiou"
+#     output = []
 
-    for word in words:
-        word_vowels = []
-        for char in word:
-            if char in vowel:
-                word_vowels.append(char)
-        if len(word_vowels) < 2:
-            continue
-        is_ascending = True
-        for i in range(len(word_vowels) - 1):
-            if word_vowels[i] >= word_vowels[i + 1]:
-                is_ascending = False
-                break
-        if is_ascending:
-            output.append(word)
-    return output
+#     for word in words:
+#         word_vowels = []
+#         for char in word:
+#             if char in vowel:
+#                 word_vowels.append(char)
+#         if len(word_vowels) < 2:
+#             continue
+#         is_ascending = True
+#         for i in range(len(word_vowels) - 1):
+#             if word_vowels[i] >= word_vowels[i + 1]:
+#                 is_ascending = False
+#                 break
+#         if is_ascending:
+#             output.append(word)
+#     return output
 
 
-result = ascending_vowels(sentence)
-logger.info(f"{result}")
+# result = ascending_vowels(sentence)
+# logger.info(f"{result}")
+
+#6: Given a sentence, return all words where the number of vowels is greater than the number of consonants.
+sentence = "Education is amazing but not every word qualifies"
+
+def count_vowlels
