@@ -3,7 +3,7 @@ import string
 from collections import Counter
 
 # Day:1
-colors = ["Red", "Blue", "Black", "White"]
+# colors = ["Red", "Blue", "Black", "White"]
 # logger.info(f"{colors}")
 # logger.info(f"{colors[0]}")
 # logger.info(f"{colors[-1]}")
