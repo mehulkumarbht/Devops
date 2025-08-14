@@ -2158,102 +2158,102 @@ colors = ["Red", "Blue", "Black", "White"]
 
 # Day-20:
 # 1: Words containing all 5 vowels at least once
-sentence = "Education is amazing but sequoia tree is special"
-# Output: ['education', 'sequoia']
+# sentence = "Education is amazing but sequoia tree is special"
+# # Output: ['education', 'sequoia']
 
 
-def word_with_vowels(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = clean.split()
-    vowel = set("aeiou")
-    output = []
-    for word in words:
-        if vowel.issubset(set(word)):
-            output.append(word)
-    return output
+# def word_with_vowels(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowel = set("aeiou")
+#     output = []
+#     for word in words:
+#         if vowel.issubset(set(word)):
+#             output.append(word)
+#     return output
 
 
-result = word_with_vowels(sentence)
-logger.info(f"{result}")
+# result = word_with_vowels(sentence)
+# logger.info(f"{result}")
 
-# 2: Reverse words longer than 5 letters
-sentence = "Python programming is wonderful"
-
-
-# Output: ['nohtyP', 'gnimmargorp', 'lufrednow']
-def reverse_words(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = clean.split()
-    output = []
-    for word in words:
-        if len(word) > 5:
-            output.append(word[::-1])
-        else:
-            output.append(word)
-    return output
+# # 2: Reverse words longer than 5 letters
+# sentence = "Python programming is wonderful"
 
 
-result = reverse_words(sentence)
-logger.info(f"{result}")
-
-# 3: Count frequency of each letter (ignore case & spaces)
-sentence = "Hello world"
-
-
-def count_frequency(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    output = {}
-    for word in clean:
-        if word.isalpha():
-            if word in output:
-                output[word] += 1
-            else:
-                output[word] = 1
-    return output
+# # Output: ['nohtyP', 'gnimmargorp', 'lufrednow']
+# def reverse_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     output = []
+#     for word in words:
+#         if len(word) > 5:
+#             output.append(word[::-1])
+#         else:
+#             output.append(word)
+#     return output
 
 
-result = count_frequency(sentence)
-logger.info(f"{result}")
+# result = reverse_words(sentence)
+# logger.info(f"{result}")
 
-# 4: Words where number of vowels > number of consonants
-sentence = "Idea baby eagle queue"
-
-
-# Output: ['idea', 'eagle', 'queue']
-def count_vowels(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = clean.split()
-    vowels = "aeiou"
-    output = []
-    for word in words:
-        vowel_count = 0
-        for char in word:
-            if char in vowels:
-                vowel_count += 1
-        consonant_count = 0
-        for char in word:
-            if char.isalpha and char not in vowels:
-                consonant_count += 1
-        if vowel_count > consonant_count:
-            output.append(word)
-    return output
+# # 3: Count frequency of each letter (ignore case & spaces)
+# sentence = "Hello world"
 
 
-result = count_vowels(sentence)
-logger.info(f"{result}")
-
-# 5: Shortest and longest word in a sentence
-sentence = "The quick brown fox jumps over the lazy dog"
-# Output: ('fox', 'jumps')
-
-
-def short_long_words(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    word = clean.split()
-    shortest_word = min(word, key=len)
-    longesst_word = max(word, key=len)
-    return (shortest_word, longesst_word)
+# def count_frequency(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     output = {}
+#     for word in clean:
+#         if word.isalpha():
+#             if word in output:
+#                 output[word] += 1
+#             else:
+#                 output[word] = 1
+#     return output
 
 
-result = short_long_words(sentence)
-logger.info(f"{result}")
+# result = count_frequency(sentence)
+# logger.info(f"{result}")
+
+# # 4: Words where number of vowels > number of consonants
+# sentence = "Idea baby eagle queue"
+
+
+# # Output: ['idea', 'eagle', 'queue']
+# def count_vowels(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowels = "aeiou"
+#     output = []
+#     for word in words:
+#         vowel_count = 0
+#         for char in word:
+#             if char in vowels:
+#                 vowel_count += 1
+#         consonant_count = 0
+#         for char in word:
+#             if char.isalpha and char not in vowels:
+#                 consonant_count += 1
+#         if vowel_count > consonant_count:
+#             output.append(word)
+#     return output
+
+
+# result = count_vowels(sentence)
+# logger.info(f"{result}")
+
+# # 5: Shortest and longest word in a sentence
+# sentence = "The quick brown fox jumps over the lazy dog"
+# # Output: ('fox', 'jumps')
+
+
+# def short_long_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     word = clean.split()
+#     shortest_word = min(word, key=len)
+#     longesst_word = max(word, key=len)
+#     return (shortest_word, longesst_word)
+
+
+# result = short_long_words(sentence)
+# logger.info(f"{result}")
