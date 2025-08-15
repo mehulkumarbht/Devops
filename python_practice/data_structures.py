@@ -2315,42 +2315,42 @@ from collections import Counter
 
 
 # 4: Remove all vowels from each word and return the new list of words
-sentence = "lamp post tree noon unique"
+# sentence = "lamp post tree noon unique"
 
 
 # Output: ['lamp', 'post', 'unique']
-def new_list(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = clean.split()
-    vowel = "aeiou"
-    output = []
-    for word in words:
-        word_without_vowel = ""
-        for char in word:
-            if char not in vowel:
-                word_without_vowel += char
-        output.append(word_without_vowel)
-    return output
+# def new_list(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowel = "aeiou"
+#     output = []
+#     for word in words:
+#         word_without_vowel = ""
+#         for char in word:
+#             if char not in vowel:
+#                 word_without_vowel += char
+#         output.append(word_without_vowel)
+#     return output
 
 
-result = new_list(sentence)
-logger.info(f"{result}")
+# result = new_list(sentence)
+# logger.info(f"{result}")
 
 
 # 5: Words where every letter appears only once (no repeats in the same word)
-sentence = "lamp post tree noon unique"
+# sentence = "lamp post tree noon unique"
 
 
 # Output: ['lamp', 'post', 'unique']
-def unique_word(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = clean.split()
-    output = []
-    for word in words:
-        if len(set(word)) == len(word):
-            output.append(word)
-    return output
+# def unique_word(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     output = []
+#     for word in words:
+#         if len(set(word)) == len(word):
+#             output.append(word)
+#     return output
 
 
-result = unique_word(sentence)
-logger.info(f"{result}")
+# result = unique_word(sentence)
+# logger.info(f"{result}")
