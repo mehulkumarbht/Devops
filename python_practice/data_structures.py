@@ -2257,3 +2257,27 @@ from collections import Counter
 
 # result = short_long_words(sentence)
 # logger.info(f"{result}")
+
+# Day-21:
+# 1: Words containing exactly 3 vowels
+sentence = "Education is amazing but creative design is cool"
+
+
+# Output: ['amazing', 'creative', 'design']
+def vowel_words(sentence):
+    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+    words = clean.split()
+    vowel = "aeiou"
+    output = []
+    for word in words:
+        count_vowels = 0
+        for char in word:
+            if char in vowel:
+                count_vowels += 1
+                if count_vowels == 3:
+                    output.append(word)
+    return output
+
+
+result = vowel_words(sentence)
+logger.info(f"{result}")
