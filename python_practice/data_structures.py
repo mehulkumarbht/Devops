@@ -2260,24 +2260,97 @@ from collections import Counter
 
 # Day-21:
 # 1: Words containing exactly 3 vowels
-sentence = "Education is amazing but creative design is cool"
-
+# sentence = "Education is amazing but creative design is cool"
 
 # Output: ['amazing', 'creative', 'design']
-def vowel_words(sentence):
+# def vowel_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowel = "aeiou"
+#     output = []
+#     for word in words:
+#         count_vowels = 0
+#         for char in word:
+#             if char in vowel:
+#                 count_vowels += 1
+#         if count_vowels == 3:
+#             output.append(word)
+#     return output
+
+
+# result = vowel_words(sentence)
+# logger.info(f"{result}")
+
+# 2: Return all words that contain at least one repeated letter (case-insensitive)
+# sentence = "Bookkeeper apple moon tree sky"
+
+
+# Output: ['bookkeeper', 'apple', 'moon', 'tree']
+# def repeated_letter(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation))
+#     words = clean.split()
+#     output = []
+#     for word in set(words):
+#         if len(set(word)) < len(word):
+#             output.append(word)
+#     return output
+
+# result = repeated_letter(sentence)
+# logger.info(f"{result}")
+
+# 3: Find the most frequent word in a sentence (ignore case & punctuation)
+# sentence = "Apple banana apple orange banana apple"
+# Output: 'apple'
+
+
+# def frequent_word(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     output = Counter(words).most_common(1)[0][0]
+#     return output
+
+
+# result = frequent_word(sentence)
+# logger.info(f"{result}")
+
+
+# 4: Remove all vowels from each word and return the new list of words
+sentence = "lamp post tree noon unique"
+
+
+# Output: ['lamp', 'post', 'unique']
+def new_list(sentence):
     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
     words = clean.split()
     vowel = "aeiou"
     output = []
     for word in words:
-        count_vowels = 0
+        word_without_vowel = ""
         for char in word:
-            if char in vowel:
-                count_vowels += 1
-                if count_vowels == 3:
-                    output.append(word)
+            if char not in vowel:
+                word_without_vowel += char
+        output.append(word_without_vowel)
     return output
 
 
-result = vowel_words(sentence)
+result = new_list(sentence)
+logger.info(f"{result}")
+
+
+# 5: Words where every letter appears only once (no repeats in the same word)
+sentence = "lamp post tree noon unique"
+
+
+# Output: ['lamp', 'post', 'unique']
+def unique_word(sentence):
+    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+    words = clean.split()
+    output = []
+    for word in words:
+        if len(set(word)) == len(word):
+            output.append(word)
+    return output
+
+
+result = unique_word(sentence)
 logger.info(f"{result}")
