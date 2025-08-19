@@ -2378,14 +2378,21 @@ from collections import Counter
 # sentence = "baby code unit open atom"
 
 
-# Output: ['baby', 'code']
+# # Output: ['baby', 'code']
 # def alrernating_words(sentence):
 #     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
 #     words = clean.split()
 #     vowel = "aeiou"
 #     output = []
 #     for word in words:
-#         if word[0] not in vowel and word[1] in vowel:
+#         is_alternating = True
+#         for i in range(len(word) - 1):
+#             if (word[i] in vowel and word[i + 1] in vowel) or (
+#                 word[i] not in vowel and word[i + 1] not in vowel
+#             ):
+#                 is_alternating = False
+#                 break
+#         if is_alternating:
 #             output.append(word)
 #     return output
 
@@ -2428,23 +2435,23 @@ from collections import Counter
 # logger.info(f"{result}")
 
 # # 5: Sort words in a sentence by the number of vowels (descending)
-sentence = "this is an extraordinary experience"
+# sentence = "this is an extraordinary experience"
 
 
-# Output: ['extraordinary', 'experience', 'this', 'is', 'an']
-def number_of_vowels(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    words = clean.split()
-    vowel = "aeiou"
-    output = []
-    for word in words:
-        vowel_count = 0
-        if word in vowel:
-            vowel_count += 1
-            if vowel_count > len(word):
-                output.append(word)
-    return output
+# # Output: ['extraordinary', 'experience', 'this', 'is', 'an']
+# def number_of_vowels(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowel = "aeiou"
+#     output = []
+#     for word in words:
+#         vowel_count = 0
+#         if word in vowel:
+#             vowel_count += 1
+#             if vowel_count > len(word):
+#                 output.append(word)
+#     return output
 
 
-result = number_of_vowels(sentence)
-logger.info(f"{result}")
+# result = number_of_vowels(sentence)
+# logger.info(f"{result}")
