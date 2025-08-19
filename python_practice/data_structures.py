@@ -2354,3 +2354,97 @@ from collections import Counter
 
 # result = unique_word(sentence)
 # logger.info(f"{result}")
+
+# Day-22:
+# 1: Palindrome words only
+# sentence = "level civic radar python code noon"
+
+
+# Output: ['level', 'civic', 'radar', 'noon']
+# def palindrom_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     output = []
+#     for word in words:
+#         if word == word[::-1]:
+#             output.append(word)
+#     return output
+
+
+# result = palindrom_words(sentence)
+# logger.info(f"{result}")
+
+# 2: Words with alternating vowels and consonants
+# sentence = "baby code unit open atom"
+
+
+# Output: ['baby', 'code']
+# def alrernating_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     words = clean.split()
+#     vowel = "aeiou"
+#     output = []
+#     for word in words:
+#         if word[0] not in vowel and word[1] in vowel:
+#             output.append(word)
+#     return output
+
+
+# result = alrernating_words(sentence)
+# logger.info(f"{result}")
+
+# 3: First non-repeating character in a sentence
+# sentence = "swiss"
+
+
+# Output: 'w'
+# def non_repeating(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     output = ""
+#     for word in clean:
+#         if word != output:
+#             output = word
+#     return output
+
+
+# result = non_repeating(sentence)
+# logger.info(f"{result}")
+
+# 4: Find the longest palindrome substring inside the sentence
+# sentence = "banana"
+# Output: 'anana'
+
+
+# def palindrom_words(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     output = []
+#     for word in clean:
+#         if word[1:] == word[::-1]:
+#             output.append(word)
+#     return output
+
+
+# result = palindrom_words(sentence)
+# logger.info(f"{result}")
+
+# # 5: Sort words in a sentence by the number of vowels (descending)
+sentence = "this is an extraordinary experience"
+
+
+# Output: ['extraordinary', 'experience', 'this', 'is', 'an']
+def number_of_vowels(sentence):
+    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+    words = clean.split()
+    vowel = "aeiou"
+    output = []
+    for word in words:
+        vowel_count = 0
+        if word in vowel:
+            vowel_count += 1
+            if vowel_count > len(word):
+                output.append(word)
+    return output
+
+
+result = number_of_vowels(sentence)
+logger.info(f"{result}")
