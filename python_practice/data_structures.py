@@ -2401,21 +2401,21 @@ from collections import Counter
 # logger.info(f"{result}")
 
 # 3: First non-repeating character in a sentence
-# sentence = "swiss"
+sentence = "swiss"
 
 
 # Output: 'w'
-# def non_repeating(sentence):
-#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-#     output = ""
-#     for word in clean:
-#         if word != output:
-#             output = word
-#     return output
+def non_repeating(sentence):
+    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+    output = ""
+    for word in clean:
+        if clean.count(word) == 1:
+            return word
+    return None
 
 
-# result = non_repeating(sentence)
-# logger.info(f"{result}")
+result = non_repeating(sentence)
+logger.info(f"{result}")
 
 # 4: Find the longest palindrome substring inside the sentence
 # sentence = "banana"
