@@ -2401,21 +2401,20 @@ from collections import Counter
 # logger.info(f"{result}")
 
 # 3: First non-repeating character in a sentence
-sentence = "swiss"
+# sentence = "swiss"
 
 
 # Output: 'w'
-def non_repeating(sentence):
-    clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-    output = ""
-    for word in clean:
-        if clean.count(word) == 1:
-            return word
-    return None
+# def non_repeating(sentence):
+#     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+#     for word in clean:
+#         if clean.count(word) == 1:
+#             return word
+#     return None
 
 
-result = non_repeating(sentence)
-logger.info(f"{result}")
+# result = non_repeating(sentence)
+# logger.info(f"{result}")
 
 # 4: Find the longest palindrome substring inside the sentence
 # sentence = "banana"
@@ -2424,11 +2423,13 @@ logger.info(f"{result}")
 
 # def palindrom_words(sentence):
 #     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-#     output = []
-#     for word in clean:
-#         if word[1:] == word[::-1]:
-#             output.append(word)
-#     return output
+#     longest = ""
+#     for i in range(len(clean)):
+#         for j in range(i, (len(clean))):
+#             substring = clean[i : j + 1]
+#             if substring == substring[::-1] and len(substring) > len(longest):
+#                 longest = substring
+#     return longest
 
 
 # result = palindrom_words(sentence)
@@ -2443,15 +2444,83 @@ logger.info(f"{result}")
 #     clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
 #     words = clean.split()
 #     vowel = "aeiou"
-#     output = []
+#     word_counts = []
 #     for word in words:
 #         vowel_count = 0
-#         if word in vowel:
-#             vowel_count += 1
-#             if vowel_count > len(word):
-#                 output.append(word)
-#     return output
+#         for char in word:
+#             if char in vowel:
+#                 vowel_count += 1
+#         word_counts.append((word, vowel_count))
+
+#     word_counts.sort(
+#         key=lambda x: x[1], reverse=True
+#     )  # sort based on vowel count (highest first)
+#     result = [w for w, c in word_counts]
+#     return result
 
 
-# result = number_of_vowels(sentence)
-# logger.info(f"{result}")
+# final_result = number_of_vowels(sentence)
+# logger.info(f"{final_result}")
+
+# Day-22:
+# Write a Python program that:Reads a file employees.csv containing:
+# id, name, department
+# 1, John, Finance
+# 2, Alice, IT
+# 3, Mark, HR
+# Prints only the name column values.
+# import csv
+
+# with open("employee.csv") as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=",")
+#     next(csv_reader) #skip header
+#     for row in csv_reader:
+#         logger.info(f"row[1]") #only name column
+# 2: Write Python code to:Parse it into a dictionary.Print all employee names.
+import json
+
+data = '{"employees":[{"id":1,"name":"John"},{"id":2,"name":"Alice"}]}'
+
+x = json.loads(data)
+
+for emp in x["employees"]:
+    logger.info(f"{emp['name']}")
+
+# 3: Write Python code to count how many employees are in each department.
+departments = ["IT", "Finance", "HR", "IT", "Finance", "IT"]
+# (Expected Output: {'IT': 3, 'Finance': 2, 'HR': 1})
+output = {}
+for dep in departments:
+    if dep in output:
+        output[dep] += 1
+    else:
+        output[dep] = 1
+logger.info(f"{output}")
+
+# Alternative:
+counter = Counter(departments)
+logger.info(f"{counter}")
+print(counter)
+
+# 4: Convert string to disctionary:
+record = "id=101;name=Sam;role=Engineer"
+
+# output : {"id": "101", "name": "Sam", "role": "Engineer"}
+
+pairs = record.split(";")
+output = {}
+for pair in pairs:
+    key, value = pair.split("=")
+    output[key] = value
+logger.info(f"{output}")
+
+# 5: Write Python code to:Extract the data from the file.Transform it into a list of dictionaries:
+# 101, John, IT
+# 102, Alice, Finance
+# 103, Mark, HR
+records = []
+with open("data.txt", "r") as file:
+    for line in file:
+        emp_id, name, dept = line.strip().split(",")
+        records.append({"id": emp_id, "name": name.strip(), "dept": dept.strip()})
+logger.info(f"{records}")
