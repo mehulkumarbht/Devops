@@ -2477,50 +2477,100 @@ from collections import Counter
 #     for row in csv_reader:
 #         logger.info(f"row[1]") #only name column
 # 2: Write Python code to:Parse it into a dictionary.Print all employee names.
-import json
+# import json
 
-data = '{"employees":[{"id":1,"name":"John"},{"id":2,"name":"Alice"}]}'
+# data = '{"employees":[{"id":1,"name":"John"},{"id":2,"name":"Alice"}]}'
 
-x = json.loads(data)
+# x = json.loads(data)
 
-for emp in x["employees"]:
-    logger.info(f"{emp['name']}")
+# for emp in x["employees"]:
+#     logger.info(f"{emp['name']}")
 
 # 3: Write Python code to count how many employees are in each department.
-departments = ["IT", "Finance", "HR", "IT", "Finance", "IT"]
+# departments = ["IT", "Finance", "HR", "IT", "Finance", "IT"]
 # (Expected Output: {'IT': 3, 'Finance': 2, 'HR': 1})
-output = {}
-for dep in departments:
-    if dep in output:
-        output[dep] += 1
-    else:
-        output[dep] = 1
-logger.info(f"{output}")
+# output = {}
+# for dep in departments:
+#     if dep in output:
+#         output[dep] += 1
+#     else:
+#         output[dep] = 1
+# logger.info(f"{output}")
 
 # Alternative:
-counter = Counter(departments)
-logger.info(f"{counter}")
-print(counter)
+# counter = Counter(departments)
+# logger.info(f"{counter}")
+# print(counter)
 
 # 4: Convert string to disctionary:
-record = "id=101;name=Sam;role=Engineer"
+# record = "id=101;name=Sam;role=Engineer"
 
 # output : {"id": "101", "name": "Sam", "role": "Engineer"}
 
-pairs = record.split(";")
-output = {}
-for pair in pairs:
-    key, value = pair.split("=")
-    output[key] = value
-logger.info(f"{output}")
+# pairs = record.split(";")
+# output = {}
+# for pair in pairs:
+#     key, value = pair.split("=")
+#     output[key] = value
+# logger.info(f"{output}")
 
 # 5: Write Python code to:Extract the data from the file.Transform it into a list of dictionaries:
 # 101, John, IT
 # 102, Alice, Finance
 # 103, Mark, HR
-records = []
-with open("data.txt", "r") as file:
-    for line in file:
-        emp_id, name, dept = line.strip().split(",")
-        records.append({"id": emp_id, "name": name.strip(), "dept": dept.strip()})
-logger.info(f"{records}")
+# records = []
+# with open("data.txt", "r") as file:
+#     for line in file:
+#         emp_id, name, dept = line.strip().split(",")
+#         records.append({"id": emp_id, "name": name.strip(), "dept": dept.strip()})
+# logger.info(f"{records}")
+
+# Day-23:
+# 1: Given a file students.csv:
+# id,name,grade
+# 1,Tom,A
+# 2,Sara,B
+# 3,John,A
+# Write a Python program that reads the file and creates this list of dictionaries:
+# records = []
+# with open(
+#     "students.csv",
+#     encoding="utf-8",
+#     errors="ignore",
+# ) as file:
+#     next(file)  # skip header line
+#     for line in file:
+#         emp_id, name, grade = line.strip().split(",")
+#         records.append({"id": emp_id, "name": name.strip(), "grade": grade.strip()})
+# logger.info(f"{records}")
+
+# 2: Write code to print only the names of products with price greater than 100.
+# import json
+
+# data = '{"products":[{"id":1,"name":"Laptop","price":1200},{"id":2,"name":"Mouse","price":25},{"id":3,"name":"Monitor","price":300}]}'
+# x = json.loads(data)
+# for prod in x["products"]:
+#     if prod["price"] > 100:
+#         logger.info(f"{prod['name']}")
+# 3: Write Python code that counts the frequency of each word.
+# sentence = "big data is big and data is important"
+# output = {}
+# words = sentence.split()
+# counter = Counter(words)
+# logger.info(counter)
+
+# 4: Transform Data (List of Tuples → List of Dicts)
+# data = [(101, "Alice", "Finance"), (102, "Bob", "IT"), (103, "Charlie", "HR")]
+# keys = ["id", "name", "dept"]
+# my_dict = []
+# for item in data:
+#     my_dict.append(dict(zip(keys, item)))
+# logger.info(f"{my_dict}")
+
+# 5: Write a Python program that:Reads the file, Cleans spaces around each field, Produces output:
+# records = []
+# with open("raw_data.txt", "r") as file:
+#     for row in file:
+#         emp_id, name, dept = row.strip().split(",")
+#         records.append({"id": emp_id.strip(), "name": name.strip(), "dept": dept.strip()})
+# logger.info(f"{records}")
