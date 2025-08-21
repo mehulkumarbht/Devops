@@ -2573,4 +2573,4 @@ from collections import Counter
 #     for row in file:
 #         emp_id, name, dept = row.strip().split(",")
 #         records.append({"id": emp_id.strip(), "name": name.strip(), "dept": dept.strip()})
-# logger.info(f"{records}"
+# logger.info(f"{records})"
