@@ -2574,3 +2574,67 @@ from collections import Counter
 #         emp_id, name, dept = row.strip().split(",")
 #         records.append({"id": emp_id.strip(), "name": name.strip(), "dept": dept.strip()})
 # logger.info(f"{records})"
+
+# Day-24:
+# 1: Write a Python program that reads the file and prints only the employee names in a list.
+# import json
+
+# data = {
+#     "employees": [
+#         {"id": 1, "name": "Alice", "department": "HR"},
+#         {"id": 2, "name": "Bob", "department": "Engineering"},
+#         {"id": 3, "name": "Charlie", "department": "Finance"},
+#     ]
+# }
+# names = []
+# for emp in data["employees"]:
+#     names = emp["name"]
+#     logger.info(f"{names}")
+
+# 2: Write a program to count how many times each word appears.
+# senetence = "Data engineering is fun. Data engineering is powerful."
+# import string
+# from collections import Counter
+# clean = senetence.translate(str.maketrans("", "", string.punctuation)).lower()
+# words = clean.split()
+# counter = Counter(words)
+# logger.info(f"{counter}")
+
+# 3: Write a program that reads the CSV and prints only the rows where price > 100.
+# import csv
+
+# records = []
+# with open("sales.csv", encoding="utf-8", errors="ignore") as file:
+#     next(file)  # skip header
+#     for row in file:
+#         emp_id, product, price = row.strip().split(",")
+#         if int(price) > 100:
+#             records.append[
+#                 {"id": emp_id, "product": product.strip(), "price": price.strip()}
+#             ]
+# logger.info(f"{records}")
+
+# 4: Clean the string by removing punctuation and extra spaces, and make it lowercase.
+# text = "   Hello!!  Welcome,to Python...   "
+# clean = (
+#     text.replace(",", " ")
+#     .translate(str.maketrans("", "", string.punctuation))
+#     .lower()
+#     .strip()
+# )
+# clean = " ".join(clean.split())
+# logger.info(f"{clean}")
+# alternative:
+# clean = " ".join(clean.split())
+# logger.info(f"{clean}")
+
+# 5: Convert it into a list of tuples (id, name, score)
+# records = {
+#     "101": {"name": "Tom", "score": 85},
+#     "102": {"name": "Sara", "score": 92},
+#     "103": {"name": "John", "score": 78},
+# }
+# list_of_tuple = []
+# for emp_id, data in records.items():
+#     list_of_tuple.append((emp_id, data["name"], data["score"]))
+# logger.info(f"{(list_of_tuple)}")
