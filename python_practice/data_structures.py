@@ -2672,14 +2672,71 @@ from collections import Counter
 # logger.info(f"{words}")
 
 # 5:Group the products by region.
-import pandas as pd
+# import pandas as pd
 
-sales = [
-    {"id": 1, "product": "Laptop", "region": "US"},
-    {"id": 2, "product": "Mouse", "region": "EU"},
-    {"id": 3, "product": "Keyboard", "region": "US"},
-    {"id": 4, "product": "Monitor", "region": "EU"},
-]
-df = pd.DataFrame(sales)
-product = df.groupby("region")["product"].apply(list).to_dict()
-logger.info(f"{product}")
+# sales = [
+#     {"id": 1, "product": "Laptop", "region": "US"},
+#     {"id": 2, "product": "Mouse", "region": "EU"},
+#     {"id": 3, "product": "Keyboard", "region": "US"},
+#     {"id": 4, "product": "Monitor", "region": "EU"},
+# ]
+# df = pd.DataFrame(sales)
+# product = df.groupby("region")["product"].apply(list).to_dict()
+# logger.info(f"{product}")
+
+# Day-26:
+# 1: Read the file and extract only the ERROR messages into a list.
+import re
+
+data = """2025-08-21 12:35:10,123 - INFO - User logged in
+2025-08-21 12:36:01,555 - ERROR - Connection failed
+2025-08-21 12:36:45,777 - WARNING - Low memory
+2025-08-21 12:37:10,222 - ERROR - Timeout occurred"""
+error = []
+for line in data.splitlines():
+    match = re.search(r"ERROR - (.+)", line)
+    if match:
+        error.append(match.group(1))
+logger.info(f"{error}")
+
+# 2: Convert this into a flat dictionary.
+# import json
+
+# data = {"id": 1, "name": "Alice", "location": {"city": "New York", "country": "USA"}}
+# x = json.loads(data)
+# logger.info(f"{x}")
+
+# 3: Find the product with the highest price.
+# import csv
+
+# id, product, price
+# 1, Laptop, 900
+# 2, Mouse, 25
+# 3, Keyboard, 40
+# 4, Monitor, 300
+# output = []
+# with open("product.csv") as file:
+#     csv_reader = csv.reader(file, delimiter=",")
+#     next(csv_reader)
+#     for row in csv_reader:
+#         if max(row[2]):
+#             output.append(row[1])
+
+# 4: Remove punctuation, lowercase everything, and split into words.
+# sentence = "ETL processes extract, transform & load data."
+# clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+# words = clean.split()
+# logger.info(f"{words}")
+
+# 5: Group scores by subject.
+# import pandas as pd
+
+# grades = [
+#     {"name": "Tom", "subject": "Math", "score": 85},
+#     {"name": "Sara", "subject": "Math", "score": 92},
+#     {"name": "John", "subject": "Science", "score": 78},
+#     {"name": "Anna", "subject": "Science", "score": 88},
+# ]
+# df = pd.DataFrame(grades)
+# subject = df.groupby("subject")["score"].apply(list).to_dict()
+# logger.info(f"{subject}")
