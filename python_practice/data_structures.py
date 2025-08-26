@@ -2638,3 +2638,48 @@ from collections import Counter
 # for emp_id, data in records.items():
 #     list_of_tuple.append((emp_id, data["name"], data["score"]))
 # logger.info(f"{(list_of_tuple)}")
+
+# Day-25:
+# 1: Extract and print only the User and Action.
+# import re
+
+# data = "2025-08-21 12:35:10,123 - INFO - User: Alice - Action: Login"
+# match = re.search(r"User:\s*(\w+).*Action:\s*(\w+)", data)
+# if match:
+#     user, action = match.groups()
+#     print(f"User:{user},Action:{action}")
+
+# 2: Convert it into a Python dictionary and print the value of "tags".
+# import json
+
+# data = '{"id":101, "name":"Laptop", "price":900, "tags":["electronics","computer"]}'
+# x = json.loads(data)
+# logger.info(f"{x['tags']}")
+
+# 3: Read the file and calculate the average science score.
+# import csv
+# grades = []
+# with open("grades.csv") as file:
+#     csv_reader = csv.reader(file, delimiter=",")
+#     next(csv_reader)
+#     for row in csv_reader:
+#         grades.append(int(row[3]))
+# avg = sum(grades)/len(grades)
+# logger.info(f"{avg}")
+# 4: Convert it into a list of lowercase words.
+# sentence = "Python|Data|Engineering|Pipeline"
+# words = sentence.lower().split("|")
+# logger.info(f"{words}")
+
+# 5:Group the products by region.
+import pandas as pd
+
+sales = [
+    {"id": 1, "product": "Laptop", "region": "US"},
+    {"id": 2, "product": "Mouse", "region": "EU"},
+    {"id": 3, "product": "Keyboard", "region": "US"},
+    {"id": 4, "product": "Monitor", "region": "EU"},
+]
+df = pd.DataFrame(sales)
+product = df.groupby("region")["product"].apply(list).to_dict()
+logger.info(f"{product}")
