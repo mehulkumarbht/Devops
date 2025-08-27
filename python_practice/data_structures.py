@@ -2736,25 +2736,25 @@ from collections import Counter
 # logger.info(f"{words}")
 
 # 5: Group scores by subject.
-import pandas as pd
+# import pandas as pd
 
-grades = [
-    {"name": "Tom", "subject": "Math", "score": 85},
-    {"name": "Sara", "subject": "Math", "score": 92},
-    {"name": "John", "subject": "Science", "score": 78},
-    {"name": "Anna", "subject": "Science", "score": 88},
-]
-df = pd.DataFrame(grades)
-subject = df.groupby("subject")["score"].apply(list).to_dict()
-logger.info(f"{subject}")
+# grades = [
+#     {"name": "Tom", "subject": "Math", "score": 85},
+#     {"name": "Sara", "subject": "Math", "score": 92},
+#     {"name": "John", "subject": "Science", "score": 78},
+#     {"name": "Anna", "subject": "Science", "score": 88},
+# ]
+# df = pd.DataFrame(grades)
+# subject = df.groupby("subject")["score"].apply(list).to_dict()
+# logger.info(f"{subject}")
 
 # alternative:
 
-result = {}
-for g in grades:
-    subject = g["subject"]
-    score = g["score"]
-    if subject not in result:
-        result[subject] = []
-    result[subject].append(score)
-logger.info(f"{result}")
+# result = {}
+# for g in grades:
+#     subject = g["subject"]
+#     score = g["score"]
+#     if subject not in result:
+#         result[subject] = []
+#     result[subject].append(score)
+# logger.info(f"{result}")
