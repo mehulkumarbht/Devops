@@ -2763,9 +2763,9 @@ from collections import Counter
 # Write Python code (regex) to extract all dates into a list like:
 # import re
 
-# Logs = """User logged in on 2025-08-20
-# Backup completed on 2025-08-21
-# Error occurred on 2025-08-22"""
+Logs = """User logged in on 2025-08-20
+Backup completed on 2025-08-21
+Error occurred on 2025-08-22"""
 
 # dates = []
 # for line in Logs.splitlines():
@@ -2773,6 +2773,13 @@ from collections import Counter
 #     if match:
 #         dates.append(match.group(1))
 # logger.info(f"{dates}")
+
+# Alternative:
+import re
+
+dates = re.findall(r"\d{4}-\d{2}-\d{2}", Logs)
+logger.info(dates)
+
 
 # 2:Convert into a flat list of tuples like:
 # employees = {
