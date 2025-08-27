@@ -2763,9 +2763,9 @@ from collections import Counter
 # Write Python code (regex) to extract all dates into a list like:
 # import re
 
-Logs = """User logged in on 2025-08-20
-Backup completed on 2025-08-21
-Error occurred on 2025-08-22"""
+# Logs = """User logged in on 2025-08-20
+# Backup completed on 2025-08-21
+# Error occurred on 2025-08-22"""
 
 # dates = []
 # for line in Logs.splitlines():
@@ -2775,10 +2775,14 @@ Error occurred on 2025-08-22"""
 # logger.info(f"{dates}")
 
 # Alternative:
-import re
+# import re
 
-dates = re.findall(r"\d{4}-\d{2}-\d{2}", Logs)
-logger.info(dates)
+# Logs = """User logged in on 2025-08-20
+# Backup completed on 2025-08-21
+# Error occurred on 2025-08-22"""
+
+# dates = re.findall(r"\d{4}-\d{2}-\d{2}", Logs)
+# logger.info(dates)
 
 
 # 2:Convert into a flat list of tuples like:
@@ -2793,18 +2797,24 @@ logger.info(dates)
 
 # 3:Read CSV and calculate average score per subject (pure Python)
 # import csv
-
+# from collections import defaultdict
+# scores = defaultdict(list)
 # with open("score.csv") as file:
-#     csv_reader = csv.reader(file, delimiter=",")
+#     csv_reader = csv.reader(file)
 #     next(csv_reader)
 #     for row in csv_reader:
-#         avg = sum(row[2]) / len(row[2])
-#         logger.info(f"{row[1]:avg}")
+#         subject = row [1]
+#         score = int(row[2]) #convert string to int
+#         scores[subject].append(score)
+
+# for sub,vals in scores.items():
+#     avg = sum(vals)/len(vals)
+#     logger.info(f"{sub}:{avg}")
 
 # 4: Clean and tokenize text, remove stopwords
 # sentence = "Python is a great language for data engineering and ETL processes."
 # stopwords = {"is", "a", "for", "and"}
-# clean = sentence.translate(str.maketrans("", "", string.punctuation))
+# clean = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
 # words = clean.split()
 # clean_sentence = []
 # for word in words:
@@ -2813,14 +2823,14 @@ logger.info(dates)
 # logger.info(f"{clean_sentence}")
 
 # 5: Transform list of dicts into dict grouped by key
-import pandas as pd
+# import pandas as pd
 
-data = [
-    {"city": "NY", "temp": 30},
-    {"city": "NY", "temp": 28},
-    {"city": "LA", "temp": 25},
-    {"city": "LA", "temp": 27},
-]
-df = pd.DataFrame(data)
-cities = df.groupby("city")["temp"].apply(list).to_dict()
-logger.info(f"{cities}")
+# data = [
+#     {"city": "NY", "temp": 30},
+#     {"city": "NY", "temp": 28},
+#     {"city": "LA", "temp": 25},
+#     {"city": "LA", "temp": 27},
+# ]
+# df = pd.DataFrame(data)
+# cities = df.groupby("city")["temp"].apply(list).to_dict()
+# logger.info(f"{cities}")
