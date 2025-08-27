@@ -2758,3 +2758,62 @@ from collections import Counter
 #         result[subject] = []
 #     result[subject].append(score)
 # logger.info(f"{result}")
+
+# Day-27:
+# Write Python code (regex) to extract all dates into a list like:
+# import re
+
+# Logs = """User logged in on 2025-08-20
+# Backup completed on 2025-08-21
+# Error occurred on 2025-08-22"""
+
+# dates = []
+# for line in Logs.splitlines():
+#     match = re.search(r"on (.+)", line)
+#     if match:
+#         dates.append(match.group(1))
+# logger.info(f"{dates}")
+
+# 2:Convert into a flat list of tuples like:
+# employees = {
+#     "101": {"name": "Tom", "dept": {"id": "D1", "name": "HR"}},
+#     "102": {"name": "Sara", "dept": {"id": "D2", "name": "IT"}},
+# }
+# flat_list = []
+# for emp_id, data in employees.items():
+#     flat_list.append((emp_id, data["name"], data["dept"]["id"], data["dept"]["name"]))
+# logger.info(f"{(flat_list)}")
+
+# 3:Read CSV and calculate average score per subject (pure Python)
+# import csv
+
+# with open("score.csv") as file:
+#     csv_reader = csv.reader(file, delimiter=",")
+#     next(csv_reader)
+#     for row in csv_reader:
+#         avg = sum(row[2]) / len(row[2])
+#         logger.info(f"{row[1]:avg}")
+
+# 4: Clean and tokenize text, remove stopwords
+# sentence = "Python is a great language for data engineering and ETL processes."
+# stopwords = {"is", "a", "for", "and"}
+# clean = sentence.translate(str.maketrans("", "", string.punctuation))
+# words = clean.split()
+# clean_sentence = []
+# for word in words:
+#     if word not in stopwords:
+#         clean_sentence.append(word)
+# logger.info(f"{clean_sentence}")
+
+# 5: Transform list of dicts into dict grouped by key
+import pandas as pd
+
+data = [
+    {"city": "NY", "temp": 30},
+    {"city": "NY", "temp": 28},
+    {"city": "LA", "temp": 25},
+    {"city": "LA", "temp": 27},
+]
+df = pd.DataFrame(data)
+cities = df.groupby("city")["temp"].apply(list).to_dict()
+logger.info(f"{cities}")
