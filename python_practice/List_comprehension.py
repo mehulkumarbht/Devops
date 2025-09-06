@@ -26,5 +26,3 @@
 # fruits = ["apple", "banana", "cherry"]
 # upper_list = [word.upper() for word in fruits]
 # logger.info(f"{upper_list}")
-
-# Day-29
