@@ -1,4 +1,4 @@
-from loguru import logger
+# from loguru import logger
 # Day:1: Convert normal loops into list comprehensions.
 
 # 1: Create a list of numbers from 1 to 10 using list comprehension.
