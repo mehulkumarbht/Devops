@@ -42,13 +42,9 @@ from loguru import logger
 # logger.info(f"{wordslist}")
 
 # 4: From words, create a list of their first letters.
-words = ["cat", "house", "dog", "elephant"]
+# words = ["cat", "house", "dog", "elephant"]
 # first_letters = [word[0] for word in words]
 # logger.info(f"{first_letters}")
-first_letters = []
-for word in words:
-    first_letters.append(word[0])
-logger.info(first_letters)
 
 # 5: Flatten a 2D list: [[1,2], [3,4], [5,6]] → [1,2,3,4,5,6].
 # num_list = [[1, 2], [3, 4], [5, 6]]
