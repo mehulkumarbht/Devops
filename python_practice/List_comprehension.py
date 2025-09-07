@@ -78,4 +78,3 @@ from loguru import logger
 # nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 # nums_list = ["big" if n >= 5 else n for n in nums]
 # logger.info(f"{nums_list}")
-Hi
