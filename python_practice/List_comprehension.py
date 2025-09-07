@@ -57,10 +57,10 @@ table = [m * n for m in range(1, 6) for n in range(1, 6)]
 logger.info(f"{table}")
 
 # 2: Create all pairs (x, y) where x is from [1,2,3] and y is from [‘a’, ‘b’].
-num = [1, 2, 3]
-char = ["a", "b"]
-pairs = [(x, y) for x in num for y in char]
-logger.info(f"{pairs}")
+# num = [1, 2, 3]
+# char = ["a", "b"]
+# pairs = [(x, y) for x in num for y in char]
+# logger.info(f"{pairs}")
 
 # 3: Given a sentence "the quick brown fox", split into words and make a list of their lengths.
 # sentence = "the quick brown fox"
