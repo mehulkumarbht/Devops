@@ -53,8 +53,8 @@ from loguru import logger
 
 # Day-3: Practice nesting and combining.
 # 1: Create a multiplication table for numbers 1–5 (like [1,2,3,4,5,2,4,6,...]).
-table = [m * n for m in range(1, 6) for n in range(1, 6)]
-logger.info(f"{table}")
+# table = [m * n for m in range(1, 6) for n in range(1, 6)]
+# logger.info(f"{table}")
 
 # 2: Create all pairs (x, y) where x is from [1,2,3] and y is from [‘a’, ‘b’].
 # num = [1, 2, 3]
