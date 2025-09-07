@@ -53,21 +53,28 @@ from loguru import logger
 
 # Day-3: Practice nesting and combining.
 # 1: Create a multiplication table for numbers 1–5 (like [1,2,3,4,5,2,4,6,...]).
-# table = [num * num for num in range(1, 6)]
-# logger.info(f"{table}")
+table = [m * n for m in range(1, 6) for n in range(1, 6)]
+logger.info(f"{table}")
+
 # 2: Create all pairs (x, y) where x is from [1,2,3] and y is from [‘a’, ‘b’].
-# x = [1,2,3], y = ['a','b']
+num = [1, 2, 3]
+char = ["a", "b"]
+pairs = [(x, y) for x in num for y in char]
+logger.info(f"{pairs}")
+
 # 3: Given a sentence "the quick brown fox", split into words and make a list of their lengths.
 # sentence = "the quick brown fox"
 # words = sentence.split()
 # length_of_words = [len(word) for word in words]
 # logger.info(f"{length_of_words}")
+
 # 4: Extract vowels from "programming is fun" into a list.
 # vowels = "aeiou"
 # sentence = "programming is fun"
 # vowles_list = [word for word in sentence if word in vowels]
 # logger.info(f"{vowles_list}")
+
 # 5: From nums = [0,1,2,3,4,5,6,7,8,9], build a list that keeps numbers < 5 as is, but replaces numbers ≥ 5 with "big".
-nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-nums_list = ["big" if n >= 5 else n for n in nums]
-logger.info(f"{nums_list}")
+# nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+# nums_list = ["big" if n >= 5 else n for n in nums]
+# logger.info(f"{nums_list}")
