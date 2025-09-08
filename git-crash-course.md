@@ -74,6 +74,11 @@ Create a new branch
 git branch dev #use whatever name you want instead dev
 git branch 
 git checkout dev #switched to branch dev
+
+git checkout -b dev #create and checkout a branch
+git branch -d dev # deletes a branch
+git branch -m [old-name][new-name] #Renames a branch
+git branch -a #lists both remote and local branches
 ```
 
 
