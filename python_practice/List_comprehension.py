@@ -153,6 +153,6 @@ import re
 # logger.info(f"{unique_consonants}")
 
 # 5: Convert into a dictionary where keys are column indexes and values are lists of column elements.
-matrix = [[1, 2], [3, 4], [5, 6]]
-transposed_matrix = {i: [row[i] for row in matrix] for i in range(len(matrix[0]))}
-logger.info(f"{transposed_matrix}")
+# matrix = [[1, 2], [3, 4], [5, 6]]
+# transposed_matrix = {i: [row[i] for row in matrix] for i in range(len(matrix[0]))}
+# logger.info(f"{transposed_matrix}")
