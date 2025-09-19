@@ -131,14 +131,10 @@ import re
 # Day-5:
 # 1: Word frequency counter
 # sentence = "apple banana apple orange banana apple"
+# from collections import Counter
 # words = sentence.split()
-# print(words)
-# words_count = []
-# # words_count = [word for word in words if word in words_count]
-# for word in words:
-#     if word == words_count:
-#         words_count.append(word)
-# logger.info(f"{word:words_count}")
+# counter = Counter(words)
+# logger.info(f"{counter}")
 
 # 2: Reverse dictionary
 # students = {"Alice": 25, "Bob": 30, "Charlie": 35}
@@ -147,17 +143,16 @@ import re
 
 # 3: Filter dictionary
 # scores = {"Alice": 85, "Bob": 60, "Charlie": 95, "Dave": 40}
-# high_scores = {key: value for key, value in scores.items() if value > 70}
+# high_scores = {key: value for key, value in scores.items() if value >= 70}
 # logger.info(f"{high_scores}")
 
 # 4: From the word "programming", build a set of all unique consonants (exclude vowels).
 # word = "programming"
 # vowels = "aeiou"
-# wrd = word.split()
-# unique_consonants = (w for w in wrd for x in w if w not in vowels)
+# unique_consonants = {char for char in word if char not in vowels}
 # logger.info(f"{unique_consonants}")
 
 # 5: Convert into a dictionary where keys are column indexes and values are lists of column elements.
 matrix = [[1, 2], [3, 4], [5, 6]]
-transposed_matrix = [list(row) for row in zip(*matrix)]
-logger.info(f"{key}:{transposed_matrix}")
+transposed_matrix = {i: [row[i] for row in matrix] for i in range(len(matrix[0]))}
+logger.info(f"{transposed_matrix}")
