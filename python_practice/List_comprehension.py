@@ -1,4 +1,5 @@
 from loguru import logger
+import re
 # Day:1: Convert normal loops into list comprehensions.
 
 # 1: Create a list of numbers from 1 to 10 using list comprehension.
@@ -78,3 +79,85 @@ from loguru import logger
 # nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 # nums_list = ["big" if n >= 5 else n for n in nums]
 # logger.info(f"{nums_list}")
+
+# Day-4:
+# 1: Extract numbers from a string
+# text = "Order IDs are: 23, 45, 67, and 89"
+# # Expected: [23, 45, 67, 89]
+# number_as_string = re.findall(
+#     r"\d+", text
+# )  # Extract all sequences of one or more digits
+# number_as_integer = [
+#     int(num) for num in number_as_string
+# ]  # Convert the extracted strings to integers
+# logger.info(f"{number_as_integer}")
+
+# 2: Flatten + filter logs
+# logs = [
+#     ["INFO: Start", "ERROR: Disk full"],
+#     ["INFO: Running", "ERROR: Timeout"],
+#     ["INFO: Finished"],
+# ]
+# # Expected: ['Disk full', 'Timeout']   (only error messages, without 'ERROR:')
+# errors = [
+#     msg.replace("ERROR: ", "")
+#     for sublist in logs
+#     for msg in sublist
+#     if msg.startswith("ERROR:")
+# ]
+# logger.info(f"{errors}")
+
+# 3: Unique words, lowercase, no stopwords
+# sentence = "The quick brown fox jumps over the lazy dog"
+# stopwords = {"the", "over"}
+# # Expected: ['quick', 'brown', 'fox', 'jumps', 'lazy', 'dog']
+# words = sentence.lower().split()
+# cleaned_words = [word for word in words if word not in stopwords]
+# logger.info(f"{cleaned_words}")
+
+# 4: Transpose a matrix
+# matrix = [[1, 2, 3], [4, 5, 6]]
+# # Expected: [[1, 4], [2, 5], [3, 6]]
+# transpose_matrix = [list(row) for row in zip(*matrix)]
+# logger.info(f"{transpose_matrix}")
+
+# 5: Dictionary from two lists
+# keys = ["name", "age", "city"]
+# values = ["Alice", 25, "Toronto"]
+# # Expected: {'name': 'Alice', 'age': 25, 'city': 'Toronto'}
+# my_dict = dict(zip(keys, values))
+# logger.info(f"{my_dict}")
+
+# Day-5:
+# 1: Word frequency counter
+# sentence = "apple banana apple orange banana apple"
+# words = sentence.split()
+# print(words)
+# words_count = []
+# # words_count = [word for word in words if word in words_count]
+# for word in words:
+#     if word == words_count:
+#         words_count.append(word)
+# logger.info(f"{word:words_count}")
+
+# 2: Reverse dictionary
+# students = {"Alice": 25, "Bob": 30, "Charlie": 35}
+# reverse_students = {value: key for key, value in students.items()}
+# logger.info(f"{reverse_students}")
+
+# 3: Filter dictionary
+# scores = {"Alice": 85, "Bob": 60, "Charlie": 95, "Dave": 40}
+# high_scores = {key: value for key, value in scores.items() if value > 70}
+# logger.info(f"{high_scores}")
+
+# 4: From the word "programming", build a set of all unique consonants (exclude vowels).
+# word = "programming"
+# vowels = "aeiou"
+# wrd = word.split()
+# unique_consonants = (w for w in wrd for x in w if w not in vowels)
+# logger.info(f"{unique_consonants}")
+
+# 5: Convert into a dictionary where keys are column indexes and values are lists of column elements.
+matrix = [[1, 2], [3, 4], [5, 6]]
+transposed_matrix = [list(row) for row in zip(*matrix)]
+logger.info(f"{key}:{transposed_matrix}")
