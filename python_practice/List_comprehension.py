@@ -165,10 +165,10 @@ import re
 # even_squares = [num**2 for num in range(1, 11) if num % 2 != 0]
 # logger.info(f"{even_squares}")
 # 2: From ["cat", "house", "dog", "elephant"], keep only words with length > 3.
-words = ["cat", "house", "dog", "elephant"]
-long_words = [word for word in words if len(word) > 3]
-logger.info(f"{long_words}")
+# words = ["cat", "house", "dog", "elephant"]
+# long_words = [word for word in words if len(word) > 3]
+# logger.info(f"{long_words}")
 
 # bonus: collect only their first letters.
-first_letters = [word[:1] for word in words]
-logger.info(f"{first_letters}")
+# first_letters = [word[:1] for word in words]
+# logger.info(f"{first_letters}")
