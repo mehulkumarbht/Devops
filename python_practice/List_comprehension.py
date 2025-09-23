@@ -159,8 +159,16 @@ import re
 
 # Day-6:
 # 1: Write a list comprehension that generates squares of numbers 1–10.
-squares = [num**2 for num in range(1, 11)]
-logger.info(f"{squares}")
+# squares = [num**2 for num in range(1, 11)]
+# logger.info(f"{squares}")
 # bonus: extract only the even squares.
-even_squares = [num**2 for num in range(1, 11) if num % 2 != 0]
-logger.info(f"{even_squares}")
+# even_squares = [num**2 for num in range(1, 11) if num % 2 != 0]
+# logger.info(f"{even_squares}")
+# 2: From ["cat", "house", "dog", "elephant"], keep only words with length > 3.
+words = ["cat", "house", "dog", "elephant"]
+long_words = [word for word in words if len(word) > 3]
+logger.info(f"{long_words}")
+
+# bonus: collect only their first letters.
+first_letters = [word[:1] for word in words]
+logger.info(f"{first_letters}")
