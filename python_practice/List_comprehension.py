@@ -156,3 +156,11 @@ import re
 # matrix = [[1, 2], [3, 4], [5, 6]]
 # transposed_matrix = {i: [row[i] for row in matrix] for i in range(len(matrix[0]))}
 # logger.info(f"{transposed_matrix}")
+
+# Day-6:
+# 1: Write a list comprehension that generates squares of numbers 1–10.
+squares = [num**2 for num in range(1, 11)]
+logger.info(f"{squares}")
+# bonus: extract only the even squares.
+even_squares = [num**2 for num in range(1, 11) if num % 2 != 0]
+logger.info(f"{even_squares}")
