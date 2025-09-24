@@ -184,13 +184,13 @@ import re
 # logger.info(f"{length_words}")
 
 # 2: From "programming", build a set of all unique consonants.
-word = "programming"
-vowels = "aeiou"
+# word = "programming"
+# vowels = "aeiou"
 # number_of_consonants = [char for char in word if char not in vowels]
 # logger.info(f"{number_of_consonants}")
 
 # bonus: count vowels vs consonants
-number_of_vowels = sum([1 for char in word if char in vowels])
-number_of_consonants = sum([1 for char in word if char not in vowels])
-logger.info(f"Number of vowels: {number_of_vowels}")
-logger.info(f"Number of consonants: {number_of_consonants}")
+# number_of_vowels = sum([1 for char in word if char in vowels])
+# number_of_consonants = sum([1 for char in word if char not in vowels])
+# logger.info(f"Number of vowels: {number_of_vowels}")
+# logger.info(f"Number of consonants: {number_of_consonants}")
