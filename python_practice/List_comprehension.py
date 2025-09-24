@@ -172,3 +172,13 @@ import re
 # bonus: collect only their first letters.
 # first_letters = [word[:1] for word in words]
 # logger.info(f"{first_letters}")
+
+# Day-7
+# 1: Build a list of each word’s length.
+# sentence = "The quick brown fox jumps over the lazy dog"
+# words = sentence.split()
+# length_words = [len(word) for word in words]
+# logger.info(f"{length_words}")
+# bonus:build a dict {word: length}
+# length_words = {word: len(word) for word in words}
+# logger.info(f"{length_words}")
