@@ -194,3 +194,22 @@ import re
 # number_of_consonants = sum([1 for char in word if char not in vowels])
 # logger.info(f"Number of vowels: {number_of_vowels}")
 # logger.info(f"Number of consonants: {number_of_consonants}")
+
+
+# Day-8:
+# 1: Extract error messages only (remove "ERROR:").
+import re
+
+logs = ["INFO: Start", "ERROR: Disk full", "INFO: Run", "ERROR: Timeout"]
+# error = []
+# for line in logs:
+#     match = re.search(r"ERROR: (.*)", line)
+#     if match:
+#         error.append(match.group(1))
+# logger.info(f"{error}")
+# Bonus: build a dict {level: [messages...]}.
+error = {}
+for line in logs:
+    level, message = line.split(":", 1)
+    error.setdefault(level, []).append(message)
+logger.info(f"{error}")
