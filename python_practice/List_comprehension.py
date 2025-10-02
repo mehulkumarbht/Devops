@@ -213,3 +213,36 @@ import re
 #     level, message = line.split(":", 1)
 #     error.setdefault(level, []).append(message)
 # logger.info(f"{error}")
+
+# Day-09
+# Choose one of these:
+# Word analyzer: word → length, frequency, unique letters.
+# Mini CSV transformer: list of strings → list of dicts.
+# Log summary: count INFO, ERROR, WARNING.
+
+# Word Analyzer:
+word = "banana"
+
+# word_length = len(word)
+# logger.info(f"{word_length}")
+# word_frequency = sum[1 for char in word if char == word_frequency[char]]
+# logger.info(f"{word_frequency}")
+
+word_frequency = {}
+for char in word:
+    if char in word_frequency:
+        word_frequency[char] += 1
+    else:
+        word_frequency[char] = 1
+logger.info(f"{word_frequency}")
+
+word_unique = set(word)
+logger.info(f"{word_unique}")
+
+logs = ["INFO: Start", "ERROR: Disk full", "INFO: Run", "WARNING: Low memory"]
+
+log_dict = {}
+for line in logs:
+    level, message = line.split(":", 1)
+    log_dict.setdefault(level, []).append(message)
+logger.info(f"{log_dict}")
