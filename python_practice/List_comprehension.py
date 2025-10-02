@@ -208,8 +208,8 @@ logs = ["INFO: Start", "ERROR: Disk full", "INFO: Run", "ERROR: Timeout"]
 #         error.append(match.group(1))
 # logger.info(f"{error}")
 # Bonus: build a dict {level: [messages...]}.
-error = {}
-for line in logs:
-    level, message = line.split(":", 1)
-    error.setdefault(level, []).append(message)
-logger.info(f"{error}")
+# error = {}
+# for line in logs:
+#     level, message = line.split(":", 1)
+#     error.setdefault(level, []).append(message)
+# logger.info(f"{error}")
