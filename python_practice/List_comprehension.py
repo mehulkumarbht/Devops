@@ -198,9 +198,9 @@ import re
 
 # Day-8:
 # 1: Extract error messages only (remove "ERROR:").
-import re
+# import re
 
-logs = ["INFO: Start", "ERROR: Disk full", "INFO: Run", "ERROR: Timeout"]
+# logs = ["INFO: Start", "ERROR: Disk full", "INFO: Run", "ERROR: Timeout"]
 # error = []
 # for line in logs:
 #     match = re.search(r"ERROR: (.*)", line)
