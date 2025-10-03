@@ -221,28 +221,45 @@ import re
 # Log summary: count INFO, ERROR, WARNING.
 
 # Word Analyzer:
-word = "banana"
+# word = "banana"
 
 # word_length = len(word)
 # logger.info(f"{word_length}")
 # word_frequency = sum[1 for char in word if char == word_frequency[char]]
 # logger.info(f"{word_frequency}")
 
-word_frequency = {}
-for char in word:
-    if char in word_frequency:
-        word_frequency[char] += 1
+# word_frequency = {}
+# for char in word:
+#     if char in word_frequency:
+#         word_frequency[char] += 1
+#     else:
+#         word_frequency[char] = 1
+# logger.info(f"{word_frequency}")
+
+# word_unique = set(word)
+# logger.info(f"{word_unique}")
+
+# logs = ["INFO: Start", "ERROR: Disk full", "INFO: Run", "WARNING: Low memory"]
+
+# log_dict = {}
+# for line in logs:
+#     level, message = line.split(":", 1)
+#     log_dict.setdefault(level, []).append(message)
+# logger.info(f"{log_dict}")
+
+# Day-10
+# Mini Word Analyzer
+# Take an input word and produce:Length of the word, Unique letters, Frequency of each letter
+word = "Programming"
+words = word.lower()
+words_length = len(words)  # length of the word
+logger.info(f"{words_length}")
+unique_letters = set(words)
+logger.info(f"{unique_letters}")
+frequency_letters = {}
+for word in words:
+    if word in frequency_letters:
+        frequency_letters[word] += 1
     else:
-        word_frequency[char] = 1
-logger.info(f"{word_frequency}")
-
-word_unique = set(word)
-logger.info(f"{word_unique}")
-
-logs = ["INFO: Start", "ERROR: Disk full", "INFO: Run", "WARNING: Low memory"]
-
-log_dict = {}
-for line in logs:
-    level, message = line.split(":", 1)
-    log_dict.setdefault(level, []).append(message)
-logger.info(f"{log_dict}")
+        frequency_letters[word] = 1
+logger.info(f"{frequency_letters}")
