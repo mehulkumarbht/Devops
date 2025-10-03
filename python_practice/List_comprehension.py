@@ -250,16 +250,23 @@ import re
 # Day-10
 # Mini Word Analyzer
 # Take an input word and produce:Length of the word, Unique letters, Frequency of each letter
-word = "Programming"
-words = word.lower()
-words_length = len(words)  # length of the word
-logger.info(f"{words_length}")
-unique_letters = set(words)
-logger.info(f"{unique_letters}")
-frequency_letters = {}
-for word in words:
-    if word in frequency_letters:
-        frequency_letters[word] += 1
-    else:
-        frequency_letters[word] = 1
-logger.info(f"{frequency_letters}")
+# word = "Programming"
+# words = word.lower()
+# words_length = len(words)  # length of the word
+# logger.info(f"{words_length}")
+# unique_letters = set(words)
+# logger.info(f"{unique_letters}")
+# frequency_letters = {}
+# for word in words:
+#     if word in frequency_letters:
+#         frequency_letters[word] += 1
+#     else:
+#         frequency_letters[word] = 1
+# logger.info(f"{frequency_letters}")
+
+# Mini CSV Transformer
+data = ["name,age,city", "Alice,25,Toronto", "Bob,30,New York", "Charlie,35,London"]
+headers = data[0].split(",")
+rows = data[1:]
+result = [dict(zip(headers, row.split(","))) for row in rows]
+logger.info(f"{result}")
