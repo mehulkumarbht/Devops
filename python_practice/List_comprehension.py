@@ -270,3 +270,8 @@ headers = data[0].split(",")
 rows = data[1:]
 result = [dict(zip(headers, row.split(","))) for row in rows]
 logger.info(f"{result}")
+
+older_than_30 = [
+    dict(zip(headers, row.split(","))) for row in rows if int(row.split(",")[1]) > 30
+]
+logger.info(f"{older_than_30}")
