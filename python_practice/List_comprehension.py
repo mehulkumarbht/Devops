@@ -265,13 +265,13 @@ import re
 # logger.info(f"{frequency_letters}")
 
 # Mini CSV Transformer
-data = ["name,age,city", "Alice,25,Toronto", "Bob,30,New York", "Charlie,35,London"]
-headers = data[0].split(",")
-rows = data[1:]
-result = [dict(zip(headers, row.split(","))) for row in rows]
-logger.info(f"{result}")
+# data = ["name,age,city", "Alice,25,Toronto", "Bob,30,New York", "Charlie,35,London"]
+# headers = data[0].split(",")
+# rows = data[1:]
+# result = [dict(zip(headers, row.split(","))) for row in rows]
+# logger.info(f"{result}")
 
-older_than_30 = [
-    dict(zip(headers, row.split(","))) for row in rows if int(row.split(",")[1]) > 30
-]
-logger.info(f"{older_than_30}")
+# older_than_30 = [
+#     dict(zip(headers, row.split(","))) for row in rows if int(row.split(",")[1]) > 30
+# ]
+# logger.info(f"{older_than_30}")
