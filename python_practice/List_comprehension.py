@@ -275,3 +275,17 @@ import re
 #     dict(zip(headers, row.split(","))) for row in rows if int(row.split(",")[1]) > 30
 # ]
 # logger.info(f"{older_than_30}")
+
+# Day-11: Group People by City
+result = [
+    {"name": "Alice", "age": "25", "city": "Toronto"},
+    {"name": "Bob", "age": "30", "city": "New York"},
+    {"name": "Charlie", "age": "35", "city": "London"},
+    {"name": "Dave", "age": "32", "city": "New York"},
+]
+grouped_by_city = {}
+for row in result:
+    city = row["city"]
+    name = row["name"]
+    grouped_by_city.setdefault(city, []).append(name)
+print(grouped_by_city)
