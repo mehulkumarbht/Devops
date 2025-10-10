@@ -276,16 +276,32 @@ import re
 # ]
 # logger.info(f"{older_than_30}")
 
-# Day-11: Group People by City
-result = [
-    {"name": "Alice", "age": "25", "city": "Toronto"},
-    {"name": "Bob", "age": "30", "city": "New York"},
-    {"name": "Charlie", "age": "35", "city": "London"},
-    {"name": "Dave", "age": "32", "city": "New York"},
+# Day-11:
+# 1: Group People by City
+# result = [
+#     {"name": "Alice", "age": "25", "city": "Toronto"},
+#     {"name": "Bob", "age": "30", "city": "New York"},
+#     {"name": "Charlie", "age": "35", "city": "London"},
+#     {"name": "Dave", "age": "32", "city": "New York"},
+# ]
+# grouped_by_city = {}
+# for row in result:
+#     city = row["city"]
+#     name = row["name"]
+#     grouped_by_city.setdefault(city, []).append(name)
+# print(grouped_by_city)
+
+# 2: Log Summary Generator
+logs = [
+    "INFO: System started",
+    "ERROR: Disk full",
+    "WARNING: Low memory",
+    "INFO: Running task",
+    "ERROR: Timeout",
+    "INFO: Completed",
 ]
-grouped_by_city = {}
-for row in result:
-    city = row["city"]
-    name = row["name"]
-    grouped_by_city.setdefault(city, []).append(name)
-print(grouped_by_city)
+log_summary = {}
+for line in logs:
+    level, message = line.split(": ", 1)
+    log_summary[level] = log_summary.get(level, 0) + 1
+logger.info(f"{log_summary}")
