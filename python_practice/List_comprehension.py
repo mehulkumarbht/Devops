@@ -305,3 +305,14 @@ for line in logs:
     level, message = line.split(": ", 1)
     log_summary[level] = log_summary.get(level, 0) + 1
 logger.info(f"{log_summary}")
+
+# 3: Error log extractor
+logs = [
+    "INFO: System started",
+    "ERROR: Disk full",
+    "WARNING: Low memory",
+    "INFO: Running task",
+    "ERROR: Timeout",
+    "INFO: Completed",
+]
+log_summary = {}
