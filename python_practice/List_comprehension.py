@@ -339,9 +339,9 @@ logs = [
 #     log_summary[level] = log_summary.get(level, 0) + 1
 # logger.info(f"{log_summary}")
 
-log_summary = []
-for line in logs:
-    if line.startswith("INFO:"):
-        message = line.split(":", 1)[1]
-        log_summary.append(message)
-logger.info(f"{log_summary}")
+# log_summary = []
+# for line in logs:
+#     if line.startswith("INFO:"):
+#         message = line.split(":", 1)[1]
+#         log_summary.append(message)
+# logger.info(f"{log_summary}")
