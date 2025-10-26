@@ -375,3 +375,21 @@ import string
 # for word, count in sorted_words[:3]:
 #     top_3_common_words.append(word)
 # logger.info(f"Top 3 common words are: {top_3_common_words}")
+
+# 3: From your previous CSV transformer:
+# Keep only rows where age > 30.
+# Add a new field "status" = "senior" if age ≥ 35 else "mid".
+
+data = ["name,age,city", "Alice,25,Toronto", "Bob,30,New York", "Charlie,35,London"]
+headers = data[0].split(",")
+rows = data[1:]
+results = []
+for row in rows:
+    row_values = row.split(",")  # split row string into a list of values
+    row_dict = dict(zip(headers, row_values))  # create dictionary for the current row
+    age = int(row_dict["age"])  # Convert the 'age' string to an integer for comparision
+    # if age > 30:
+    if age >= 35:
+        print("Status = senior")
+    else:
+        print("Status = mid")
