@@ -351,27 +351,27 @@ import string
 # Count total words
 # Build a frequency dictionary (word → count)
 # Extract top 3 most common words
-sentence = "Our colleagues strive to have a positive impact and make a meaningful difference to our business performance, our customers’ lives and the communities where we live, work and play."
-count = 0
-cleaned_sentence = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
-words = cleaned_sentence.split()
+# sentence = "Our colleagues strive to have a positive impact and make a meaningful difference to our business performance, our customers’ lives and the communities where we live, work and play."
+# count = 0
+# cleaned_sentence = sentence.translate(str.maketrans("", "", string.punctuation)).lower()
+# words = cleaned_sentence.split()
 
-# Count total words
-total_words = len(words)
-logger.info(f"{total_words}")  # Count total words
+# # Count total words
+# total_words = len(words)
+# logger.info(f"{total_words}")  # Count total words
 
-# Build a frequency dictionary (word → count)
-word_count = {}
-for word in words:
-    if word in word_count:
-        word_count[word] += 1
-    else:
-        word_count[word] = 1
-logger.info(f"{word_count}")  # Build a frequency dictionary (word → count)
+# # Build a frequency dictionary (word → count)
+# word_count = {}
+# for word in words:
+#     if word in word_count:
+#         word_count[word] += 1
+#     else:
+#         word_count[word] = 1
+# logger.info(f"{word_count}")  # Build a frequency dictionary (word → count)
 
-# Extract top 3 most common words
-top_3_common_words = []
-sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
-for word, count in sorted_words[:3]:
-    top_3_common_words.append(word)
-logger.info(f"Top 3 common words are: {top_3_common_words}")
+# # Extract top 3 most common words
+# top_3_common_words = []
+# sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
+# for word, count in sorted_words[:3]:
+#     top_3_common_words.append(word)
+# logger.info(f"Top 3 common words are: {top_3_common_words}")
