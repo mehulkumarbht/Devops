@@ -395,10 +395,10 @@ import string
 #         print("Status = mid")
 
 # 4: Using the CSV data, group people by city and show how many live in each city.
-data = ["name,age,city", "Alice,25,Toronto", "Bob,30,New York", "Charlie,35,London"]
-city = {}
-rows = data[1:]
-for row in rows:
-    level, message, place = row.split(",", 2)
-    city[place] = city.get(place, 0) + 1
-logger.info(f"{city}")
+# data = ["name,age,city", "Alice,25,Toronto", "Bob,30,New York", "Charlie,35,London"]
+# city = {}
+# rows = data[1:]
+# for row in rows:
+#     level, message, place = row.split(",", 2)
+#     city[place] = city.get(place, 0) + 1
+# logger.info(f"{city}")
