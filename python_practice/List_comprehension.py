@@ -427,3 +427,65 @@ import string
 #         user_name_lower = row["user"].lower()
 #         scores[user_name_lower] = row["score"]
 # logger.info(f"{scores}")
+
+# 7: Convert the data into a list of dictionaries (like a CSV parser).
+
+# Calculate:
+# Average salary per department.
+
+# Youngest and oldest employee.
+
+# Count of employees per city.
+
+# Filter employees earning more than 65 000.
+
+# Group by department and list employee names.
+
+# Find top 3 highest-paid employees overall.
+data = [
+    "id,name,age,city,salary,department",
+    "1,Alice,25,Toronto,55000,Engineering",
+    "2,Bob,30,New York,62000,Marketing",
+    "3,Charlie,35,London,72000,Engineering",
+    "4,David,28,Toronto,58000,Sales",
+    "5,Eva,32,London,69000,Engineering",
+    "6,Frank,40,New York,80000,Marketing",
+    "7,Grace,29,London,60000,Sales",
+]
+# avg salary
+# total_salary = 0
+# count = 0
+rows = data[1:]
+# for row in rows:
+#     fields = row.split(",")
+#     salary = int(fields[4])
+#     total_salary += salary
+#     count += 1
+#     avg_salary = total_salary / count
+# logger.info(f"{avg_salary:.2f}")
+
+# youngest and oldest employees:
+first_row_field = rows[0].split(",")
+initial_age = int(first_row_field[2])
+youngest_employee_age = initial_age
+oldest_employee_age = initial_age
+for row in rows:
+    fields = row.split(",")
+    age = int(fields[2])
+    if age < youngest_employee_age:
+        youngest_employee_age = age
+    if age > oldest_employee_age:
+        oldest_employee_age = age
+logger.info(f"Age of youngest employee: {youngest_employee_age}")
+logger.info(f"Age of oldest employee: {oldest_employee_age}")
+
+# count of employees per city
+employees_per_city = {}
+for row in rows:
+    fields = row.split(",")
+    city = fields[3]
+    if city in employees_per_city:
+        employees_per_city[city] += 1
+    else:
+        employees_per_city[city] = 1
+logger.info(f"{employees_per_city}")
