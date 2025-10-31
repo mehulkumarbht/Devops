@@ -416,14 +416,14 @@ import string
 # logger.info(f"{even_matrix}") # even numbers from matrix
 
 # 6: Remove entries with None scores and normalize all names to lowercase
-data = [
-    {"user": "Alice", "score": 50},
-    {"user": "Bob", "score": None},
-    {"user": "Charlie", "score": 70},
-]
-scores = {}
-for row in data:
-    if row["score"] is not None:
-        user_name_lower = row["user"].lower()
-        scores[user_name_lower] = row["score"]
-logger.info(f"{scores}")
+# data = [
+#     {"user": "Alice", "score": 50},
+#     {"user": "Bob", "score": None},
+#     {"user": "Charlie", "score": 70},
+# ]
+# scores = {}
+# for row in data:
+#     if row["score"] is not None:
+#         user_name_lower = row["user"].lower()
+#         scores[user_name_lower] = row["score"]
+# logger.info(f"{scores}")
