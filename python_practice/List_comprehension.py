@@ -402,3 +402,28 @@ import string
 #     level, message, place = row.split(",", 2)
 #     city[place] = city.get(place, 0) + 1
 # logger.info(f"{city}")
+
+# 5: Given a 2D list (matrix):Transpose it, Flatten it, Keep only even numbers.
+# [[1,2,3],[4,5,6]] → [2,4,6]
+# matrix = [[1, 2, 3], [4, 5, 6]]
+# transpose_matrix = [list(row) for row in zip(*matrix)]
+# logger.info(f"{transpose_matrix}")  # transpose
+
+# flatten_matrix = [num for row in matrix for num in row]
+# logger.info(f"{flatten_matrix}") # flatten
+
+# even_matrix = [num for row in matrix for num in row if num % 2 == 0]
+# logger.info(f"{even_matrix}") # even numbers from matrix
+
+# 6: Remove entries with None scores and normalize all names to lowercase
+data = [
+    {"user": "Alice", "score": 50},
+    {"user": "Bob", "score": None},
+    {"user": "Charlie", "score": 70},
+]
+scores = {}
+for row in data:
+    if row["score"] is not None:
+        user_name_lower = row["user"].lower()
+        scores[user_name_lower] = row["score"]
+logger.info(f"{scores}")
