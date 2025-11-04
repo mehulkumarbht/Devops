@@ -465,27 +465,61 @@ rows = data[1:]
 # logger.info(f"{avg_salary:.2f}")
 
 # youngest and oldest employees:
-first_row_field = rows[0].split(",")
-initial_age = int(first_row_field[2])
-youngest_employee_age = initial_age
-oldest_employee_age = initial_age
-for row in rows:
-    fields = row.split(",")
-    age = int(fields[2])
-    if age < youngest_employee_age:
-        youngest_employee_age = age
-    if age > oldest_employee_age:
-        oldest_employee_age = age
-logger.info(f"Age of youngest employee: {youngest_employee_age}")
-logger.info(f"Age of oldest employee: {oldest_employee_age}")
+# first_row_field = rows[0].split(",")
+# initial_age = int(first_row_field[2])
+# youngest_employee_age = initial_age
+# oldest_employee_age = initial_age
+# for row in rows:
+#     fields = row.split(",")
+#     age = int(fields[2])
+#     if age < youngest_employee_age:
+#         youngest_employee_age = age
+#     if age > oldest_employee_age:
+#         oldest_employee_age = age
+# logger.info(f"Age of youngest employee: {youngest_employee_age}")
+# logger.info(f"Age of oldest employee: {oldest_employee_age}")
 
 # count of employees per city
-employees_per_city = {}
-for row in rows:
-    fields = row.split(",")
-    city = fields[3]
-    if city in employees_per_city:
-        employees_per_city[city] += 1
-    else:
-        employees_per_city[city] = 1
-logger.info(f"{employees_per_city}")
+# employees_per_city = {}
+# for row in rows:
+#     fields = row.split(",")
+#     city = fields[3]
+#     if city in employees_per_city:
+#         employees_per_city[city] += 1
+#     else:
+#         employees_per_city[city] = 1
+# logger.info(f"{employees_per_city}")
+
+# 3 Filter employees earning more than 65000
+# employees_earning_more_than_65000 = []
+# for row in rows:
+#     fields = row.split(",")
+#     salary = fields[4]
+#     name = fields[1]
+#     if int(salary) > 65000:
+#         employees_earning_more_than_65000.append(name)
+# logger.info(f"{employees_earning_more_than_65000}")
+
+# 4 Group By department and list employees names
+# employee_counts_by_department = {}
+# for row in rows:
+#     fields = row.split(",")
+#     department = fields[5]
+#     if department in employee_counts_by_department:
+#         employee_counts_by_department[department] += 1
+#     else:
+#         employee_counts_by_department[department] = 1
+# logger.info(f"{employee_counts_by_department}")
+
+# 5: find top 3 highest paid employees overall
+# highest_paid_employees = []
+# for row in rows:
+#     fields = row.split(",")
+#     employee_dict = {"name": fields[1], "salary": int(fields[4])}
+#     highest_paid_employees.append(employee_dict)
+#     highest_paid_employees.sort(
+#         key=lambda highest_paid_employees: highest_paid_employees["salary"],
+#         reverse=True,
+#     )
+#     top_3_highest_paid = highest_paid_employees[:3]
+# logger.info(f"{top_3_highest_paid}")
