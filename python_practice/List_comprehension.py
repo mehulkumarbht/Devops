@@ -524,70 +524,86 @@ import string
 #     top_3_highest_paid = highest_paid_employees[:3]
 # logger.info(f"{top_3_highest_paid}")
 
-data = [
-    "id,name,age,city,salary,department",
-    "1,Alice,25,Toronto,55000,Engineering",
-    "2,Bob,30,New York,62000,Marketing",
-    "3,Charlie,35,London,72000,Engineering",
-    "4,David,28,Toronto,58000,Sales",
-    "5,Eva,32,London,69000,Engineering",
-    "6,Frank,40,New York,80000,Marketing",
-    "7,Grace,29,London,60000,Sales",
-]
+# data = [
+#     "id,name,age,city,salary,department",
+#     "1,Alice,25,Toronto,55000,Engineering",
+#     "2,Bob,30,New York,62000,Marketing",
+#     "3,Charlie,35,London,72000,Engineering",
+#     "4,David,28,Toronto,58000,Sales",
+#     "5,Eva,32,London,69000,Engineering",
+#     "6,Frank,40,New York,80000,Marketing",
+#     "7,Grace,29,London,60000,Sales",
+# ]
 
-# 1: Parse the data into list of dicts
-headers = data[0].split(",")
-rows = data[1:]
-records = []
-for row in rows:
-    employee_dict = dict(zip(headers, row.split(",")))
-    records.append(employee_dict)
-logger.info(f"{records}")
-records = [dict(zip(headers, row.split(","))) for row in rows]
-logger.info(f"{records}")
+# # 1: Parse the data into list of dicts
+# headers = data[0].split(",")
+# rows = data[1:]
+# records = []
+# for row in rows:
+#     employee_dict = dict(zip(headers, row.split(",")))
+#     records.append(employee_dict)
+# logger.info(f"{records}")
+# records = [dict(zip(headers, row.split(","))) for row in rows]
+# logger.info(f"{records}")
 
-# 2: Convert numeric fields
-for row in records:
-    row["age"] = int(row["age"])
-    row["salary"] = int(row["salary"])
+# # 2: Convert numeric fields
+# for row in records:
+#     row["age"] = int(row["age"])
+#     row["salary"] = int(row["salary"])
 
-# 3: Average salary per department
-avg_salary = {}
-total_salaries_by_department = {}
-employee_count_by_department = {}
-for row in rows:
-    fields = row.split(",")
-    salary = int(fields[4])
-    department = fields[5]
-    if department not in total_salaries_by_department:
-        total_salaries_by_department[department] = 0
-        employee_count_by_department[department] = 0
-    total_salaries_by_department[department] += salary
-    employee_count_by_department[department] += 1
+# # 3: Average salary per department
+# avg_salary = {}
+# total_salaries_by_department = {}
+# employee_count_by_department = {}
+# for row in rows:
+#     fields = row.split(",")
+#     salary = int(fields[4])
+#     department = fields[5]
+#     if department not in total_salaries_by_department:
+#         total_salaries_by_department[department] = 0
+#         employee_count_by_department[department] = 0
+#     total_salaries_by_department[department] += salary
+#     employee_count_by_department[department] += 1
 
-average_salary_by_department = {}
-for department in total_salaries_by_department:
-    total_salary = total_salaries_by_department[department]
-    count = employee_count_by_department[department]
-    avg_salary = total_salary / count
-    average_salary_by_department[department] = (
-        f"{avg_salary:.2f}"  # or = round(avg_salary, 2)
-    )
-logger.info(f"{average_salary_by_department}")
+# average_salary_by_department = {}
+# for department in total_salaries_by_department:
+#     total_salary = total_salaries_by_department[department]
+#     count = employee_count_by_department[department]
+#     avg_salary = total_salary / count
+#     average_salary_by_department[department] = (
+#         f"{avg_salary:.2f}"  # or = round(avg_salary, 2)
+#     )
+# logger.info(f"{average_salary_by_department}")
 
 
-# 4: Employees with salary > 65000
-high_earners = []
-for row in records:
-    if row["salary"] > 65000:
-        high_earners.append(row["name"])
-logger.info(f"{high_earners}")
+# # 4: Employees with salary > 65000
+# high_earners = []
+# for row in records:
+#     if row["salary"] > 65000:
+#         high_earners.append(row["name"])
+# logger.info(f"{high_earners}")
 
-# 5: Count employees per city
-employees_per_city = {}
-for row in records:
-    if row["city"] in employees_per_city:
-        employees_per_city[row["city"]] += 1
-    else:
-        employees_per_city[row["city"]] = 1
-logger.info(f"{employees_per_city}")
+# # 5: Count employees per city
+# employees_per_city = {}
+# for row in records:
+#     if row["city"] in employees_per_city:
+#         employees_per_city[row["city"]] += 1
+#     else:
+#         employees_per_city[row["city"]] = 1
+# logger.info(f"{employees_per_city}")
+
+
+# logs = [
+#     "INFO: Started job",
+#     "INFO: Connected to DB",
+#     "ERROR: Disk full",
+#     "WARNING: Memory high",
+#     "ERROR: Timeout",
+#     "INFO: Finished job",
+# ]
+# # Count how many INFO, ERROR, and WARNING messages there are.
+# count = {}
+# for row in logs:
+#     level, message = row.split(":", 1)
+#     count[level] = count.get(level, 0) + 1
+# logger.info(f"{count}")
