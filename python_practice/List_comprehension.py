@@ -627,24 +627,24 @@ data = [
 
 
 # 2: Find the average salary per city.
-city_salaries = {}
-city_count = {}
-for row in data:
-    salary = int(row["salary"])
-    city = row["city"]
-    if city not in city_salaries:
-        city_salaries[city] = 0
-        city_count[city] = 0
-    city_salaries[city] += salary
-    city_count[city] += 1
-avg_salary = {}
-for city in city_salaries:
-    total_salary = city_salaries[city]
-    count = city_count[city]
-    avg_salary[city] = total_salary / count
-logger.info(f"{avg_salary}")
-
+# city_salaries = {}
+# city_count = {}
+# for row in data:
+#     salary = int(row["salary"])
+#     city = row["city"]
+#     if city not in city_salaries:
+#         city_salaries[city] = 0
+#         city_count[city] = 0
+#     city_salaries[city] += salary
+#     city_count[city] += 1
+# avg_salary = {}
+# for city in city_salaries:
+#     total_salary = city_salaries[city]
+#     count = city_count[city]
+#     avg_salary[city] = total_salary / count
+# logger.info(f"{avg_salary}")
 
 # 3: Find the name of the highest-paid person overall.
+
 
 # 4: (Bonus) Create a list of formatted strings like:
