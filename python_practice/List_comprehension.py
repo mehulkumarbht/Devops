@@ -607,3 +607,41 @@ import string
 #     level, message = row.split(":", 1)
 #     count[level] = count.get(level, 0) + 1
 # logger.info(f"{count}")
+
+data = [
+    {"name": "Alice", "age": 25, "city": "Toronto", "salary": 55000},
+    {"name": "Bob", "age": 30, "city": "New York", "salary": 62000},
+    {"name": "Charlie", "age": 35, "city": "London", "salary": 72000},
+    {"name": "David", "age": 28, "city": "Toronto", "salary": 58000},
+    {"name": "Eva", "age": 32, "city": "London", "salary": 69000},
+    {"name": "Frank", "age": 40, "city": "New York", "salary": 80000},
+]
+
+# 1: Filter employees with salary above 60 000.
+salary_above_60000 = []
+for row in data:
+    salary = int(row["salary"])
+    if salary > 60000:
+        salary_above_60000.append(row)
+logger.info(f"{salary_above_60000}")
+
+
+# 2: Find the average salary per city.
+avg_salary = {}
+city_salaries = {}
+city_count = {}
+for row in data:
+    salary = int(row["salary"])
+    city = row["city"]
+    if city not in city_salaries:
+        city_salaries[city] = 0
+        city_count[city] = 0
+        city_salaries[city] += salary
+        city_count[city] += 1
+    avg_salary = city_salaries[city] / city_count[city]
+logger.info(f"{avg_salary}")
+
+
+# 3: Find the name of the highest-paid person overall.
+
+# 4: (Bonus) Create a list of formatted strings like:
