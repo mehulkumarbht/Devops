@@ -645,14 +645,22 @@ data = [
 # logger.info(f"{avg_salary}")
 
 # 3: Find the name of the highest-paid person overall.
-highest_paid_person = ""
-highest_salary = 0
+# highest_paid_person = ""
+# highest_salary = 0
+# for row in data:
+#     name = row["name"]
+#     salary = int(row["salary"])
+#     if salary > highest_salary:
+#         highest_salary = salary
+#         highest_paid_person = name
+# logger.info(f"Highest paid person: {highest_paid_person}, salary: {highest_salary}")
+
+# 4: (Bonus) Create a list of formatted strings like:["Alice from Toronto earns $55000", ...]
+formatted_string_list = []
 for row in data:
     name = row["name"]
+    city = row["city"]
     salary = int(row["salary"])
-    if salary > highest_salary:
-        highest_salary = salary
-        highest_paid_person = name
-logger.info(f"Highest paid person: {highest_paid_person}, salary: {highest_salary}")
-
-# 4: (Bonus) Create a list of formatted strings like:
+    formatted_string = f"{name} from {city} earns ${salary}"
+    formatted_string_list.append(formatted_string)
+logger.info(f"{formatted_string_list}")
