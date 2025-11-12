@@ -627,7 +627,6 @@ data = [
 
 
 # 2: Find the average salary per city.
-avg_salary = {}
 city_salaries = {}
 city_count = {}
 for row in data:
@@ -636,9 +635,13 @@ for row in data:
     if city not in city_salaries:
         city_salaries[city] = 0
         city_count[city] = 0
-        city_salaries[city] += salary
-        city_count[city] += 1
-    avg_salary = city_salaries[city] / city_count[city]
+    city_salaries[city] += salary
+    city_count[city] += 1
+avg_salary = {}
+for city in city_salaries:
+    total_salary = city_salaries[city]
+    count = city_count[city]
+    avg_salary[city] = total_salary / count
 logger.info(f"{avg_salary}")
 
 
