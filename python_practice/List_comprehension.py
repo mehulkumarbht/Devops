@@ -618,12 +618,12 @@ data = [
 ]
 
 # 1: Filter employees with salary above 60 000.
-salary_above_60000 = []
-for row in data:
-    salary = int(row["salary"])
-    if salary > 60000:
-        salary_above_60000.append(row)
-logger.info(f"{salary_above_60000}")
+# salary_above_60000 = []
+# for row in data:
+#     salary = int(row["salary"])
+#     if salary > 60000:
+#         salary_above_60000.append(row)
+# logger.info(f"{salary_above_60000}")
 
 
 # 2: Find the average salary per city.
