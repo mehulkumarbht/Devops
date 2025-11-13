@@ -689,11 +689,11 @@ transactions = [
 # logger.info(f"{total_balance}")
 
 # 2: Count transactions per type
-transaction_count = {}
-for t in transactions:
-    transactions_type = t["type"]
-    if transactions_type in transaction_count:
-        transaction_count[transactions_type] += 1
-    else:
-        transaction_count[transactions_type] = 1
-logger.info(f"{transaction_count}")
+# transaction_count = {}
+# for t in transactions:
+#     transactions_type = t["type"]
+#     if transactions_type in transaction_count:
+#         transaction_count[transactions_type] += 1
+#     else:
+#         transaction_count[transactions_type] = 1
+# logger.info(f"{transaction_count}")
