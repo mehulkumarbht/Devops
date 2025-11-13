@@ -675,15 +675,25 @@ transactions = [
 ]
 
 # 1: Total balance per user, Assume: deposit = +amount, withdrawal = -amount
-total_balance = {}
-for amt in transactions:
-    name = amt["user"]
-    amount = amt["amount"]
-    transactions_type = amt["type"]
-    if name not in total_balance:
-        total_balance[name] = 0
-    if transactions_type == "deposit":
-        total_balance[name] += amount
+# total_balance = {}
+# for amt in transactions:
+#     name = amt["user"]
+#     amount = amt["amount"]
+#     transactions_type = amt["type"]
+#     if name not in total_balance:
+#         total_balance[name] = 0
+#     if transactions_type == "deposit":
+#         total_balance[name] += amount
+#     else:
+#         total_balance[name] -= amount
+# logger.info(f"{total_balance}")
+
+# 2: Count transactions per type
+transaction_count = {}
+for t in transactions:
+    transactions_type = t["type"]
+    if transactions_type in transaction_count:
+        transaction_count[transactions_type] += 1
     else:
-        total_balance[name] -= amount
-logger.info(f"{total_balance}")
+        transaction_count[transactions_type] = 1
+logger.info(f"{transaction_count}")
