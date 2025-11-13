@@ -664,3 +664,26 @@ data = [
 #     formatted_string = f"{name} from {city} earns ${salary}"
 #     formatted_string_list.append(formatted_string)
 # logger.info(f"{formatted_string_list}")
+
+transactions = [
+    {"id": 1, "user": "Alice", "amount": 120, "type": "deposit"},
+    {"id": 2, "user": "Bob", "amount": 50, "type": "withdrawal"},
+    {"id": 3, "user": "Alice", "amount": 200, "type": "deposit"},
+    {"id": 4, "user": "Charlie", "amount": 70, "type": "deposit"},
+    {"id": 5, "user": "Bob", "amount": 130, "type": "deposit"},
+    {"id": 6, "user": "Charlie", "amount": 50, "type": "withdrawal"},
+]
+
+# 1: Total balance per user, Assume: deposit = +amount, withdrawal = -amount
+total_balance = {}
+for amt in transactions:
+    name = amt["user"]
+    amount = amt["amount"]
+    transactions_type = amt["type"]
+    if name not in total_balance:
+        total_balance[name] = 0
+    if transactions_type == "deposit":
+        total_balance[name] += amount
+    else:
+        total_balance[name] -= amount
+logger.info(f"{total_balance}")
