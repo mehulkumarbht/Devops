@@ -665,14 +665,14 @@ data = [
 #     formatted_string_list.append(formatted_string)
 # logger.info(f"{formatted_string_list}")
 
-transactions = [
-    {"id": 1, "user": "Alice", "amount": 120, "type": "deposit"},
-    {"id": 2, "user": "Bob", "amount": 50, "type": "withdrawal"},
-    {"id": 3, "user": "Alice", "amount": 200, "type": "deposit"},
-    {"id": 4, "user": "Charlie", "amount": 70, "type": "deposit"},
-    {"id": 5, "user": "Bob", "amount": 130, "type": "deposit"},
-    {"id": 6, "user": "Charlie", "amount": 50, "type": "withdrawal"},
-]
+# transactions = [
+#     {"id": 1, "user": "Alice", "amount": 120, "type": "deposit"},
+#     {"id": 2, "user": "Bob", "amount": 50, "type": "withdrawal"},
+#     {"id": 3, "user": "Alice", "amount": 200, "type": "deposit"},
+#     {"id": 4, "user": "Charlie", "amount": 70, "type": "deposit"},
+#     {"id": 5, "user": "Bob", "amount": 130, "type": "deposit"},
+#     {"id": 6, "user": "Charlie", "amount": 50, "type": "withdrawal"},
+# ]
 
 # 1: Total balance per user, Assume: deposit = +amount, withdrawal = -amount
 # total_balance = {}
@@ -697,3 +697,32 @@ transactions = [
 #     else:
 #         transaction_count[transactions_type] = 1
 # logger.info(f"{transaction_count}")
+
+# 3: Find user with highest total balance
+# total_balance = {}
+# for t in transactions:
+#     name = t["user"]
+#     amount = t["amount"]
+#     transactions_type = t["type"]
+#     if name not in total_balance:
+#         total_balance[name] = 0
+#     if transactions_type == "deposits":
+#         total_balance[name] += amount
+#     else:
+#         total_balance[name] = amount
+# logger.info(f"{total_balance}")
+
+# highest_total_balance = max(total_balance.items(), key=lambda x: x[1])
+# logger.info(f"{highest_total_balance}")
+
+# 4: Build a summary sentence:
+# formatted_string_list = []
+# for t in transactions:
+#     name = t["user"]
+#     current_user_balance = total_balance[name]
+#     transactions_type = t["type"]
+#     formatted_string = (
+#         f"{name} has the ${current_user_balance} across {transactions_type}"
+#     )
+#     formatted_string_list.append(formatted_string)
+# logger.info(f"{formatted_string_list}")
