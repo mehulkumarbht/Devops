@@ -728,23 +728,23 @@ import string
 # logger.info(f"{formatted_string_list}")
 
 # Day-28
-matrix = [[5, 12, 17], [3, 6, 9], [14, 8, 11]]
+# matrix = [[5, 12, 17], [3, 6, 9], [14, 8, 11]]
 # Flatten the matrix into a single list:
-flatten_matrix = [num for row in matrix for num in row]
-logger.info(f"{flatten_matrix}")
+# flatten_matrix = [num for row in matrix for num in row]
+# logger.info(f"{flatten_matrix}")
 
 # Filter only even numbers from the flattened list.
-even_num = [num for num in flatten_matrix if num % 2 == 0]
-logger.info(f"{even_num}")
+# even_num = [num for num in flatten_matrix if num % 2 == 0]
+# logger.info(f"{even_num}")
 
 # Create a list of squares of numbers > 10.
-squares = [num**2 for num in flatten_matrix if num > 10]
-logger.info(f"{squares}")
+# squares = [num**2 for num in flatten_matrix if num > 10]
+# logger.info(f"{squares}")
 
 # Build a dictionary with key=original number and value=square for numbers > 10.
-number_list = {}
-# {number_list[num] for num in flatten_matrix}
-for num in flatten_matrix:
-    if num > 10:
-        number_list[num] = num**2
-logger.info(f"{number_list}")
+# number_list = {num:num**2 for num in flatten_matrix if num > 10}
+# number_list = {}
+# for num in flatten_matrix:
+#     if num > 10:
+#         number_list[num] = num**2
+# logger.info(f"{number_list}")
