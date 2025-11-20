@@ -750,51 +750,51 @@ import string
 # logger.info(f"{number_list}")
 
 # Day-29:
-data = {
-    "employees": [
-        {"name": "Alice", "age": 25, "department": "IT", "skills": ["Python", "SQL"]},
-        {
-            "name": "Bob",
-            "age": 32,
-            "department": "Finance",
-            "skills": ["Excel", "PowerBI"],
-        },
-        {
-            "name": "Charlie",
-            "age": 29,
-            "department": "IT",
-            "skills": ["Python", "Linux", "Docker"],
-        },
-        {"name": "Dave", "age": 41, "department": "HR", "skills": ["Communication"]},
-    ]
-}
+# data = {
+#     "employees": [
+#         {"name": "Alice", "age": 25, "department": "IT", "skills": ["Python", "SQL"]},
+#         {
+#             "name": "Bob",
+#             "age": 32,
+#             "department": "Finance",
+#             "skills": ["Excel", "PowerBI"],
+#         },
+#         {
+#             "name": "Charlie",
+#             "age": 29,
+#             "department": "IT",
+#             "skills": ["Python", "Linux", "Docker"],
+#         },
+#         {"name": "Dave", "age": 41, "department": "HR", "skills": ["Communication"]},
+#     ]
+# }
 
-# Extract all employee names into a list
-employees = data["employees"]
-# employee_names = [row["name"] for row in employees]
-# logger.info(f"{employee_names}")
+# # Extract all employee names into a list
+# employees = data["employees"]
+# # employee_names = [row["name"] for row in employees]
+# # logger.info(f"{employee_names}")
 
-# Find employees older than 30
-old_employees = [row["name"] for row in employees if row["age"] > 30]
-logger.info(f"{old_employees}")
+# # Find employees older than 30
+# old_employees = [row["name"] for row in employees if row["age"] > 30]
+# logger.info(f"{old_employees}")
 
-# Use a double loop in comprehension.
-emp_skills = [skill for row in employees for skill in row["skills"]]
-logger.info(f"{emp_skills}")
+# # Use a double loop in comprehension.
+# emp_skills = [skill for row in employees for skill in row["skills"]]
+# logger.info(f"{emp_skills}")
 
-# Count how many employees per department
-emp_per_department = {}
-for row in employees:
-    department = row["department"]
-    emp_per_department[department] = emp_per_department.get(department, 0) + 1
-logger.info(f"{emp_per_department}")
+# # Count how many employees per department
+# emp_per_department = {}
+# for row in employees:
+#     department = row["department"]
+#     emp_per_department[department] = emp_per_department.get(department, 0) + 1
+# logger.info(f"{emp_per_department}")
 
-# Build: {department: [names]}
-dep_names = {}
-for row in employees:
-    department = row["department"]
-    name = row["name"]
-    if department not in dep_names:  # check if department name already exists
-        dep_names[department] = []  # If not, initialize the value as a new list
-    dep_names[department].append(name)  # append current name to that department's list
-logger.info(f"{dep_names}")
+# # Build: {department: [names]}
+# dep_names = {}
+# for row in employees:
+#     department = row["department"]
+#     name = row["name"]
+#     if department not in dep_names:  # check if department name already exists
+#         dep_names[department] = []  # If not, initialize the value as a new list
+#     dep_names[department].append(name)  # append current name to that department's list
+# logger.info(f"{dep_names}")
