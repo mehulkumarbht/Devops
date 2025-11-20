@@ -608,14 +608,14 @@ import string
 #     count[level] = count.get(level, 0) + 1
 # logger.info(f"{count}")
 
-data = [
-    {"name": "Alice", "age": 25, "city": "Toronto", "salary": 55000},
-    {"name": "Bob", "age": 30, "city": "New York", "salary": 62000},
-    {"name": "Charlie", "age": 35, "city": "London", "salary": 72000},
-    {"name": "David", "age": 28, "city": "Toronto", "salary": 58000},
-    {"name": "Eva", "age": 32, "city": "London", "salary": 69000},
-    {"name": "Frank", "age": 40, "city": "New York", "salary": 80000},
-]
+# data = [
+#     {"name": "Alice", "age": 25, "city": "Toronto", "salary": 55000},
+#     {"name": "Bob", "age": 30, "city": "New York", "salary": 62000},
+#     {"name": "Charlie", "age": 35, "city": "London", "salary": 72000},
+#     {"name": "David", "age": 28, "city": "Toronto", "salary": 58000},
+#     {"name": "Eva", "age": 32, "city": "London", "salary": 69000},
+# {"name": "Frank", "age": 40, "city": "New York", "salary": 80000},
+# ]
 
 # 1: Filter employees with salary above 60 000.
 # salary_above_60000 = []
@@ -740,3 +740,11 @@ logger.info(f"{even_num}")
 # Create a list of squares of numbers > 10.
 squares = [num**2 for num in flatten_matrix if num > 10]
 logger.info(f"{squares}")
+
+# Build a dictionary with key=original number and value=square for numbers > 10.
+number_list = {}
+# {number_list[num] for num in flatten_matrix}
+for num in flatten_matrix:
+    if num > 10:
+        number_list[num] = num**2
+logger.info(f"{number_list}")
