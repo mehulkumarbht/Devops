@@ -798,3 +798,54 @@ import string
 #         dep_names[department] = []  # If not, initialize the value as a new list
 #     dep_names[department].append(name)  # append current name to that department's list
 # logger.info(f"{dep_names}")
+
+# Day-30:
+# raw_data = [
+#     "id: 101, name: Alice , age: 25 , city: Toronto ",
+#     "id:102,name:Bob,age: 30,city:New York",
+#     "id: 103 , name :  Charlie, age:29, city:London",
+#     "INVALID LINE HERE",
+#     "id:104,name:   Dave,age:41,city:   Vancouver",
+# ]
+# # 1: Clean & filter valid lines only
+# cleaned_records = []
+# for line in raw_data:
+#     if (
+#         "id:" not in line
+#         or "name" not in line
+#         or "age" not in line
+#         or "city" not in line
+#     ):  # skip invalid lines
+#         continue
+
+#     # 2: Convert each valid line into a dictionary
+#     record = {}
+#     parts = line.split(",")
+#     for part in parts:
+#         if (
+#             ":" not in part
+#         ):  # To avoid crashing it on "INVALID LINE HERE", guard it with
+#             continue
+#         key, value = part.split(":", 1)
+#         key = key.strip()
+#         value = value.strip()
+#         record[key] = value
+#     # skip if record incomplete
+#     if len(record) != 4:
+#         continue
+#     # 3: Build: list of all parsed records
+#     record["id"] = int(record["id"])
+#     record["age"] = int(record["age"])
+#     cleaned_records.append(record)
+# logger.info(f"{cleaned_records}")
+
+# # 4: Get all people older than 30
+# older_than_30 = [record for record in cleaned_records if int(record["age"]) > 30]
+# logger.info(f"{older_than_30}")
+
+# # 5: Count how many people per city
+# count = {}
+# for r in cleaned_records:
+#     city = r["city"]
+#     count[city] = count.get(city, 0) + 1
+# logger.info(f"{count}")
