@@ -52,21 +52,21 @@ logger.info(f"Final cleaned feedback records: {cleaned_feedback}")
 
 # 3: Calculate summary stats
 # a: Average rating across all feedback:
-total_rating_sum = 0
-total_rating_count = 0
-for record in cleaned_feedback:
-    rating = record["rating"]
-    total_rating_sum += rating
-    total_rating_count += 1
+# total_rating_sum = 0
+# total_rating_count = 0
+# for record in cleaned_feedback:
+#     rating = record["rating"]
+#     total_rating_sum += rating
+#     total_rating_count += 1
 
-if total_rating_count > 0:
-    overall_average = total_rating_sum / total_rating_count
-    logger.info(f"Overall average rating:{overall_average:.2f}")
-else:
-    logger.info("Cannot calculate average: No feedback records found")
-    overall_average = 0
+# if total_rating_count > 0:
+#     overall_average = total_rating_sum / total_rating_count
+#     logger.info(f"Overall average rating:{overall_average:.2f}")
+# else:
+#     logger.info("Cannot calculate average: No feedback records found")
+#     overall_average = 0
 
-    # b: Feedback count per agent
+# b: Feedback count per agent
 # feedback_count_per_agent = {}
 # for record in cleaned_feedback:
 #     agent = record["agent"]
