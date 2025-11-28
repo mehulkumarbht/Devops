@@ -107,12 +107,12 @@ logger.info(f"Agent sorted by rating {top_2_agents}")
 
 # d: How many ratings are 4 or 5? (positive feedback)
 
-positive_feedback = 0
-for record in cleaned_feedback:
-    rating = record["rating"]
-    if rating in (4, 5):
-        positive_feedback += 1
-logger.info(f"Number of Positive feedback:{positive_feedback}")
+# positive_feedback = 0
+# for record in cleaned_feedback:
+#     rating = record["rating"]
+#     if rating in (4, 5):
+#         positive_feedback += 1
+# logger.info(f"Number of Positive feedback:{positive_feedback}")
 
 # 4: Identify Negative Comments, Return all comments where rating ≤ 2.
 
