@@ -41,14 +41,14 @@ for row in raw_feedback:
         )
         continue
     # 2 Convert fields: #agent: is alreay striped with above loop .strip()
-    try:
-        record["id"] = int(record["id"])
-        record["rating"] = int(record["rating"])
-        cleaned_feedback.append(record)
-    except ValueError as e:
-        logger.error(f"Error converting types for now: {row.strip()} Error: {e}")
-        continue
-logger.info(f"Final cleaned feedback records: {cleaned_feedback}")
+#     try:
+#         record["id"] = int(record["id"])
+#         record["rating"] = int(record["rating"])
+#         cleaned_feedback.append(record)
+#     except ValueError as e:
+#         logger.error(f"Error converting types for now: {row.strip()} Error: {e}")
+#         continue
+# logger.info(f"Final cleaned feedback records: {cleaned_feedback}")
 
 # 3: Calculate summary stats
 # a: Average rating across all feedback:
