@@ -67,14 +67,14 @@ else:
     overall_average = 0
 
     # b: Feedback count per agent
-feedback_count_per_agent = {}
-for record in cleaned_feedback:
-    agent = record["agent"]
-    if agent in feedback_count_per_agent:
-        feedback_count_per_agent[agent] += 1
-    else:
-        feedback_count_per_agent[agent] = 1
-logger.info(f"{feedback_count_per_agent}")
+# feedback_count_per_agent = {}
+# for record in cleaned_feedback:
+#     agent = record["agent"]
+#     if agent in feedback_count_per_agent:
+#         feedback_count_per_agent[agent] += 1
+#     else:
+#         feedback_count_per_agent[agent] = 1
+# logger.info(f"{feedback_count_per_agent}")
 
 # c: Top 2 agents with highest average rating
 # total_rating_per_agent = {}
