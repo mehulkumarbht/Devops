@@ -35,11 +35,11 @@ for row in raw_feedback:
             # skip if split failed unexpectedly
             continue
     # skip if record is incomplete
-    if len(record) != 4:
-        logger.info(
-            f"Skipping incomplete or improperly formatted record: {row.strip()}"
-        )
-        continue
+    # if len(record) != 4:
+    #     logger.info(
+    #         f"Skipping incomplete or improperly formatted record: {row.strip()}"
+    #     )
+    #     continue
     # 2 Convert fields: #agent: is alreay striped with above loop .strip()
 #     try:
 #         record["id"] = int(record["id"])
