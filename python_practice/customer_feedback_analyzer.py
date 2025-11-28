@@ -75,3 +75,51 @@ for record in cleaned_feedback:
     else:
         feedback_count_per_agent[agent] = 1
 logger.info(f"{feedback_count_per_agent}")
+
+# c: Top 2 agents with highest average rating
+total_rating_per_agent = {}
+rating_count_per_agent = {}
+for record in cleaned_feedback:
+    agent = record["agent"]
+    rating = record["rating"]
+    if agent in total_rating_per_agent:
+        total_rating_per_agent[agent] += rating
+    else:
+        total_rating_per_agent[agent] = rating
+
+    if agent in rating_count_per_agent:
+        rating_count_per_agent[agent] += 1
+    else:
+        rating_count_per_agent[agent] = 1
+avg_rating_per_agent = {}
+for agent_name in total_rating_per_agent:
+    total_sum = total_rating_per_agent[agent_name]
+    total_count = rating_count_per_agent[agent_name]
+    if total_count > 1:
+        average = total_sum / total_count
+        avg_rating_per_agent[agent_name] = round(average, 2)
+logger.info(f"Avg rating per agent: {avg_rating_per_agent}")
+top_2_agents = sorted(
+    avg_rating_per_agent.items(), key=lambda item: item[1], reverse=True
+)
+logger.info(f"Agent sorted by rating {top_2_agents}")
+
+
+# d: How many ratings are 4 or 5? (positive feedback)
+
+positive_feedback = 0
+for record in cleaned_feedback:
+    rating = record["rating"]
+    if rating in (4, 5):
+        positive_feedback += 1
+logger.info(f"Number of Positive feedback:{positive_feedback}")
+
+# 4: Identify Negative Comments, Return all comments where rating ≤ 2.
+
+negative_comments = []
+for record in cleaned_feedback:
+    rating = record["rating"]
+    comment = record["comment"]
+    if rating <= 2:
+        negative_comments.append(comment)
+logger.info(f"{negative_comments}")
