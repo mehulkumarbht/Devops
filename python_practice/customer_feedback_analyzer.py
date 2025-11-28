@@ -116,10 +116,10 @@ logger.info(f"Number of Positive feedback:{positive_feedback}")
 
 # 4: Identify Negative Comments, Return all comments where rating ≤ 2.
 
-negative_comments = []
-for record in cleaned_feedback:
-    rating = record["rating"]
-    comment = record["comment"]
-    if rating <= 2:
-        negative_comments.append(comment)
-logger.info(f"{negative_comments}")
+# negative_comments = []
+# for record in cleaned_feedback:
+#     rating = record["rating"]
+#     comment = record["comment"]
+#     if rating <= 2:
+#         negative_comments.append(comment)
+# logger.info(f"{negative_comments}")
