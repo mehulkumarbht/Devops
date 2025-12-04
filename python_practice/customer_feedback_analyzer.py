@@ -1,16 +1,16 @@
-from loguru import logger
-import re
-import string
+# from loguru import logger
+# import re
+# import string
 
-raw_feedback = [
-    "id: 501, rating: 5, comment: Excellent service! , agent: Alice ",
-    "id:502,rating:4,comment:Good support,agent:Bob",
-    "invalid feedback line",
-    "id: 503, rating: 2 , comment: Very slow response , agent: Charlie",
-    "id:504 , rating: 1, comment: Terrible experience , agent: Alice",
-    "id: 505, rating:5, comment: Amazing help!, agent:  Bob ",
-    "id:506 rating 3 comment ok agent Dave",  # Missing colons → invalid
-]
+# raw_feedback = [
+#     "id: 501, rating: 5, comment: Excellent service! , agent: Alice ",
+#     "id:502,rating:4,comment:Good support,agent:Bob",
+#     "invalid feedback line",
+#     "id: 503, rating: 2 , comment: Very slow response , agent: Charlie",
+#     "id:504 , rating: 1, comment: Terrible experience , agent: Alice",
+#     "id: 505, rating:5, comment: Amazing help!, agent:  Bob ",
+#     "id:506 rating 3 comment ok agent Dave",  # Missing colons → invalid
+# ]
 # 1: Clean & Parse Valid Feedback Only
 # Must contain id, rating, comment, agent
 # Must contain : separators
