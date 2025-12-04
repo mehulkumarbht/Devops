@@ -16,14 +16,14 @@ raw_feedback = [
 # Must contain : separators
 # Ignore invalid lines
 
-cleaned_feedback = []
-required_keys = {"id", "rating", "comment", "agent"}
-for row in raw_feedback:
-    record = {}
-    parts = row.split(",")
-    for part in parts:
-        if (
-            ":" not in part
+# cleaned_feedback = []
+# required_keys = {"id", "rating", "comment", "agent"}
+# for row in raw_feedback:
+#     record = {}
+#     parts = row.split(",")
+#     for part in parts:
+#         if (
+#             ":" not in part
         ):  # To avoid crashing it on "INVALID LINE HERE", guard it with
         #     continue
         # try:
