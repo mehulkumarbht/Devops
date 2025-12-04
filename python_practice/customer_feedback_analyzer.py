@@ -25,15 +25,15 @@ for row in raw_feedback:
         if (
             ":" not in part
         ):  # To avoid crashing it on "INVALID LINE HERE", guard it with
-            continue
-        try:
-            key, value = part.split(":", 1)
-            key = key.strip()
-            value = value.strip()
-            record[key] = value
-        except ValueError:
+        #     continue
+        # try:
+        #     key, value = part.split(":", 1)
+        #     key = key.strip()
+        #     value = value.strip()
+        #     record[key] = value
+        # except ValueError:
             # skip if split failed unexpectedly
-            continue
+            # continue
     # skip if record is incomplete
     # if len(record) != 4:
     #     logger.info(
