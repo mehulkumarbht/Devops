@@ -35,10 +35,10 @@ soup = BeautifulSoup(response.text, "html.parser")
 # logger.info(f"Total quoted on the page: {len(quotes)}")
 
 # 3: Extract all unique authors
-authors = soup.find_all("small", class_="author")
-unique_authors = []
-for a in authors:
-    name = a.get_text()
-    if name not in unique_authors:
-        unique_authors.append(name)
-logger.info(f"{unique_authors}")
+# authors = soup.find_all("small", class_="author")
+# unique_authors = []
+# for a in authors:
+#     name = a.get_text()
+#     if name not in unique_authors:
+#         unique_authors.append(name)
+# logger.info(f"{unique_authors}")
