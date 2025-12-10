@@ -2,10 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 from loguru import logger
 
-url = "https://quotes.toscrape.com"
-response = requests.get(url)
+# url = "https://quotes.toscrape.com"
+# response = requests.get(url)
 
-soup = BeautifulSoup(response.text, "html.parser")
+# soup = BeautifulSoup(response.text, "html.parser")
 
 # quotes = soup.find_all("span", class_="text")
 
@@ -42,3 +42,32 @@ soup = BeautifulSoup(response.text, "html.parser")
 #     if name not in unique_authors:
 #         unique_authors.append(name)
 # logger.info(f"{unique_authors}")
+
+# scrape quotes from all the pages:
+
+# base_url = "https://quotes.toscrape.com"
+
+# url = base_url
+# all_quotes = []
+
+# while True:
+#     response = requests.get(url)
+#     soup = BeautifulSoup(response.text, "html.parser")
+
+#     # get quotes from this page
+#     quotes = soup.find_all("div", class_="quote")
+#     for q in quotes:
+#         text = q.find("span", class_="text").get_text()
+#         author = q.find("small", class_="author").get_text()
+#         tags = [t.get_text() for t in q.find_all("a", class_="tag")]
+#         all_quotes.append({"text": text, "author": author, "tags": tags})
+
+#     # fina next page
+#     next_btn = soup.find("li", class_="next")
+#     if next_btn is None:
+#         break
+
+#     next_url = next_btn.find("a")["href"]
+#     url = base_url + next_url
+
+# logger.info(f"Total quotes scraped: {len(all_quotes)}")
