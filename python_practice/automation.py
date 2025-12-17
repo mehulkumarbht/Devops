@@ -18,3 +18,21 @@ from loguru import logger
 # excercise: 2
 # name1 = str(input("Please Enter your first name:"))
 # logger.info(f"Hello {name1}! Today you will learn Python Automation")
+
+# Day-2
+# 1:
+age1 = float(input("Please enter your age: "))
+if age1 >= 18:
+    logger.info(f"Eligible to vote")
+else:
+    logger.info(f"Not eligible")
+
+# 2
+password = "admin123"
+pw = str(input("Please enter a password:"))
+if pw == password:
+    logger.info(f"Access granted")
+else:
+    logger.info(f"Access denied")
+
+# 3:
