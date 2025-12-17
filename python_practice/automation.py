@@ -52,3 +52,25 @@ from loguru import logger
 # else:
 #     logger.info(f"Work-life balance is good")
 # logger.info(f"{name1}, keep improving your automation skills!")
+
+# day-3:
+# 1:
+# automation_tasks = ["backup files", "send report", "check logs"]
+# for task in automation_tasks:
+#     logger.info(f"Executing: {task}")
+
+# 2:
+# for i in range(1, 11):
+#     logger.info(f"{i}")
+
+# 3:
+# retry = 1
+# while retry <= 3:
+#     logger.info(f"Retry attempt: 1")
+#     retry += 1
+
+# 4:
+files = ["data1.csv", "data2.csv", "data3.csv"]
+for file in files:
+    logger.info(f"Processing: {file}")
+logger.info("All files processed successfully")
