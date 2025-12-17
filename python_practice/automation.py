@@ -70,7 +70,45 @@ from loguru import logger
 #     retry += 1
 
 # 4:
-files = ["data1.csv", "data2.csv", "data3.csv"]
-for file in files:
-    logger.info(f"Processing: {file}")
-logger.info("All files processed successfully")
+# files = ["data1.csv", "data2.csv", "data3.csv"]
+# for file in files:
+#     logger.info(f"Processing: {file}")
+# logger.info("All files processed successfully")
+
+
+# day-4:
+# 1:
+# def print_status():
+#     logger.info("Automation script running...")
+
+# 2:
+# def check_even(number):
+#     if number % 2 == 0:
+#         return "Even"
+#     else:
+#         return "Odd"
+
+
+# result = check_even(5)
+# logger.info(f"{result}")
+
+
+# 3:
+# def process_files(files):
+#     for file in files:
+#         logger.info(f"Processing: {file}")
+#     return "All files processed successfully"
+
+
+# result = process_files("file_1")
+# logger.info(f"Final result: {result}")
+
+
+# 4:
+def send_notification(name):
+    logger.info(f"Notification sent to {name}")
+
+
+users = ["Admin", "Manager", "Support"]
+for user in users:
+    send_notification(user)
