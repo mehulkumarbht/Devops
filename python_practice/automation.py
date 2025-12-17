@@ -21,18 +21,34 @@ from loguru import logger
 
 # Day-2
 # 1:
-age1 = float(input("Please enter your age: "))
-if age1 >= 18:
-    logger.info(f"Eligible to vote")
-else:
-    logger.info(f"Not eligible")
+# age1 = float(input("Please enter your age: "))
+# if age1 >= 18:
+#     logger.info(f"Eligible to vote")
+# else:
+#     logger.info(f"Not eligible")
 
 # 2
-password = "admin123"
-pw = str(input("Please enter a password:"))
-if pw == password:
-    logger.info(f"Access granted")
-else:
-    logger.info(f"Access denied")
+# password = "admin123"
+# pw = str(input("Please enter a password:"))
+# if pw == password:
+#     logger.info(f"Access granted")
+# else:
+#     logger.info(f"Access denied")
 
 # 3:
+# error_count = 7
+# if error_count == 0:
+#     logger.info(f"System healthy")
+# elif error_count <= 5:
+#     logger.info(f"Minor issue")
+# else:
+#     logger.info(f"Critical issue - alert admin")
+
+# 4:
+# name1 = str(input("Please add your name: "))
+# hours_worked = float(input("Enter number of hours worked:"))
+# if hours_worked > 8:
+#     logger.info(f"Overworking is detected")
+# else:
+#     logger.info(f"Work-life balance is good")
+# logger.info(f"{name1}, keep improving your automation skills!")
