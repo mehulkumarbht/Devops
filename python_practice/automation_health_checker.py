@@ -25,20 +25,11 @@ for system in systems:
     logger.info(f"{system['name']} -> {health}")
 
 logger.info(f"Checked: {len(system)} systems")
-critical_count = 0
-warning_count = 0
-healthy_count = 0
-summary = {}
+summary = {"Critical": 0, "Warning": 0, "Healthy": 0}
 for system in systems:
     health = check_system(system)
-    if health == "Critical":
-        critical_count += 1
-    elif health == "Warning":
-        warning_count += 1
+    if health in summary:
+        summary[health] += 1
     else:
-        healthy_count += 1
-    summary[health] = healthy_count
+        summary[health] = 1
 logger.info(f"{summary}")
-logger.info(f"Critical: {critical_count}")
-logger.info(f"Warning: {warning_count}")
-logger.info(f"Healthy: {healthy_count}")
