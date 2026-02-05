@@ -23,7 +23,14 @@ from loguru import logger
 # logger.info(f"Temprature from Celsius to Fahrenheit is: {f}")
 
 # 3: Ask for a name and age; print how old the person will be after 10 years.
-name = str(input("Please enter your name: "))
-age = int(input("Please enter your age: "))
-years_old = age + 10
-logger.info(f"{name} will be {years_old} years old after 10 years")
+# name = str(input("Please enter your name: "))
+# age = int(input("Please enter your age: "))
+# years_old = age + 10
+# logger.info(f"{name} will be {years_old} years old after 10 years")
+
+# 4: Swap two variables without using a third variable.
+a = 3
+b = 4
+a, b = b, a
+logger.info(f"{a}")
+logger.info(f"{b}")
