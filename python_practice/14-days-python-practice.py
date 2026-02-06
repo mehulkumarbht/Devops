@@ -29,8 +29,29 @@ from loguru import logger
 # logger.info(f"{name} will be {years_old} years old after 10 years")
 
 # 4: Swap two variables without using a third variable.
-a = 3
-b = 4
-a, b = b, a
-logger.info(f"{a}")
-logger.info(f"{b}")
+# a = 3
+# b = 4
+# a, b = b, a
+# logger.info(f"{a}")
+# logger.info(f"{b}")
+
+# Day 2: Conditions (if / else)
+# 1: Check whether a number is positive, negative, or zero.
+x = float(input("Please enter a digit: "))
+if x > 0:
+    logger.info(f"{x} is positive value")
+elif x < 0:
+    logger.info(f"{x} is negative value")
+else:
+    logger.info(f"{x} is zero")
+
+
+# Check if a number is even or odd.
+x = int(input("Please enter a digit: "))
+if x % 0:
+    logger.info(f"Value is even")
+else:
+    logger.info(f"Value is odd")
+# Find the largest of three numbers.
+
+# Write a program to check if a year is a leap year.
