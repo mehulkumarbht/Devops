@@ -37,18 +37,18 @@ from loguru import logger
 
 # Day 2: Conditions (if / else)
 # 1: Check whether a number is positive, negative, or zero.
-x = float(input("Please enter a digit: "))
-if x > 0:
-    logger.info(f"{x} is positive value")
-elif x < 0:
-    logger.info(f"{x} is negative value")
-else:
-    logger.info(f"{x} is zero")
+# x = float(input("Please enter a digit: "))
+# if x > 0:
+#     logger.info(f"{x} is positive value")
+# elif x < 0:
+#     logger.info(f"{x} is negative value")
+# else:
+#     logger.info(f"{x} is zero")
 
 
 # Check if a number is even or odd.
-x = int(input("Please enter a digit: "))
-if x % 0:
+x = float(input("Please enter a digit: "))
+if x % 2 == 0:
     logger.info(f"Value is even")
 else:
     logger.info(f"Value is odd")
