@@ -53,7 +53,12 @@ from loguru import logger
 # else:
 #     logger.info(f"Value is odd")
 # Find the largest of three numbers.
-x, y, z = 10, 20, 30
-largest = max(10, 20, 30)
-logger.info(f"{largest}")
+# x, y, z = 10, 20, 30
+# largest = max(10, 20, 30)
+# logger.info(f"{largest}")
 # Write a program to check if a year is a leap year.
+# year = int(input("Please enter a year: "))
+# if year % 4 == 0:
+#     logger.info(f"{year} is leap year")
+# else:
+#     logger.info(f"{year} is not leap year")
