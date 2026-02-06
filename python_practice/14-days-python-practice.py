@@ -47,11 +47,13 @@ from loguru import logger
 
 
 # Check if a number is even or odd.
-x = float(input("Please enter a digit: "))
-if x % 2 == 0:
-    logger.info(f"Value is even")
-else:
-    logger.info(f"Value is odd")
+# x = float(input("Please enter a digit: "))
+# if x % 2 == 0:
+#     logger.info(f"Value is even")
+# else:
+#     logger.info(f"Value is odd")
 # Find the largest of three numbers.
-
+x, y, z = 10, 20, 30
+largest = max(10, 20, 30)
+logger.info(f"{largest}")
 # Write a program to check if a year is a leap year.
