@@ -62,3 +62,23 @@ from loguru import logger
 #     logger.info(f"{year} is leap year")
 # else:
 #     logger.info(f"{year} is not leap year")
+
+
+# Day 3: Loops (for, while)
+
+# 1:Print numbers from 1 to 100.
+# for i in range(1, 101):
+#     logger.info(f"{i}")
+
+# another way:
+i = 1
+while i < 101:
+    print(i)
+    i += 1
+
+
+# 2: Print the sum of first n natural numbers.
+
+# 3: Print the multiplication table of a given number.
+
+# 4: Reverse a number using a loop.
