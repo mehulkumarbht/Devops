@@ -71,14 +71,18 @@ from loguru import logger
 #     logger.info(f"{i}")
 
 # another way:
-i = 1
-while i < 101:
-    print(i)
-    i += 1
+# i = 1
+# while i < 101:
+#     print(i)
+#     i += 1
 
 
 # 2: Print the sum of first n natural numbers.
-
+# i = 1
+# n_num = i * (i + 1) // 2
+# logger.info(f"{n_num}")
 # 3: Print the multiplication table of a given number.
-
+# number = int(input("Please enter your number: "))
+# for i in range(1, 11):
+#     logger.info(f"{number} x {i} = {number * i}")
 # 4: Reverse a number using a loop.
