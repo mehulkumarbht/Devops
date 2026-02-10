@@ -1,4 +1,5 @@
 from loguru import logger
+
 # Day 1: Variables & Input
 
 # 1: Take two numbers from user input and print their sum, difference, product, and division.
@@ -86,3 +87,9 @@ from loguru import logger
 # for i in range(1, 11):
 #     logger.info(f"{number} x {i} = {number * i}")
 # 4: Reverse a number using a loop.
+n = int(input("Please enter a two digit number: "))
+if n > 9:
+    rev = int(str(n)[::-1])
+    logger.info(f"{rev}")
+else:
+    logger.info(f"Invalid entry!")
