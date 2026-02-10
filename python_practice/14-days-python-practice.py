@@ -120,11 +120,11 @@ from loguru import logger
 #         primes.append(num)
 # logger.info(f"{primes}")
 # 4: Find the factorial of a number.
-def factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
+# def factorial(n):
+#     if n == 0 or n == 1:
+#         return 1
+#     else:
+#         return n * factorial(n - 1)
 
 
-logger.info(f"{factorial(12)}")
+# logger.info(f"{factorial(12)}")
