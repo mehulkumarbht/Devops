@@ -93,3 +93,16 @@ from loguru import logger
 #     logger.info(f"{rev}")
 # else:
 #     logger.info(f"Invalid entry!")
+
+# Day 4: Loop Logic Practice
+# 1: Count digits in a number.
+n = int(input("Please enter your number: "))
+num = len(str(abs(n)))
+logger.info(f"{num}")
+
+
+# 2: Check if a number is a palindrome.
+
+# 3: Print all prime numbers between 1 and 100.
+
+# 4: Find the factorial of a number.
