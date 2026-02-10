@@ -96,12 +96,18 @@ from loguru import logger
 
 # Day 4: Loop Logic Practice
 # 1: Count digits in a number.
-n = int(input("Please enter your number: "))
-num = len(str(abs(n)))
-logger.info(f"{num}")
+# n = int(input("Please enter your number: "))
+# num = len(str(abs(n)))
+# logger.info(f"{num}")
 
 
 # 2: Check if a number is a palindrome.
+# n = int(input("Please enter your number: "))
+# s = str(n)
+# if s == s[::-1]:
+#     logger.info(f"{s} is palindrome")
+# else:
+#     logger.info(f"{s} is not palindrome")
 
 # 3: Print all prime numbers between 1 and 100.
 
