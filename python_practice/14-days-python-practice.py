@@ -110,5 +110,12 @@ from loguru import logger
 #     logger.info(f"{s} is not palindrome")
 
 # 3: Print all prime numbers between 1 and 100.
-
+# primes = []
+# for num in range(2, 101):
+#     for i in range(2, int(num**0.5) + 1):
+#         if num % i == 0:
+#             break
+#     else:
+#         primes.append(num)
+# logger.info(f"{primes}")
 # 4: Find the factorial of a number.
