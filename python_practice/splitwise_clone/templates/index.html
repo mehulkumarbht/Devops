@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Splitwise Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            max-width: 950px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .section {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            margin-top: 6px;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 300px;
+        }
+
+        button {
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .muted {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .split-box {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .inline-row {
+            margin-top: 8px;
+        }
+
+        .inline-row input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .inline-row input[type="number"] {
+            width: 120px;
+            margin-left: 10px;
+        }
+
+        .history-actions button {
+            margin-left: 8px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Splitwise Clone</h1>
+    <p class="muted">Group ID: {{ group_id }}</p>
+
+    <div class="section">
+        <h2>Add Expense</h2>
+        <form id="expenseForm">
+            <label for="description">Description</label>
+            <input type="text" id="description" required>
+
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" step="0.01" required>
+
+            <label for="paid_by">Paid By</label>
+            <select id="paid_by" required></select>
+
+            <label for="split_mode">Split Mode</label>
+            <select id="split_mode">
+                <option value="equal">Equal Split</option>
+                <option value="unequal">Unequal / Custom Split</option>
+            </select>
+
+            <div id="equal_split_section" class="split-box">
+                <label>Split Between</label>
+                <div id="split_between_container"></div>
+            </div>
+
+            <div id="unequal_split_section" class="split-box" style="display: none;">
+                <label>Custom Split Amounts</label>
+                <div id="custom_split_container"></div>
+            </div>
+
+            <br>
+            <button type="submit">Add Expense</button>
+        </form>
+
+        <div id="expenseMessage"></div>
+    </div>
+
+    <div class="section">
+        <h2>Group Balance Summary</h2>
+        <button id="summaryBtn" type="button">Load Summary</button>
+        <ul id="summary"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Settlements</h2>
+        <button id="settleBtn">Calculate Settlements</button>
+        <button id="refreshSettlementsBtn" type="button">Refresh Settlements</button>
+        <ul id="settlements"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Transaction History</h2>
+        <button id="historyBtn" type="button">Load History</button>
+        <ul id="history"></ul>
+    </div>
+
+    <script>
+        const groupId = {{ group_id }};
+
+        async function loadUsers() {
+            const response = await fetch(`/groups/${groupId}/members`);
+            const users = await response.json();
+
+            const paidBySelect = document.getElementById("paid_by");
+            const splitContainer = document.getElementById("split_between_container");
+            const customSplitContainer = document.getElementById("custom_split_container");
+
+            paidBySelect.innerHTML = "";
+            splitContainer.innerHTML = "";
+            customSplitContainer.innerHTML = "";
+
+            users.forEach(user => {
+                const option = document.createElement("option");
+                option.value = user.id;
+                option.textContent = `${user.name} (ID: ${user.id})`;
+                paidBySelect.appendChild(option);
+
+                const equalRow = document.createElement("div");
+                equalRow.className = "inline-row";
+                equalRow.innerHTML = `
+                    <label style="font-weight: normal;">
+                        <input type="checkbox" class="split-user" value="${user.id}">
+                        ${user.name} (ID: ${user.id})
+                    </label>
+                `;
+                splitContainer.appendChild(equalRow);
+
+                const customRow = document.createElement("div");
+                customRow.className = "inline-row";
+                customRow.innerHTML = `
+                    <label style="font-weight: normal;">
+                        ${user.name} (ID: ${user.id})
+                        <input type="number" step="0.01" class="custom-split-input" data-user-id="${user.id}" placeholder="0.00">
+                    </label>
+                `;
+                customSplitContainer.appendChild(customRow);
+            });
+        }
+
+        function updateSplitModeUI() {
+            const mode = document.getElementById("split_mode").value;
+            document.getElementById("equal_split_section").style.display = mode === "equal" ? "block" : "none";
+            document.getElementById("unequal_split_section").style.display = mode === "unequal" ? "block" : "none";
+        }
+
+        async function loadSummary() {
+            const response = await fetch(`/groups/${groupId}/summary`);
+            const data = await response.json();
+
+            const list = document.getElementById("summary");
+            list.innerHTML = "";
+
+            if (!data || data.length === 0) {
+                list.innerHTML = "<li>No balance summary found.</li>";
+                return;
+            }
+
+            data.forEach(item => {
+                const li = document.createElement("li");
+
+                if (item.status === "gets back") {
+                    li.textContent = `${item.user_name} gets back ₹${Number(item.balance).toFixed(2)}`;
+                } else if (item.status === "owes") {
+                    li.textContent = `${item.user_name} owes ₹${Number(Math.abs(item.balance)).toFixed(2)}`;
+                } else {
+                    li.textContent = `${item.user_name} is settled up`;
+                }
+
+                list.appendChild(li);
+            });
+        }
+
+        async function loadSettlements() {
+            const response = await fetch(`/settlements/${groupId}`);
+            const data = await response.json();
+
+            const list = document.getElementById("settlements");
+            list.innerHTML = "";
+
+            if (!data || data.length === 0) {
+                list.innerHTML = "<li>No settlements found.</li>";
+                return;
+            }
+
+            data.forEach(tx => {
+                const li = document.createElement("li");
+                li.textContent = `${tx.from_user_name} pays ${tx.to_user_name} ₹${Number(tx.amount).toFixed(2)}`;
+                list.appendChild(li);
+            });
+        }
+
+        async function loadHistory() {
+            const response = await fetch(`/history/${groupId}`);
+            const data = await response.json();
+
+            const list = document.getElementById("history");
+            list.innerHTML = "";
+
+            if (!data || data.length === 0) {
+                list.innerHTML = "<li>No history found.</li>";
+                return;
+            }
+
+            data.forEach(item => {
+                const li = document.createElement("li");
+
+                if (item.type === "expense") {
+                    li.innerHTML = `
+                        [Expense] ${item.paid_by} paid ₹${Number(item.amount).toFixed(2)} for "${item.description}"
+                        <span class="history-actions">
+                            <button onclick="editExpense(${item.id}, ${JSON.stringify(item.description)}, ${item.amount}, ${item.paid_by_id}, ${JSON.stringify(item.split_between || "")})">Edit</button>
+                            <button onclick="deleteExpense(${item.id})">Delete</button>
+                        </span>
+                    `;
+                } else if (item.type === "settlement") {
+                    li.textContent = `[Settlement] ${item.from_user} paid ${item.to_user} ₹${Number(item.amount).toFixed(2)}`;
+                }
+
+                list.appendChild(li);
+            });
+        }
+
+        async function deleteExpense(expenseId) {
+            const confirmed = confirm("Are you sure you want to delete this expense?");
+            if (!confirmed) return;
+
+            const response = await fetch(`/expenses/${expenseId}`, {
+                method: "DELETE"
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message);
+                loadSummary();
+                loadSettlements();
+                loadHistory();
+            } else {
+                alert(result.error || "Failed to delete expense.");
+            }
+        }
+
+        async function editExpense(expenseId, oldDescription, oldAmount, oldPaidById, oldSplitBetween) {
+            const newDescription = prompt("Edit description:", oldDescription);
+            if (newDescription === null) return;
+
+            const newAmount = prompt("Edit amount:", oldAmount);
+            if (newAmount === null) return;
+
+            const newPaidBy = prompt("Edit paid_by user ID:", oldPaidById);
+            if (newPaidBy === null) return;
+
+            const newSplitBetween = prompt("Edit split_between user IDs (comma separated):", oldSplitBetween);
+            if (newSplitBetween === null) return;
+
+            const splitBetween = newSplitBetween
+                .split(",")
+                .map(s => s.trim())
+                .filter(s => s.length > 0)
+                .map(s => Number(s));
+
+            const payload = {
+                description: newDescription,
+                amount: parseFloat(newAmount),
+                paid_by: parseInt(newPaidBy),
+                split_mode: "equal",
+                split_between: splitBetween
+            };
+
+            const response = await fetch(`/expenses/${expenseId}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message);
+                loadSummary();
+                loadSettlements();
+                loadHistory();
+            } else {
+                alert(result.error || "Failed to update expense.");
+            }
+        }
+
+        document.getElementById("split_mode").addEventListener("change", updateSplitModeUI);
+
+        document.getElementById("expenseForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const expenseMessage = document.getElementById("expenseMessage");
+            expenseMessage.className = "";
+            expenseMessage.textContent = "";
+
+            const splitMode = document.getElementById("split_mode").value;
+
+            const payload = {
+                group_id: groupId,
+                description: document.getElementById("description").value,
+                amount: parseFloat(document.getElementById("amount").value),
+                paid_by: parseInt(document.getElementById("paid_by").value),
+                split_mode: splitMode
+            };
+
+            if (splitMode === "equal") {
+                const splitBetween = Array.from(document.querySelectorAll(".split-user:checked"))
+                    .map(cb => Number(cb.value));
+
+                if (splitBetween.length === 0) {
+                    expenseMessage.className = "error";
+                    expenseMessage.textContent = "Please select at least one user for equal split.";
+                    return;
+                }
+
+                payload.split_between = splitBetween;
+            } else {
+                const splits = Array.from(document.querySelectorAll(".custom-split-input"))
+                    .map(input => ({
+                        user_id: Number(input.dataset.userId),
+                        amount: parseFloat(input.value || 0)
+                    }))
+                    .filter(item => item.amount > 0);
+
+                if (splits.length === 0) {
+                    expenseMessage.className = "error";
+                    expenseMessage.textContent = "Please enter at least one custom split amount.";
+                    return;
+                }
+
+                const totalCustom = splits.reduce((sum, item) => sum + item.amount, 0);
+                const totalExpense = payload.amount;
+
+                if (Math.abs(totalCustom - totalExpense) > 0.01) {
+                    expenseMessage.className = "error";
+                    expenseMessage.textContent = `Custom split total ₹${totalCustom.toFixed(2)} must equal expense amount ₹${totalExpense.toFixed(2)}.`;
+                    return;
+                }
+
+                payload.splits = splits;
+            }
+
+            const response = await fetch("/expenses", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                expenseMessage.className = "success";
+                expenseMessage.textContent = "Expense added successfully.";
+                document.getElementById("expenseForm").reset();
+                updateSplitModeUI();
+                loadUsers();
+                loadSummary();
+                loadHistory();
+                loadSettlements();
+            } else {
+                expenseMessage.className = "error";
+                expenseMessage.textContent = result.error || "Failed to add expense.";
+            }
+        });
+
+        document.getElementById("settleBtn").addEventListener("click", async function() {
+            const response = await fetch("/settle", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ group_id: groupId })
+            });
+
+            const data = await response.json();
+            const list = document.getElementById("settlements");
+            list.innerHTML = "";
+
+            if (!data || data.length === 0) {
+                list.innerHTML = "<li>No settlements needed.</li>";
+            } else {
+                data.forEach(tx => {
+                    const li = document.createElement("li");
+                    li.textContent = `${tx.from_user_name} pays ${tx.to_user_name} ₹${Number(tx.amount).toFixed(2)}`;
+                    list.appendChild(li);
+                });
+            }
+
+            loadSummary();
+            loadHistory();
+        });
+
+        document.getElementById("refreshSettlementsBtn").addEventListener("click", loadSettlements);
+        document.getElementById("historyBtn").addEventListener("click", loadHistory);
+        document.getElementById("summaryBtn").addEventListener("click", loadSummary);
+
+        loadUsers();
+        updateSplitModeUI();
+        loadSummary();
+        loadSettlements();
+        loadHistory();
+    </script>
+</body>
+</html>
