@@ -1,5 +1,5 @@
 from collections import defaultdict
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, session
 from config import Config
 from models import db, User, Group, GroupMember, Expense, ExpenseSplit, Settlement
 
@@ -7,8 +7,29 @@ from models import db, User, Group, GroupMember, Expense, ExpenseSplit, Settleme
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+    app.config.setdefault("SESSION_COOKIE_HTTPONLY", True)
+    app.config.setdefault("SESSION_COOKIE_SAMESITE", "Lax")
 
     db.init_app(app)
+
+    with app.app_context():
+        db.create_all()
+        try:
+            from sqlalchemy import inspect, text
+
+            inspector = inspect(db.engine)
+            columns = {col["name"] for col in inspector.get_columns("users")}
+            if "username" not in columns:
+                db.session.execute(
+                    text("ALTER TABLE users ADD COLUMN username VARCHAR(80)")
+                )
+            if "password_hash" not in columns:
+                db.session.execute(
+                    text("ALTER TABLE users ADD COLUMN password_hash VARCHAR(128)")
+                )
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
 
     def calculate_balances(group_id):
         balances = defaultdict(lambda: defaultdict(float))
@@ -108,15 +129,142 @@ def create_app():
 
         return transactions
 
-    @app.route("/")
-    def home():
-        groups = Group.query.all()
+    def get_member_balances(group_id):
+        net_balance = defaultdict(float)
+
+        member_ids = [
+            gm.user_id for gm in GroupMember.query.filter_by(group_id=group_id).all()
+        ]
+        member_ids_set = set(member_ids)
+
+        expenses = Expense.query.filter_by(group_id=group_id).all()
+        for expense in expenses:
+            if expense.paid_by not in member_ids_set:
+                continue
+
+            for split in expense.splits:
+                if split.user_id is None or split.user_id not in member_ids_set:
+                    continue
+
+                share = round(float(split.share_amount), 2)
+                net_balance[split.user_id] -= share
+                net_balance[expense.paid_by] += share
+
+        settlements = Settlement.query.filter_by(group_id=group_id).all()
+        for settlement in settlements:
+            if settlement.from_user_id in member_ids_set:
+                net_balance[settlement.from_user_id] += round(
+                    float(settlement.amount), 2
+                )
+            if settlement.to_user_id in member_ids_set:
+                net_balance[settlement.to_user_id] -= round(float(settlement.amount), 2)
+
+        balances = []
+        for user_id in member_ids:
+            user = db.session.get(User, user_id)
+            if not user:
+                continue
+
+            balances.append(
+                {
+                    "user_id": user.id,
+                    "name": user.name,
+                    "balance": round(net_balance[user_id], 2),
+                }
+            )
+
+        return balances
+
+    def current_user():
+        user_id = session.get("user_id")
+        if not user_id:
+            return None
+
+        user = db.session.get(User, user_id)
+        if not user:
+            session.pop("user_id", None)
+            session.pop("username", None)
+            return None
+
+        return user
+
+    def validate_credentials(username, password):
+        if not username or not password:
+            return "Username and password are required"
+        if len(username) < 3 or len(username) > 30:
+            return "Username must be between 3 and 30 characters"
+        if " " in username:
+            return "Username cannot contain spaces"
+        if len(password) < 8:
+            return "Password must be at least 8 characters"
+        if not any(c.isalpha() for c in password) or not any(
+            c.isdigit() for c in password
+        ):
+            return "Password must include letters and numbers"
+        return None
+
+    @app.route("/auth/status")
+    def auth_status():
+        user = current_user()
+        if not user:
+            return jsonify({"logged_in": False})
+
         return jsonify(
             {
-                "message": "Splitwise Clone Running!",
-                "groups": [{"id": g.id, "name": g.name} for g in groups],
+                "logged_in": True,
+                "user": {"id": user.id, "username": user.username, "name": user.name},
             }
         )
+
+    @app.route("/auth/signup", methods=["POST"])
+    def signup():
+        payload = request.get_json(silent=True) or request.form or {}
+        username = (payload.get("username") or "").strip()
+        password = payload.get("password") or ""
+        name = (payload.get("name") or "").strip() or username
+
+        error = validate_credentials(username, password)
+        if error:
+            return jsonify({"error": error}), 400
+
+        existing = User.query.filter_by(username=username).first()
+        if existing:
+            return jsonify({"error": "Username already exists"}), 409
+
+        user = User(username=username, name=name)
+        user.set_password(password)
+        db.session.add(user)
+        db.session.commit()
+
+        session["user_id"] = user.id
+        session["username"] = user.username
+
+        return jsonify(
+            {"id": user.id, "username": user.username, "name": user.name}
+        ), 201
+
+    @app.route("/auth/login", methods=["POST"])
+    def login():
+        payload = request.get_json(silent=True) or request.form or {}
+        username = (payload.get("username") or "").strip()
+        password = payload.get("password") or ""
+
+        if not username or not password:
+            return jsonify({"error": "Username and password are required"}), 400
+
+        user = User.query.filter_by(username=username).first()
+        if not user or not user.check_password(password):
+            return jsonify({"error": "Invalid username or password"}), 401
+
+        session["user_id"] = user.id
+        session["username"] = user.username
+
+        return jsonify({"id": user.id, "username": user.username, "name": user.name})
+
+    @app.route("/auth/logout", methods=["POST"])
+    def logout():
+        session.clear()
+        return jsonify({"message": "Logged out"})
 
     @app.route("/groups", methods=["GET", "POST"])
     def groups_collection():
@@ -174,7 +322,19 @@ def create_app():
         group = db.session.get(Group, group_id)
         if not group:
             return "Group not found", 404
-        return render_template("index.html", group_id=group_id)
+        return render_template(
+            "index.html",
+            group_id=group_id,
+            group_name=group.name or f"Group #{group_id}",
+        )
+
+    @app.route("/groups/<int:group_id>/friends")
+    def get_group_friends(group_id):
+        group = db.session.get(Group, group_id)
+        if not group:
+            return {"error": "Group not found"}, 404
+
+        return jsonify(get_member_balances(group_id))
 
     @app.route("/groups/<int:group_id>/members", methods=["GET"])
     def get_group_members(group_id):
@@ -185,7 +345,16 @@ def create_app():
             .all()
         )
 
-        return jsonify([{"id": user.id, "name": user.name} for user in members])
+        return jsonify(
+            [
+                {
+                    "id": user.id,
+                    "name": user.name,
+                    "username": user.username,
+                }
+                for user in members
+            ]
+        )
 
     @app.route("/groups/<int:group_id>/members", methods=["POST"])
     def add_group_member(group_id):
@@ -194,33 +363,54 @@ def create_app():
         if not data:
             return {"error": "Invalid JSON"}, 400
 
-        user_name = data.get("name", "").strip()
-        if not user_name:
-            return {"error": "User name is required"}, 400
+        username = data.get("username", "").strip()
+        password = data.get("password", "")
+        display_name = data.get("name", "").strip() or username
+
+        if not username or not password:
+            return {"error": "username and password are required"}, 400
+
+        if len(username) < 3 or len(username) > 30:
+            return {"error": "Username must be between 3 and 30 characters"}, 400
+
+        if len(password) < 8:
+            return {"error": "Password must be at least 8 characters"}, 400
+
+        if not any(c.isalpha() for c in password) or not any(
+            c.isdigit() for c in password
+        ):
+            return {"error": "Password must include letters and numbers"}, 400
 
         group = db.session.get(Group, group_id)
         if not group:
             return {"error": "Group not found"}, 404
 
-        user = User.query.filter_by(name=user_name).first()
+        user = User.query.filter_by(username=username).first()
         if not user:
-            user = User(name=user_name)
+            user = User(username=username, name=display_name)
+            user.set_password(password)
             db.session.add(user)
             db.session.commit()
+        else:
+            if not user.check_password(password):
+                return {"error": "Invalid username or password"}, 401
 
         existing_member = GroupMember.query.filter_by(
             group_id=group_id, user_id=user.id
         ).first()
         if existing_member:
-            return {"message": f"{user.name} is already a member of this group"}
+            return {"message": f"{user.username} is already a member of this group"}
 
         group_member = GroupMember(group_id=group_id, user_id=user.id)
         db.session.add(group_member)
         db.session.commit()
 
+        session["user_id"] = user.id
+        session["username"] = user.username
+
         return {
-            "message": "Member added successfully",
-            "user": {"id": user.id, "name": user.name},
+            "message": "Member added and logged in successfully",
+            "user": {"id": user.id, "username": user.username, "name": user.name},
         }, 201
 
     @app.route("/groups/<int:group_id>/members/<int:user_id>", methods=["DELETE"])
@@ -620,7 +810,78 @@ def create_app():
     @app.route("/dashboard")
     def dashboard():
         groups = Group.query.all()
-        return render_template("dashboard.html", groups=groups)
+        friend_rows = []
+
+        for group in groups:
+            for balance in get_member_balances(group.id):
+                friend_rows.append(
+                    {
+                        "group_id": group.id,
+                        "group_name": group.name,
+                        "name": balance["name"],
+                        "balance": balance["balance"],
+                    }
+                )
+
+        return render_template("dashboard.html", groups=groups, friends=friend_rows)
+
+    @app.route("/activity")
+    def activity():
+        history_items = []
+
+        expenses = (
+            db.session.query(Expense, Group)
+            .join(Group, Expense.group_id == Group.id)
+            .order_by(Expense.created_at.desc())
+            .all()
+        )
+        for expense, group in expenses:
+            payer = db.session.get(User, expense.paid_by)
+            history_items.append(
+                {
+                    "id": expense.id,
+                    "group_id": group.id,
+                    "group_name": group.name,
+                    "type": "expense",
+                    "description": expense.description,
+                    "amount": round(float(expense.amount), 2),
+                    "paid_by": payer.name if payer else f"User {expense.paid_by}",
+                    "created_at": expense.created_at.isoformat()
+                    if expense.created_at
+                    else "",
+                }
+            )
+
+        settlements = (
+            db.session.query(Settlement, Group)
+            .join(Group, Settlement.group_id == Group.id)
+            .order_by(Settlement.created_at.desc())
+            .all()
+        )
+        for settlement, group in settlements:
+            from_user = db.session.get(User, settlement.from_user_id)
+            to_user = db.session.get(User, settlement.to_user_id)
+            history_items.append(
+                {
+                    "id": settlement.id,
+                    "group_id": group.id,
+                    "group_name": group.name,
+                    "type": "settlement",
+                    "amount": round(float(settlement.amount), 2),
+                    "from_user": from_user.name
+                    if from_user
+                    else f"User {settlement.from_user_id}",
+                    "to_user": to_user.name
+                    if to_user
+                    else f"User {settlement.to_user_id}",
+                    "created_at": settlement.created_at.isoformat()
+                    if getattr(settlement, "created_at", None)
+                    else "",
+                }
+            )
+
+        history_items.sort(key=lambda x: x["created_at"], reverse=True)
+        return jsonify(history_items)
 
     @app.route("/history/<int:group_id>")
     def history(group_id):
@@ -665,6 +926,10 @@ def create_app():
 
         history_items.sort(key=lambda x: x["created_at"], reverse=True)
         return jsonify(history_items)
+
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return jsonify({"error": "Not Found", "path": request.path}), 404
 
     return app
 

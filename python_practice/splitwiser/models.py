@@ -1,5 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from werkzeug.security import check_password_hash, generate_password_hash
+
 
 db = SQLAlchemy()
 
@@ -9,9 +11,26 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
+    username = db.Column(db.String(80), unique=True, nullable=True, index=True)
+    password_hash = db.Column(db.String(128), nullable=True)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return bool(self.password_hash) and check_password_hash(
+            self.password_hash, password
+        )
+
+    def ensure_credentials(self, username=None, password=None):
+        if username is not None:
+            self.username = username
+        if password is not None:
+            self.set_password(password)
+        return self
 
     def __repr__(self):
-        return f"<User {self.name}>"
+        return f"<User {self.username or self.name}>"
 
 
 class Group(db.Model):

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Split-Wiser</title>
+    <title>Splitwiser</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -231,6 +231,24 @@
             display: block;
         }
 
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid #d1d5db;
+            background: #f3f4f6;
+            color: #374151;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .back-btn:hover {
+            background: #e5e7eb;
+        }
+
         .pill {
             display: inline-block;
             padding: 4px 10px;
@@ -255,14 +273,17 @@
 <body>
 <div class="app-shell">
     <div class="topbar">
-        <h1>💸 Split-Wiser</h1>
-        <span class="pill">Group #{{ group_id }}</span>
+        <div>
+            <h1>💸 Splitwiser</h1>
+            <span class="pill">{{ group_name or ('Group #' ~ group_id) }}</span>
+        </div>
+        <a href="/dashboard" class="back-btn">← Back to Dashboard</a>
     </div>
 
-        <div class="section">
-            <h2>Group Overview</h2>
-            <p>Manage the current trip, add expenses, and keep balances in sync.</p>
-        </div>
+    <div class="section">
+        <h2>Group Overview</h2>
+        <p>Manage the current trip, add expenses, and keep balances in sync.</p>
+    </div>
 
         <div class="section">
             <h2>Members</h2>
@@ -319,10 +340,11 @@
             <ul id="summary"></ul>
         </div>
 
-        <div class="section">
-            <h2>History</h2>
-            <button onclick="loadHistory()">Load</button>
-            <ul id="history"></ul>
+</div>
+
+<script>
+const groupId = {{ group_id }};
+
 function setMemberMessage(message, isError = true) {
     const messageBox = document.getElementById("member_message");
     messageBox.textContent = message || "";
@@ -459,7 +481,9 @@ document.getElementById("expenseForm").addEventListener("submit", async e=>{
 
 async function loadSummary(){
     const res = await fetch(`/settlements/${groupId}`);
-    summaryRows = await res.json();
+    const settlements = await res.json();
+
+    summaryRows = settlements.map(x => ({ ...x, type: "settlement" }));
     renderSummary();
 }
 
@@ -481,21 +505,24 @@ function renderSummary(){
 
         const text = document.createElement("span");
         text.className = "summary-item-text";
-        text.textContent = `${x.from_user_name} pays ${x.to_user_name} ${formatAmount(x.amount)}.`;
 
-        const button = document.createElement("button");
-        button.type = "button";
-        button.textContent = "Settle";
-        button.addEventListener("click", () => settle(x, item));
+        if (x.type === "settlement") {
+            text.textContent = `${x.from_user_name} pays ${x.to_user_name} ${formatAmount(x.amount)}.`;
+            item.appendChild(text);
 
-        item.appendChild(text);
-        item.appendChild(button);
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = "Settle";
+            button.addEventListener("click", () => settle(x, item));
+            item.appendChild(button);
+        }
+
         summary.appendChild(item);
     });
 }
 
 function refreshSummary(){
-    renderSummary();
+    loadSummary();
 }
 
 async function settle(transaction = null, summaryItem = null){
@@ -520,26 +547,6 @@ async function settle(transaction = null, summaryItem = null){
     } else {
         loadSummary();
     }
-}
-
-async function loadHistory(){
-    const res = await fetch(`/history/${groupId}`);
-    const data = await res.json();
-
-    const history = document.getElementById("history");
-    history.innerHTML = "";
-
-    data.forEach(x => {
-        const item = document.createElement("li");
-
-        if (x.type === "expense") {
-            item.appendChild(document.createTextNode(`${x.paid_by} paid ${formatAmount(x.amount)} `));
-        } else {
-            item.textContent = `${x.from_user} → ${x.to_user} ${formatAmount(x.amount)}`;
-        }
-
-        history.appendChild(item);
-    });
 }
 
 async function addMember(){
@@ -581,6 +588,7 @@ async function deleteExpense(id){
 
 loadUsers();
 loadSummary();
+loadHistory();
 </script>
 
 </body>

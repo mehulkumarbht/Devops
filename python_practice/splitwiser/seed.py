@@ -19,9 +19,13 @@ with app.app_context():
         db.create_all()
         reset_seed_data()
 
-        u1 = User(name="Mehul")
-        u2 = User(name="Alice")
-        u3 = User(name="Bob")
+        u1 = User(name="Mehul").ensure_credentials(
+            username="mehul", password="Password1"
+        )
+        u2 = User(name="Alice").ensure_credentials(
+            username="alice", password="Password1"
+        )
+        u3 = User(name="Bob").ensure_credentials(username="bob", password="Password1")
         db.session.add_all([u1, u2, u3])
         db.session.commit()
 

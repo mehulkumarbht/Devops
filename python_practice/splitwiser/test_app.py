@@ -25,8 +25,12 @@ class SplitwiseAppTests(unittest.TestCase):
             db.create_all()
 
             group = Group(name="Trip")
-            alice = User(name="Alice")
-            bob = User(name="Bob")
+            alice = User(name="Alice").ensure_credentials(
+                username="alice", password="Password1"
+            )
+            bob = User(name="Bob").ensure_credentials(
+                username="bob", password="Password1"
+            )
             db.session.add_all([group, alice, bob])
             db.session.commit()
 
@@ -123,6 +127,39 @@ class SplitwiseAppTests(unittest.TestCase):
                     group_id=self.group_id, user_id=self.bob_id
                 ).first()
             )
+
+    def test_group_page_renders_back_button_and_group_name(self):
+        response = self.client.get(f"/groups/{self.group_id}")
+        self.assertEqual(response.status_code, 200)
+        html = response.get_data(as_text=True)
+
+        self.assertIn(
+            '<a href="/dashboard" class="back-btn">← Back to Dashboard</a>', html
+        )
+        self.assertIn("<h1>💸 Splitwiser</h1>", html)
+        self.assertIn('<span class="pill">Trip</span>', html)
+
+    def test_group_friends_endpoint_returns_balances(self):
+        create_expense = self.client.post(
+            "/expenses",
+            json={
+                "group_id": self.group_id,
+                "amount": 100,
+                "paid_by": self.alice_id,
+                "split_mode": "equal",
+                "split_between": [self.alice_id, self.bob_id],
+            },
+        )
+        self.assertEqual(create_expense.status_code, 201)
+
+        response = self.client.get(f"/groups/{self.group_id}/friends")
+        self.assertEqual(response.status_code, 200)
+
+        data = response.get_json()
+        self.assertEqual(len(data), 2)
+        balances = {item["name"]: item["balance"] for item in data}
+        self.assertEqual(balances["Alice"], 50.0)
+        self.assertEqual(balances["Bob"], -50.0)
 
 
 if __name__ == "__main__":
