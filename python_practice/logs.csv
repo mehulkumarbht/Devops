@@ -1,0 +1,10 @@
+﻿timestamp,user,action,message
+2025-08-20 12:35,Alice,Login,User logged in successfully
+2025-08-20 12:36,Bob,Error,Connection failed
+2025-08-20 12:36,Alice,Error,Timeout occurred
+2025-08-20 12:37,Charlie,Login,User logged in successfully
+2025-08-20 12:38,Bob,Logout,User logged out
+2025-08-21 9:15,Alice,Login,Session started
+2025-08-21 11:00,Bob,Error,Database not reachable 
+2025-08-21 10:05,Charlie,Error,Invalid token
+2025-08-21 10:05,Alice,Logout,User logged out

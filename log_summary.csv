@@ -1,0 +1,8 @@
+user,action,count
+alice,login,2
+bob,error,2
+alice,error,1
+charlie,login,1
+bob,logout,1
+charlie,error,1
+alice,logout,1

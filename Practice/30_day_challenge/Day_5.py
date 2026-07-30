@@ -9,6 +9,6 @@ for item in num_list:
     total = total + item
 logger.info(f"{total} is the total of num_list")
 
-for item in num_list:
-    ave = sum(num_list) / len(num_list)
-logger.info(f"Average of the num_list is {ave}")
+# for item in num_list:
+#     ave = sum(num_list) / len(num_list)
+# logger.info(f"Average of the num_list is {ave}")

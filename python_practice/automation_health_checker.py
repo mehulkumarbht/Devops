@@ -65,3 +65,24 @@ from loguru import logger
 
 # logger.info(f"Checked: {len(systems)} systems")
 # logger.info(f"{summary}")
+
+
+tasks = [
+    {"name": "Backup", "status": "done"},
+    {"name": "Cleanup", "status": "pending"},
+    {"name": "Report", "status": "done"},
+    {"name": "Sync", "status": "pending"},
+]
+for task in tasks:
+    name = task["name"]
+    status = task["status"]
+    logger.info(f"Task: {name} -> {status}")
+
+summary = {"done": 0, "pending": 0}
+for task in tasks:
+    status = task["status"]
+    if status == "done":
+        summary[status] += 1
+    elif status == "pending":
+        summary[status] += 1
+logger.info(f"Summary: {summary}")

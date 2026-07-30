@@ -112,3 +112,7 @@ def send_notification(name):
 users = ["Admin", "Manager", "Support"]
 for user in users:
     send_notification(user)
+
+
+# results = send_notification(user)
+# logger.info(f"{results}")

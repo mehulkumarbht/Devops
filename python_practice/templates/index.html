@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family:Arial;
+            margin: 40px;
+        }
+        table {
+            border-collapse:collapse;
+            margin-top: 20px;
+        }
+        td, th {
+            border: 2px solid #3f3e3e;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Multiplication Table</h2>
+<form method="post">
+    <input type="number" name="number" required>
+    <button type="submit">Generate</button>
+</form>
+
+{% if table %}
+    <h3>Table of {{ number }}</h3>
+    <table>
+        {% for n , i, result in table %}
+        <tr>
+            <td>{{ n }}</td>
+            <td>x</td>
+            <td>{{ i }}</td>
+            <td>=</td>
+            <td>{{ result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+</body>

@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from loguru import logger
+from requests.exceptions import RequestException
 
 # url = "https://quotes.toscrape.com"
 # response = requests.get(url)
@@ -71,3 +72,20 @@ from loguru import logger
 #     url = base_url + next_url
 
 # logger.info(f"Total quotes scraped: {len(all_quotes)}")
+
+
+url = "https://www.foxsports.com/event-schedule"
+try:
+    response = requests.get(url, timeout=10)  # Added timeout for safety
+    response.raise_for_status()  # Check for bad status codes
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # get schedule from this page
+    schedule = soup.find_all("h3", class_="video-title cl-gr-26")
+    if not schedule:
+        logger.info("No schedule items found with the specified class")
+
+    for s in schedule:
+        logger.info(f"{s.get_text(strip=True)}")
+except RequestException as e:
+    logger.error(f"Error during requests: {e}")

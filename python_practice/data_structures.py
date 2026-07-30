@@ -2795,7 +2795,7 @@ from collections import Counter
 #     flat_list.append((emp_id, data["name"], data["dept"]["id"], data["dept"]["name"]))
 # logger.info(f"{(flat_list)}")
 
-# 3:Read CSV and calculate average score per subject (pure Python)
+# 3:Read CSV and calculate average score per subject
 # import csv
 # from collections import defaultdict
 # scores = defaultdict(list)
@@ -2834,3 +2834,13 @@ from collections import Counter
 # df = pd.DataFrame(data)
 # cities = df.groupby("city")["temp"].apply(list).to_dict()
 # logger.info(f"{cities}")
+
+# Day-29:
+
+# Drills (3 small tasks + 1 aggregation):
+# Parse nested JSON, extract specific fields.
+# Convert JSON list → Python list of dicts.
+# Flatten a nested JSON into flat dict.
+# Aggregate values by key from JSON records.
+# Mini-Project:
+# Read a JSON log file → clean → output as CSV.
